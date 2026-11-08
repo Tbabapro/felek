@@ -1,1519 +1,418 @@
 <!DOCTYPE html>
-<html lang="tr" class="dark">
+<html lang="tr" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRATİKİM – Her işin kolay bir yolu var.</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0f3ff',
-                            100: '#e0e7ff',
-                            400: '#818cf8',
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            700: '#4338ca',
-                            800: '#3730a3',
-                            900: '#312e81',
-                            dark: '#0b0f19',
-                            card: '#151c2e'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif']
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmet Mesut Yılmaz Ortaokulu - Gaziantep Gezisi İzin Başvuru Portalı</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome İkonları -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            gaziantep: {
+              navy: '#0f172a',
+              blue: '#1e3a8a',
+              red: '#991b1b',
+              accentRed: '#dc2626',
+              gold: '#f59e0b',
+              lightGold: '#fef3c7'
             }
+          }
         }
-    </script>
-
-    <style>
-        /* Custom Scrollbar & Glassmorphism styles */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: rgba(15, 23, 42, 0.6);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(99, 102, 241, 0.4);
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(99, 102, 241, 0.8);
-        }
-
-        .glass-panel {
-            background: rgba(21, 28, 46, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .light .glass-panel {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-        }
-
-        .glass-btn {
-            background: rgba(99, 102, 241, 0.15);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            transition: all 0.25s ease;
-        }
-        .glass-btn:hover {
-            background: rgba(99, 102, 241, 0.3);
-            border-color: rgba(99, 102, 241, 0.6);
-            transform: translateY(-1px);
-        }
-
-        /* 3D Flip Card Styles */
-        .perspective-1000 {
-            perspective: 1000px;
-        }
-        .transform-style-3d {
-            transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .backface-hidden {
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-        }
-        .rotate-y-180 {
-            transform: rotateY(180deg);
-        }
-
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.05); }
-        }
-        .animate-pulse-glow {
-            animation: pulseGlow 5s infinite ease-in-out;
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    @media print {
+      body { background: white !important; color: black !important; }
+      header, footer, .no-print { display: none !important; }
+      .print-area { box-shadow: none !important; border: none !important; padding: 0 !important; }
+    }
+  </style>
 </head>
-<body class="bg-[#0b0f19] text-slate-100 font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white transition-colors duration-300 light:bg-slate-50 light:text-slate-800">
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col selection:bg-red-600 selection:text-white">
 
-    <!-- Glowing Background Orbs -->
-    <div class="fixed top-0 left-1/4 w-96 h-96 bg-brand-600/20 rounded-full blur-[128px] pointer-events-none animate-pulse-glow z-0"></div>
-    <div class="fixed bottom-10 right-1/4 w-96 h-96 bg-pink-600/15 rounded-full blur-[128px] pointer-events-none animate-pulse-glow z-0" style="animation-delay: 2.5s;"></div>
+  <!-- BİLDİRİM BANNER -->
+  <div class="bg-amber-100 border-b border-amber-200 text-amber-900 px-4 py-2 text-center text-xs sm:text-sm font-medium no-print">
+    <i class="fa-solid fa-triangle-exclamation mr-1.5 text-amber-600"></i> 
+    <strong>Bilgilendirme:</strong> Bu site Ahmet Mesut Yılmaz Ortaokulu veli izin ve bilgilendirme simülasyonu olup, veriler yalnızca cihazınızda işlenmektedir.
+  </div>
 
-    <!-- MAIN HEADER & NAVIGATION -->
-    <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/80 light:border-slate-200/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            
-            <!-- Logo -->
-            <a href="#home" onclick="navTo('home')" class="flex items-center space-x-3 group cursor-pointer">
-                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 via-indigo-500 to-pink-500 p-0.5 shadow-lg shadow-brand-500/30 group-hover:shadow-brand-500/50 transition-all duration-300">
-                    <div class="w-full h-full bg-[#0b0f19] light:bg-white rounded-[10px] flex items-center justify-center">
-                        <i class="fa-solid fa-bolt text-transparent bg-clip-text bg-gradient-to-tr from-brand-400 to-pink-500 text-xl group-hover:scale-110 transition-transform"></i>
-                    </div>
-                </div>
-                <div>
-                    <span class="text-2xl font-extrabold tracking-tight text-white light:text-slate-900 font-sans">PRATİKİM<span class="text-brand-500">.</span></span>
-                    <span class="block text-[10px] tracking-widest text-slate-400 uppercase -mt-1 font-semibold">Dijital Hizmet Platformu</span>
-                </div>
-            </a>
+  <!-- ÜST MENÜ / HEADER -->
+  <header class="bg-gaziantep-navy text-white shadow-lg sticky top-0 z-50 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-gaziantep-red to-amber-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
+          <i class="fa-solid fa-school"></i>
+        </div>
+        <div>
+          <h1 class="font-bold text-sm sm:text-lg tracking-wide">Ahmet Mesut Yılmaz Ortaokulu</h1>
+          <p class="text-[11px] sm:text-xs text-amber-400 font-medium">Gaziantep Kültür ve Eğitim Gezisi Portalı</p>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-4 text-xs font-semibold text-slate-300">
+        <span><i class="fa-regular fa-calendar text-amber-400 mr-1.5"></i> 28 Kasım 2026</span>
+        <span><i class="fa-solid fa-location-dot text-red-500 mr-1.5"></i> Gaziantep</span>
+      </div>
+    </div>
+  </header>
 
-            <!-- Navigation Links -->
-            <nav class="hidden lg:flex items-center space-x-1">
-                <button onclick="navTo('home')" id="nav-home" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 light:text-slate-600 hover:text-white light:hover:text-slate-900 hover:bg-slate-800/50 transition-all">Ana Sayfa</button>
-                <button onclick="navTo('tools')" id="nav-tools" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 light:text-slate-600 hover:text-white light:hover:text-slate-900 hover:bg-slate-800/50 transition-all">Akıllı Araçlar</button>
-                <button onclick="navTo('docs')" id="nav-docs" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 light:text-slate-600 hover:text-white light:hover:text-slate-900 hover:bg-slate-800/50 transition-all">Belge Merkezi</button>
-                <button onclick="navTo('learn')" id="nav-learn" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 light:text-slate-600 hover:text-white light:hover:text-slate-900 hover:bg-slate-800/50 transition-all">Spor & Egzersiz</button>
-                <button onclick="navTo('life')" id="nav-life" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 light:text-slate-600 hover:text-white light:hover:text-slate-900 hover:bg-slate-800/50 transition-all">Günlük Yaşam</button>
-                <button onclick="navTo('ai')" id="nav-ai" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 light:text-slate-600 hover:text-white light:hover:text-slate-900 hover:bg-slate-800/50 transition-all">Yapay Zekâ</button>
-                <button onclick="navTo('files')" id="nav-files" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 light:text-slate-600 hover:text-white light:hover:text-slate-900 hover:bg-slate-800/50 transition-all">Dosya</button>
-                <button onclick="navTo('guides')" id="nav-guides" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 light:text-slate-600 hover:text-white light:hover:text-slate-900 hover:bg-slate-800/50 transition-all">Rehber</button>
-            </nav>
+  <!-- ANA İÇERİK -->
+  <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
 
-            <!-- Actions Right -->
-            <div class="flex items-center space-x-3">
-                <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-800/80 light:bg-slate-200/80 text-slate-300 light:text-slate-700 hover:text-white transition-all border border-slate-700/50 light:border-slate-300">
-                    <i id="theme-icon" class="fa-solid fa-moon text-base"></i>
-                </button>
-                <button onclick="openFavoritesModal()" class="p-2.5 rounded-xl bg-slate-800/80 light:bg-slate-200/80 text-amber-400 hover:bg-slate-700/80 transition-all border border-slate-700/50 light:border-slate-300 relative">
-                    <i class="fa-solid fa-star text-base"></i>
-                    <span id="fav-badge" class="hidden absolute -top-1 -right-1 bg-amber-500 text-slate-950 font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
-                </button>
-                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-slate-800/80 light:bg-slate-200/80 text-slate-300 light:text-slate-700">
-                    <i class="fa-solid fa-bars text-lg"></i>
-                </button>
+    <!-- HERO BÖLÜMÜ -->
+    <section class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-gaziantep-blue via-gaziantep-navy to-slate-900 text-white shadow-2xl">
+      <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <div class="relative z-10 p-8 sm:p-12 lg:p-16 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="space-y-4 max-w-xl text-center md:text-left">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-red-600/30 border border-red-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-star"></i> 2026 Sonbahar Gezisi
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-serif font-black tracking-tight text-white leading-tight">
+            GAZİANTEP GEZİSİ 2026
+          </h2>
+          <p class="text-amber-200 text-lg sm:text-xl font-medium">
+            İki kardeş, tek gezi, unutulmaz anılar!
+          </p>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Tarih kokan sokakları, eşsiz müzeleri ve zengin kültürel mirasıyla Gaziantep'i keşfetmeye hazır mısınız? Okulumuz tarafından öğrencilerimiz için özel olarak planlanmıştır.
+          </p>
+          <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-4 text-xs font-bold">
+            <div class="bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/10 flex items-center gap-2">
+              <i class="fa-regular fa-calendar-days text-amber-400"></i> 28 Kasım 2026 Cumartesi
             </div>
+            <div class="bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/10 flex items-center gap-2">
+              <i class="fa-regular fa-clock text-amber-400"></i> Saat: 05.00
+            </div>
+          </div>
+        </div>
+        
+        <!-- Özet Bilgi Kartı -->
+        <div class="w-full md:w-80 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-xl space-y-4 text-white">
+          <h3 class="font-bold text-amber-300 text-base border-b border-white/10 pb-3 flex items-center justify-between">
+            <span>Gezi Özeti</span>
+            <i class="fa-solid fa-info-circle text-amber-400"></i>
+          </h3>
+          <ul class="space-y-3 text-xs sm:text-sm">
+            <li class="flex justify-between items-center"><span class="text-slate-300">Hareket Yeri:</span> <strong class="text-right">Ahmet Mesut Yılmaz OO</strong></li>
+            <li class="flex justify-between items-center"><span class="text-slate-300">Kişi Başı Ücret:</span> <strong class="text-amber-300">2.300 TL</strong></li>
+            <li class="flex justify-between items-center"><span class="text-slate-300">Katılımcı Kardeş:</span> <strong class="text-amber-300">2 Öğrenci</strong></li>
+            <li class="flex justify-between items-center pt-2 border-t border-white/10 text-base"><span class="font-bold">Toplam Tutar:</span> <strong class="text-amber-400 font-extrabold text-lg">4.600 TL</strong></li>
+          </ul>
+          <a href="#form-bolumu" class="w-full block text-center bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 text-sm">
+            Hemen İzin Ver / Başvur
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- KATILACAK ÖĞRENCİLER BÖLÜMÜ -->
+    <section class="space-y-6">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h3 class="text-2xl sm:text-3xl font-bold font-serif text-gaziantep-navy">Katılacak Öğrenci Bilgileri</h3>
+        <p class="text-slate-600 text-xs sm:text-sm">Gezide yer alacak kardeş öğrencilerin sınıf ve otobüs yerleşim detayları</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- 1. Öğrenci Kartı -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100 relative overflow-hidden group hover:shadow-2xl transition duration-300">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-0 group-hover:scale-110 transition duration-300"></div>
+          <div class="relative z-10 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">1. Öğrenci</span>
+              <i class="fa-solid fa-child-reaching text-2xl text-blue-600"></i>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Öğrenci Adı ve Soyadı</label>
+              <input type="text" id="ogrenci1_ad" placeholder="Örn: Ahmet Yılmaz" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none font-semibold text-slate-800 text-sm transition">
+            </div>
+            <div class="grid grid-cols-2 gap-4 pt-2 border-t border-slate-100 text-xs sm:text-sm">
+              <div>
+                <span class="text-slate-400 block">Sınıf Seviyesi</span>
+                <strong class="text-slate-700 font-bold">6. Sınıf</strong>
+              </div>
+              <div>
+                <span class="text-slate-400 block">Otobüs Planı</span>
+                <strong class="text-blue-700 font-bold"><i class="fa-solid fa-bus mr-1"></i> 2. Otobüs (6. Sınıflar)</strong>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden glass-panel border-b border-slate-800 px-4 py-4 space-y-2">
-            <button onclick="navTo('home'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-slate-800">Ana Sayfa</button>
-            <button onclick="navTo('tools'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-slate-800">Akıllı Araçlar</button>
-            <button onclick="navTo('docs'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-slate-800">Belge Merkezi</button>
-            <button onclick="navTo('learn'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-slate-800">Spor & Egzersiz</button>
-            <button onclick="navTo('life'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-slate-800">Günlük Yaşam</button>
-            <button onclick="navTo('ai'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-slate-800">Yapay Zekâ</button>
-            <button onclick="navTo('files'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-slate-800">Dosya Merkezi</button>
-            <button onclick="navTo('guides'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-slate-800">Bilgi Rehberi</button>
+        <!-- 2. Öğrenci Kartı -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100 relative overflow-hidden group hover:shadow-2xl transition duration-300">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-bl-full -z-0 group-hover:scale-110 transition duration-300"></div>
+          <div class="relative z-10 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 bg-red-100 text-red-800 text-xs font-bold rounded-full">2. Öğrenci</span>
+              <i class="fa-solid fa-child text-2xl text-red-600"></i>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Öğrenci Adı ve Soyadı</label>
+              <input type="text" id="ogrenci2_ad" placeholder="Örn: Ayşe Yılmaz" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-red-600 focus:ring-2 focus:ring-red-100 outline-none font-semibold text-slate-800 text-sm transition">
+            </div>
+            <div class="grid grid-cols-2 gap-4 pt-2 border-t border-slate-100 text-xs sm:text-sm">
+              <div>
+                <span class="text-slate-400 block">Sınıf Seviyesi</span>
+                <strong class="text-slate-700 font-bold">8. Sınıf</strong>
+              </div>
+              <div>
+                <span class="text-slate-400 block">Otobüs Planı</span>
+                <strong class="text-red-700 font-bold"><i class="fa-solid fa-bus mr-1"></i> 3. Otobüs (7-8. Sınıflar)</strong>
+              </div>
+            </div>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <!-- CONTENT WRAPPER -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+    <!-- GEZİ PROGRAMI BÖLÜMÜ -->
+    <section class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100 space-y-6">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span class="text-red-600 font-bold text-xs uppercase tracking-widest">Rota ve Plan</span>
+        <h3 class="text-2xl sm:text-3xl font-bold font-serif text-gaziantep-navy">Gaziantep Gezi Programı</h3>
+        <p class="text-slate-600 text-xs sm:text-sm">28 Kasım 2026 Cumartesi günü gerçekleştirilecek tur güzergahı</p>
+      </div>
 
-        <!-- ==================== PAGE 1: ANA SAYFA ==================== -->
-        <section id="page-home" class="page-content space-y-12">
-            <div class="text-center max-w-3xl mx-auto space-y-6 pt-6">
-                <span class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold bg-brand-500/10 border border-brand-500/30 text-brand-400">
-                    <i class="fa-solid fa-sparkles mr-2"></i> PRATİKİM V1.0 - Profesyonel Platform
-                </span>
-                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white light:text-slate-900">
-                    İşlerini <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-400 to-pink-500">kolaylaştır.</span>
-                </h1>
-                <p class="text-lg text-slate-400 light:text-slate-600 leading-relaxed font-normal">
-                    İhtiyacın olan araçlar, bilgiler ve çözümler tek bir yerde.
-                </p>
-
-                <!-- Global Search Bar -->
-                <div class="relative max-w-2xl mx-auto pt-2">
-                    <div class="relative flex items-center">
-                        <i class="fa-solid fa-magnifying-glass absolute left-4 text-slate-400 text-lg"></i>
-                        <input type="text" id="global-search" oninput="handleGlobalSearch()" placeholder="Ne yapmak istiyorsun? (Örn: yüzde hesapla, CV hazırla, şınav egzersizi, yazım düzelt)..." 
-                            class="w-full pl-12 pr-12 py-4 rounded-2xl glass-panel text-white light:text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 shadow-2xl transition-all">
-                        <button onclick="clearSearch()" id="search-clear-btn" class="hidden absolute right-4 text-slate-400 hover:text-white">
-                            <i class="fa-solid fa-xmark text-lg"></i>
-                        </button>
-                    </div>
-                    <div id="search-results" class="hidden absolute top-full left-0 right-0 mt-3 glass-panel rounded-2xl p-3 shadow-2xl z-50 text-left space-y-1 max-h-80 overflow-y-auto border border-slate-700"></div>
-                </div>
-            </div>
-
-            <!-- Category Quick Links -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 pt-2">
-                <button onclick="navTo('tools')" class="p-4 rounded-2xl glass-panel hover:bg-brand-500/10 border border-slate-800 text-center transition group">
-                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center group-hover:scale-110 transition"><i class="fa-solid fa-calculator"></i></div>
-                    <span class="text-xs font-semibold text-slate-300 light:text-slate-700">Akıllı Araçlar</span>
-                </button>
-                <button onclick="navTo('docs')" class="p-4 rounded-2xl glass-panel hover:bg-indigo-500/10 border border-slate-800 text-center transition group">
-                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center group-hover:scale-110 transition"><i class="fa-solid fa-file-contract"></i></div>
-                    <span class="text-xs font-semibold text-slate-300 light:text-slate-700">Belge Merkezi</span>
-                </button>
-                <button onclick="navTo('learn')" class="p-4 rounded-2xl glass-panel hover:bg-emerald-500/10 border border-slate-800 text-center transition group">
-                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center group-hover:scale-110 transition"><i class="fa-solid fa-dumbbell"></i></div>
-                    <span class="text-xs font-semibold text-slate-300 light:text-slate-700">Spor & Egzersiz</span>
-                </button>
-                <button onclick="navTo('life')" class="p-4 rounded-2xl glass-panel hover:bg-amber-500/10 border border-slate-800 text-center transition group">
-                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center group-hover:scale-110 transition"><i class="fa-solid fa-calendar-check"></i></div>
-                    <span class="text-xs font-semibold text-slate-300 light:text-slate-700">Günlük Yaşam</span>
-                </button>
-                <button onclick="navTo('ai')" class="p-4 rounded-2xl glass-panel hover:bg-pink-500/10 border border-slate-800 text-center transition group">
-                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center group-hover:scale-110 transition"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <span class="text-xs font-semibold text-slate-300 light:text-slate-700">Yapay Zekâ</span>
-                </button>
-                <button onclick="navTo('files')" class="p-4 rounded-2xl glass-panel hover:bg-cyan-500/10 border border-slate-800 text-center transition group">
-                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center group-hover:scale-110 transition"><i class="fa-solid fa-file-image"></i></div>
-                    <span class="text-xs font-semibold text-slate-300 light:text-slate-700">Dosya Araçları</span>
-                </button>
-                <button onclick="navTo('guides')" class="p-4 rounded-2xl glass-panel hover:bg-purple-500/10 border border-slate-800 text-center transition group">
-                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center group-hover:scale-110 transition"><i class="fa-solid fa-book-open"></i></div>
-                    <span class="text-xs font-semibold text-slate-300 light:text-slate-700">Bilgi Rehberi</span>
-                </button>
-            </div>
-
-            <!-- Featured Tools Cards -->
-            <div class="space-y-6">
-                <div class="flex items-center justify-between">
-                    <h2 class="text-xl font-bold text-white light:text-slate-900 flex items-center gap-2">
-                        <i class="fa-solid fa-fire text-amber-500"></i> Öne Çıkan Çalışan Araçlar
-                    </h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-brand-500/50 transition flex flex-col justify-between group">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-xl"><i class="fa-solid fa-percent"></i></div>
-                                <button onclick="toggleFavorite('yuzde')" class="text-slate-600 hover:text-amber-400 text-lg transition"><i class="fa-regular fa-star" id="star-yuzde"></i></button>
-                            </div>
-                            <h3 class="text-lg font-bold text-white mb-2">Yüzde & İndirim & KDV</h3>
-                            <p class="text-sm text-slate-400 mb-4">Tüm oran ve matematiksel indirim hesaplamalarını anında yapın.</p>
-                        </div>
-                        <button onclick="navTo('tools')" class="w-full py-2.5 rounded-xl glass-btn text-brand-300 font-semibold text-sm flex items-center justify-center gap-2">Hemen Kullan <i class="fa-solid fa-arrow-right text-xs"></i></button>
-                    </div>
-
-                    <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/50 transition flex flex-col justify-between group">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl"><i class="fa-solid fa-dumbbell"></i></div>
-                                <button onclick="toggleFavorite('spor')" class="text-slate-600 hover:text-amber-400 text-lg transition"><i class="fa-regular fa-star" id="star-spor"></i></button>
-                            </div>
-                            <h3 class="text-lg font-bold text-white mb-2">Spor & Egzersiz Rehberi</h3>
-                            <p class="text-sm text-slate-400 mb-4">Egzersiz hareketleri, doğru form rehberi ve antrenman mola sayacı.</p>
-                        </div>
-                        <button onclick="navTo('learn')" class="w-full py-2.5 rounded-xl glass-btn text-emerald-300 font-semibold text-sm flex items-center justify-center gap-2">Egzersizleri Gör <i class="fa-solid fa-arrow-right text-xs"></i></button>
-                    </div>
-
-                    <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-pink-500/50 transition flex flex-col justify-between group">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center text-xl"><i class="fa-solid fa-spell-check"></i></div>
-                                <button onclick="toggleFavorite('yazim')" class="text-slate-600 hover:text-amber-400 text-lg transition"><i class="fa-regular fa-star" id="star-yazim"></i></button>
-                            </div>
-                            <h3 class="text-lg font-bold text-white mb-2">Yazım & İmla Düzeltici</h3>
-                            <p class="text-sm text-slate-400 mb-4">Metinlerinizdeki yazım hatalarını anında yerel kural motoruyla düzeltin.</p>
-                        </div>
-                        <button onclick="navTo('ai')" class="w-full py-2.5 rounded-xl glass-btn text-pink-300 font-semibold text-sm flex items-center justify-center gap-2">Düzelticiyi Dene <i class="fa-solid fa-arrow-right text-xs"></i></button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== PAGE 2: AKILLI ARAÇLAR ==================== -->
-        <section id="page-tools" class="page-content hidden space-y-8">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6">
-                <div>
-                    <h1 class="text-3xl font-bold text-white light:text-slate-900">Akıllı Araçlar Merkezi</h1>
-                    <p class="text-sm text-slate-400 mt-1">Matematik, tarih, zaman ve birim dönüştürme araçları.</p>
-                </div>
-                
-                <div class="flex flex-wrap gap-2">
-                    <button onclick="filterToolsTab('all')" id="tool-tab-all" class="tool-tab-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-brand-600 text-white shadow">Tümü</button>
-                    <button onclick="filterToolsTab('math')" id="tool-tab-math" class="tool-tab-btn px-4 py-2 rounded-xl text-xs font-semibold glass-panel text-slate-300">Matematik</button>
-                    <button onclick="filterToolsTab('date')" id="tool-tab-date" class="tool-tab-btn px-4 py-2 rounded-xl text-xs font-semibold glass-panel text-slate-300">Tarih/Zaman</button>
-                    <button onclick="filterToolsTab('unit')" id="tool-tab-unit" class="tool-tab-btn px-4 py-2 rounded-xl text-xs font-semibold glass-panel text-slate-300">Birimler</button>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- TOOL 1: Yüzde & İndirim & KDV -->
-                <div class="tool-card math glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
-                    <div class="flex items-center space-x-3 border-b border-slate-800 pb-3">
-                        <div class="p-2.5 rounded-lg bg-brand-500/20 text-brand-400"><i class="fa-solid fa-percent text-lg"></i></div>
-                        <div>
-                            <h3 class="font-bold text-white">Yüzde & KDV Hesaplama</h3>
-                            <p class="text-xs text-slate-400">Yüzde alma, ekleme ve indirim düşme</p>
-                        </div>
-                    </div>
-                    <div class="space-y-3">
-                        <div>
-                            <label class="block text-xs text-slate-400 mb-1">Sayı / Tutar</label>
-                            <input type="number" id="calc-pct-num" placeholder="Örn: 1250" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white">
-                        </div>
-                        <div class="grid grid-cols-2 gap-3">
-                            <div>
-                                <label class="block text-xs text-slate-400 mb-1">Oran (%)</label>
-                                <input type="number" id="calc-pct-rate" placeholder="Örn: 20" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white">
-                            </div>
-                            <div>
-                                <label class="block text-xs text-slate-400 mb-1">İşlem</label>
-                                <select id="calc-pct-type" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white">
-                                    <option value="of">Yüzdesini Bul</option>
-                                    <option value="add">Ekle (+KDV)</option>
-                                    <option value="sub">Çıkar (İndirim)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="flex gap-2">
-                            <button onclick="runPercentageCalc()" class="flex-grow py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold">Hesapla</button>
-                            <button onclick="resetPctCalc()" class="px-3 py-2.5 rounded-xl bg-slate-800 text-slate-400 text-xs">Temizle</button>
-                        </div>
-                    </div>
-                    <div id="res-pct" class="hidden p-3 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-between">
-                        <div>
-                            <div class="text-[10px] text-brand-300 font-semibold uppercase">Sonuç</div>
-                            <div id="res-pct-val" class="text-lg font-bold text-white">0</div>
-                        </div>
-                        <button onclick="copyToClipboard('res-pct-val')" class="p-2 text-slate-400 hover:text-white"><i class="fa-regular fa-copy"></i></button>
-                    </div>
-                </div>
-
-                <!-- TOOL 2: Yaş Hesaplama -->
-                <div class="tool-card date glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
-                    <div class="flex items-center space-x-3 border-b border-slate-800 pb-3">
-                        <div class="p-2.5 rounded-lg bg-indigo-500/20 text-indigo-400"><i class="fa-solid fa-cake-candles text-lg"></i></div>
-                        <div>
-                            <h3 class="font-bold text-white">Yaş & Yaşanan Gün Hesabı</h3>
-                            <p class="text-xs text-slate-400">Doğum tarihine göre detaylı zaman</p>
-                        </div>
-                    </div>
-                    <div class="space-y-3">
-                        <div>
-                            <label class="block text-xs text-slate-400 mb-1">Doğum Tarihiniz</label>
-                            <input type="date" id="calc-age-date" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white">
-                        </div>
-                        <button onclick="runAgeCalc()" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold">Hesapla</button>
-                    </div>
-                    <div id="res-age" class="hidden p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/30 space-y-1">
-                        <div class="text-xs text-indigo-300 font-medium" id="res-age-text">...</div>
-                        <div class="text-xs text-slate-400" id="res-age-days">...</div>
-                    </div>
-                </div>
-
-                <!-- TOOL 3: Not Ortalaması (GPA) -->
-                <div class="tool-card math glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
-                    <div class="flex items-center space-x-3 border-b border-slate-800 pb-3">
-                        <div class="p-2.5 rounded-lg bg-emerald-500/20 text-emerald-400"><i class="fa-solid fa-graduation-cap text-lg"></i></div>
-                        <div>
-                            <h3 class="font-bold text-white">Not Ortalaması Hesaplama</h3>
-                            <p class="text-xs text-slate-400">Ders notları ve kredilerine göre</p>
-                        </div>
-                    </div>
-                    <div id="gpa-rows" class="space-y-2 max-h-40 overflow-y-auto pr-1">
-                        <div class="grid grid-cols-5 gap-2 gpa-row">
-                            <input type="text" placeholder="Ders" class="col-span-2 px-2 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white">
-                            <input type="number" placeholder="Not" class="col-span-2 px-2 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white gpa-score">
-                            <input type="number" placeholder="Kredi" value="3" class="col-span-1 px-2 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white gpa-credit">
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <button onclick="addGpaRow()" class="px-3 py-2 rounded-xl bg-slate-800 text-xs text-slate-300">+ Ekle</button>
-                        <button onclick="runGpaCalc()" class="flex-grow py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold">Ortalama Al</button>
-                    </div>
-                    <div id="res-gpa" class="hidden p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex justify-between items-center">
-                        <div>
-                            <div class="text-[10px] text-emerald-300 uppercase font-semibold">Ortalama</div>
-                            <div id="res-gpa-val" class="text-lg font-bold text-white">0.00</div>
-                        </div>
-                        <span id="res-gpa-badge" class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500 text-slate-950">Geçti</span>
-                    </div>
-                </div>
-
-                <!-- TOOL 4: EBOB & EKOK & Asal Kontrol -->
-                <div class="tool-card math glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
-                    <div class="flex items-center space-x-3 border-b border-slate-800 pb-3">
-                        <div class="p-2.5 rounded-lg bg-amber-500/20 text-amber-400"><i class="fa-solid fa-square-root-variable text-lg"></i></div>
-                        <div>
-                            <h3 class="font-bold text-white">EBOB / EKOK & Asal Sayı</h3>
-                            <p class="text-xs text-slate-400">İki sayı üzerinden hızlı analiz</p>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-3">
-                        <input type="number" id="calc-num-1" placeholder="1. Sayı" class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white">
-                        <input type="number" id="calc-num-2" placeholder="2. Sayı" class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white">
-                    </div>
-                    <button onclick="runMathEbob()" class="w-full py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-semibold">Analiz Et</button>
-                    <div id="res-ebob" class="hidden p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs space-y-1 text-slate-200">
-                        <div id="res-ebob-val">EBOB: - | EKOK: -</div>
-                        <div id="res-prime-val" class="text-amber-300">...</div>
-                    </div>
-                </div>
-
-                <!-- TOOL 5: Birim Dönüştürücü -->
-                <div class="tool-card unit glass-panel p-6 rounded-2xl border border-slate-800 space-y-5 lg:col-span-2">
-                    <div class="flex items-center space-x-3 border-b border-slate-800 pb-3">
-                        <div class="p-2.5 rounded-lg bg-cyan-500/20 text-cyan-400"><i class="fa-solid fa-arrows-rotate text-lg"></i></div>
-                        <div>
-                            <h3 class="font-bold text-white">Çoklu Birim Dönüştürücü</h3>
-                            <p class="text-xs text-slate-400">Uzunluk, Ağırlık, Sıcaklık ve Veri Boyutu</p>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
-                        <select id="unit-category" onchange="updateUnitOptions()" class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-                            <option value="length">Uzunluk (m, km, mile, inch)</option>
-                            <option value="weight">Ağırlık (kg, g, lb, oz)</option>
-                            <option value="temp">Sıcaklık (°C, °F)</option>
-                            <option value="data">Veri (MB, GB, TB, KB)</option>
-                        </select>
-                        <input type="number" id="unit-input-val" placeholder="Değer" class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-                        <select id="unit-from" class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white"></select>
-                        <select id="unit-to" class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white"></select>
-                    </div>
-                    <button onclick="runUnitConvert()" class="w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-semibold">Dönüştür</button>
-                    <div id="res-unit" class="hidden p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-center font-bold text-white text-sm">0</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== PAGE 3: BELGE MERKEZİ ==================== -->
-        <section id="page-docs" class="page-content hidden space-y-8">
-            <div class="border-b border-slate-800 pb-6">
-                <h1 class="text-3xl font-bold text-white">Belge Hazırlama Merkezi</h1>
-                <p class="text-sm text-slate-400 mt-1">CV, dilekçe ve resmi metin taslaklarını anında oluşturun.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div class="lg:col-span-5 glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase">Şablon Seçin</label>
-                        <select id="doc-type-select" onchange="renderDocForm()" class="w-full px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm font-semibold text-white focus:outline-none focus:border-brand-500">
-                            <option value="cv">1. Profesyonel CV / Özgeçmiş</option>
-                            <option value="dilekce">2. Resmi Kurum Dilekçesi</option>
-                            <option value="email">3. Kurumsal E-Posta Taslağı</option>
-                        </select>
-                    </div>
-
-                    <div id="doc-form-fields" class="space-y-3"></div>
-
-                    <div class="p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-[11px] text-amber-300">
-                        <i class="fa-solid fa-triangle-exclamation mr-1"></i> Şablonlar bilgilendirme amaçlıdır.
-                    </div>
-                </div>
-
-                <div class="lg:col-span-7 glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4">
-                    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                        <span class="text-xs font-bold uppercase tracking-wider text-slate-400"><i class="fa-solid fa-eye mr-2"></i>Canlı Önizleme</span>
-                        <div class="flex space-x-2">
-                            <button onclick="copyDocText()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-200"><i class="fa-regular fa-copy mr-1"></i>Kopyala</button>
-                            <button onclick="printDoc()" class="px-3 py-1.5 rounded-lg bg-brand-600 hover:bg-brand-500 text-xs text-white font-semibold"><i class="fa-solid fa-print mr-1"></i>Yazdır / PDF</button>
-                        </div>
-                    </div>
-
-                    <div id="doc-preview-area" class="bg-white text-slate-900 p-8 rounded-xl shadow-inner min-h-[400px] font-sans text-sm leading-relaxed overflow-y-auto border border-slate-300"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== PAGE 4: SPOR & EGZERSİZ MERKEZİ ==================== -->
-        <section id="page-learn" class="page-content hidden space-y-8">
-            <div class="border-b border-slate-800 pb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <div>
-                    <h1 class="text-3xl font-bold text-white">Spor & Egzersiz Merkezi</h1>
-                    <p class="text-sm text-slate-400 mt-1">Egzersiz hareketleri, rehber ve set mola zamanlayıcısı.</p>
-                </div>
-                <div class="flex items-center space-x-3 bg-slate-900 px-4 py-2 rounded-xl border border-slate-800">
-                    <i class="fa-solid fa-stopwatch text-emerald-400 animate-pulse"></i>
-                    <span id="pomo-timer-display" class="font-mono font-bold text-white text-lg">01:00</span>
-                    <button onclick="togglePomodoro()" id="pomo-btn" class="px-3 py-1 rounded-lg bg-emerald-600 text-xs text-white font-semibold">Mola Başlat</button>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- EXERCISE CARDS MODULE -->
-                <div class="lg:col-span-2 glass-panel p-6 rounded-2xl border border-slate-800 space-y-6">
-                    <div class="flex items-center justify-between">
-                        <h3 class="font-bold text-white text-lg flex items-center gap-2">
-                            <i class="fa-solid fa-dumbbell text-emerald-400"></i> Temel Egzersiz Rehberi
-                        </h3>
-                        <div class="flex items-center gap-3">
-                            <span id="learned-counter-badge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                                Tamamlanan: 0 / 10
-                            </span>
-                            <span id="card-counter" class="text-xs text-slate-400">1 / 10</span>
-                        </div>
-                    </div>
-
-                    <!-- Progress Bar -->
-                    <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-800">
-                        <div id="card-progress-bar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full transition-all duration-300" style="width: 0%"></div>
-                    </div>
-
-                    <!-- 3D Perspective Card Container -->
-                    <div class="perspective-1000 w-full h-80 cursor-pointer" onclick="flipCard()">
-                        <div id="flashcard-inner" class="relative w-full h-full transform-style-3d glass-panel rounded-2xl border border-slate-700 shadow-2xl">
-                            
-                            <!-- CARD FRONT (EGZERSİZ) -->
-                            <div class="absolute inset-0 backface-hidden flex flex-col items-center justify-center p-6 text-center space-y-3">
-                                <div class="flex items-center gap-2">
-                                    <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-400" id="card-level">Göğüs & Triceps</span>
-                                    <span id="card-status-tag" class="hidden px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500 text-slate-950">Tamamlandı</span>
-                                </div>
-                                <h2 class="text-4xl font-extrabold text-white" id="card-en">Şınav (Push-up)</h2>
-                                <p class="text-xs text-slate-400 italic" id="card-phonetic">3 Set x 12 Tekrar • Vücut Ağırlığı</p>
-                                <div class="pt-4 flex items-center text-xs text-emerald-400 font-semibold gap-2">
-                                    <i class="fa-solid fa-rotate mr-1"></i> Doğru Form ve Detaylar İçin Tıkla
-                                </div>
-                            </div>
-
-                            <!-- CARD BACK (DETAYLAR VE İPUÇLARI) -->
-                            <div class="absolute inset-0 backface-hidden rotate-y-180 flex flex-col justify-center p-6 bg-slate-900/95 rounded-2xl border border-emerald-500/40 text-left space-y-3">
-                                <div>
-                                    <span class="text-[10px] font-extrabold uppercase text-emerald-400 tracking-wider">Hedef Kas Grubu</span>
-                                    <h3 class="text-2xl font-bold text-white mt-0.5" id="card-tr">Göğüs, Omuz ve Arka Kol</h3>
-                                </div>
-
-                                <div class="border-t border-slate-800 pt-2 space-y-1">
-                                    <span class="text-[10px] font-extrabold uppercase text-teal-400 tracking-wider">Püf Noktası & İpucu</span>
-                                    <p class="text-xs text-slate-200 font-medium" id="card-ex-en">"Vücudunuzu baştan topuğa kadar dümdüz tutun ve kalçanızı düşürmeyin."</p>
-                                    <p class="text-xs text-slate-400 italic" id="card-ex-tr">"Nefes alarak inin, zorlanırken (yukarı iterken) nefes verin."</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap justify-between items-center gap-3 pt-2">
-                        <div class="flex gap-2">
-                            <button onclick="prevCard()" class="px-4 py-2.5 rounded-xl bg-slate-800 text-xs text-slate-300 hover:bg-slate-700 transition"><i class="fa-solid fa-arrow-left mr-1"></i> Önceki</button>
-                            <button onclick="getRandomCard()" class="px-3 py-2.5 rounded-xl bg-slate-800 text-xs text-slate-300 hover:bg-slate-700 transition" title="Rastgele Getir"><i class="fa-solid fa-shuffle"></i></button>
-                            <button onclick="nextCard()" class="px-4 py-2.5 rounded-xl bg-slate-800 text-xs text-slate-300 hover:bg-slate-700 transition">Sonraki <i class="fa-solid fa-arrow-right ml-1"></i></button>
-                        </div>
-                        
-                        <div class="flex gap-2">
-                            <button onclick="markAsLearned()" id="btn-learned" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-slate-950 transition"><i class="fa-solid fa-check mr-1"></i> Tamamladım</button>
-                            <button onclick="resetLearnedState()" class="px-3 py-2.5 rounded-xl bg-slate-800 text-xs text-slate-400 hover:text-white transition" title="Sıfırla"><i class="fa-solid fa-arrow-rotate-left"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- QUICK FITNESS TIPS -->
-                <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
-                    <h3 class="font-bold text-white text-base flex items-center gap-2">
-                        <i class="fa-solid fa-heart-pulse text-emerald-400"></i> Altın Spor Kuralları
-                    </h3>
-                    <div class="space-y-2 text-xs">
-                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex justify-between items-center">
-                            <span class="text-slate-300">Isınmadan Başlama</span>
-                            <i class="fa-solid fa-arrow-right text-slate-600"></i>
-                            <span class="text-emerald-400 font-bold">5 dk Hafif Kardiyo</span>
-                        </div>
-                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex justify-between items-center">
-                            <span class="text-slate-300">Su Tüketimi</span>
-                            <i class="fa-solid fa-arrow-right text-slate-600"></i>
-                            <span class="text-emerald-400 font-bold">Antrenmanda Yudum Yudum</span>
-                        </div>
-                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex justify-between items-center">
-                            <span class="text-slate-300">Set Arası Mola</span>
-                            <i class="fa-solid fa-arrow-right text-slate-600"></i>
-                            <span class="text-emerald-400 font-bold">45 - 90 Saniye Dinlenme</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== PAGE 5: GÜNLÜK YAŞAM ==================== -->
-        <section id="page-life" class="page-content hidden space-y-8">
-            <div class="border-b border-slate-800 pb-6">
-                <h1 class="text-3xl font-bold text-white">Günlük Yaşam & Verimlilik</h1>
-                <p class="text-sm text-slate-400 mt-1">Görevler, planlar ve kişisel not defteriniz.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="lg:col-span-2 glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
-                    <h3 class="font-bold text-white text-lg flex items-center gap-2">
-                        <i class="fa-solid fa-square-check text-amber-400"></i> Yapılacaklar Listesi (To-Do)
-                    </h3>
-
-                    <div class="flex gap-2">
-                        <input type="text" id="todo-input" placeholder="Yeni bir görev ekleyin..." class="flex-grow px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-500">
-                        <button onclick="addTodo()" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm">Ekle</button>
-                    </div>
-
-                    <div id="todo-list" class="space-y-2 max-h-80 overflow-y-auto"></div>
-                </div>
-
-                <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
-                    <h3 class="font-bold text-white text-base flex items-center justify-between">
-                        <span><i class="fa-solid fa-note-sticky text-pink-400 mr-2"></i>Hızlı Notlar</span>
-                        <span class="text-[10px] text-emerald-400 font-semibold" id="note-saved-status">Otomatik Kaydedildi</span>
-                    </h3>
-                    <textarea id="quick-notepad" oninput="saveQuickNote()" rows="8" placeholder="Aklınıza gelenleri yazın..." class="w-full p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-200 focus:outline-none focus:border-brand-500 resize-none"></textarea>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== PAGE 6: YAPAY ZEKA (FIXED SPELLING ENGINE) ==================== -->
-        <section id="page-ai" class="page-content hidden space-y-8">
-            <div class="border-b border-slate-800 pb-6">
-                <h1 class="text-3xl font-bold text-white">Yapay Zekâ Metin İşleme Asistanı</h1>
-                <p class="text-sm text-slate-400 mt-1">Metin özetleme, imla düzeltme ve fikir üretme araçları (Yerel Motor).</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div class="lg:col-span-6 glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-400 mb-2">İşlem Modu</label>
-                        <select id="ai-mode" class="w-full px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-500">
-                            <option value="fix">1. Yazım, İmla & Noktalama Düzeltici (Yerel Türkçe Motoru)</option>
-                            <option value="summarize">2. Metin Özetleyici</option>
-                            <option value="ideas">3. Konu Alt Başlıkları & Fikir Üretici</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <label class="block text-xs font-semibold text-slate-400">Girdi Metni</label>
-                            <button onclick="clearAiInput()" class="text-[11px] text-slate-400 hover:text-white"><i class="fa-solid fa-trash-can mr-1"></i>Temizle</button>
-                        </div>
-                        <textarea id="ai-input-text" rows="8" placeholder="İşlemek istediğiniz metni yazın (Örn: bugun okula gitmedim cunku kendimi iyi hissetmiyodum yarin ogretmenime anlatcam)..." class="w-full p-4 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-500 resize-none"></textarea>
-                    </div>
-
-                    <button onclick="runAiProcessor()" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-600 to-pink-600 hover:from-brand-500 hover:to-pink-500 text-white font-bold text-sm shadow-lg shadow-brand-500/20 transition">
-                        <i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Metni İşle & Düzelt
-                    </button>
-                </div>
-
-                <div class="lg:col-span-6 glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                            <span class="text-xs font-bold uppercase tracking-wider text-slate-400"><i class="fa-solid fa-robot mr-2 text-pink-400"></i>İşlem Çıktısı & Karşılaştırma</span>
-                            <button onclick="copyToClipboard('ai-output-text-only')" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300"><i class="fa-regular fa-copy mr-1"></i>Sonucu Kopyala</button>
-                        </div>
-                        <div id="ai-output" class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-sm text-slate-200 min-h-[300px] leading-relaxed whitespace-pre-line font-sans">
-                            Sonuçlar ve karşılaştırmalı düzeltmeler burada görüntülenecektir...
-                        </div>
-                        <div id="ai-output-text-only" class="hidden"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== PAGE 7: DOSYA MERKEZİ ==================== -->
-        <section id="page-files" class="page-content hidden space-y-8">
-            <div class="border-b border-slate-800 pb-6">
-                <h1 class="text-3xl font-bold text-white">Dosya & Görsel İşleme</h1>
-                <p class="text-sm text-slate-400 mt-1">Görsel boyutlandırma ve metin dosyası oluşturma araçları.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
-                    <h3 class="font-bold text-white text-lg flex items-center gap-2">
-                        <i class="fa-solid fa-image text-cyan-400"></i> Görsel Boyutlandır & Format Değiştir
-                    </h3>
-                    <input type="file" id="img-file-input" accept="image/*" onchange="handleImageSelect(event)" class="w-full text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-brand-600 file:text-white">
-                    <div class="grid grid-cols-2 gap-3">
-                        <div>
-                            <label class="block text-xs text-slate-400 mb-1">Genişlik (px)</label>
-                            <input type="number" id="img-width" placeholder="Örn: 800" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-                        </div>
-                        <div>
-                            <label class="block text-xs text-slate-400 mb-1">Format</label>
-                            <select id="img-format" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-                                <option value="image/jpeg">JPG / JPEG</option>
-                                <option value="image/png">PNG</option>
-                                <option value="image/webp">WEBP</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button onclick="processImage()" class="w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-xs">İşle & İndir</button>
-                    <canvas id="hidden-canvas" class="hidden"></canvas>
-                </div>
-
-                <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
-                    <h3 class="font-bold text-white text-lg flex items-center gap-2">
-                        <i class="fa-solid fa-file-lines text-indigo-400"></i> Metin Dosyası (.txt) Oluştur
-                    </h3>
-                    <input type="text" id="txt-file-name" placeholder="Dosya Adı" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-                    <textarea id="txt-file-content" rows="5" placeholder="Dosya içeriği..." class="w-full p-3 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white resize-none"></textarea>
-                    <button onclick="downloadTxtFile()" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs">TXT İndir</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== PAGE 8: REHBER ==================== -->
-        <section id="page-guides" class="page-content hidden space-y-8">
-            <div class="border-b border-slate-800 pb-6">
-                <h1 class="text-3xl font-bold text-white">Bilgi & Rehber Merkezi</h1>
-                <p class="text-sm text-slate-400 mt-1">Teknoloji, verimlilik ve pratik yaşam ipuçları.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
-                    <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-brand-500/20 text-brand-400">Güvenlik</span>
-                    <h3 class="font-bold text-white text-base">Güçlü Şifre Oluşturma</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">En az 12 karakter, harf, rakam ve sembol içeren karmaşık şifreler kullanın.</p>
-                </div>
-                <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
-                    <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400">Verimlilik</span>
-                    <h3 class="font-bold text-white text-base">Set Arası Mola Tekniği</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">Egzersizlerde setler arası 60 saniye dinlenerek kas gelişiminizi maksimuma çıkarın.</p>
-                </div>
-                <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
-                    <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-pink-500/20 text-pink-400">Kariyer</span>
-                    <h3 class="font-bold text-white text-base">Etkili CV Hazırlama</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">Özgeçmişinizi sade tutun ve imla hatalarından tamamen arındırın.</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="glass-panel border-t border-slate-800 mt-16 py-8 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-            <div>© 2026 <span class="font-bold text-white">PRATİKİM</span>. Tüm hakları saklıdır.</div>
-            <div class="flex space-x-4">
-                <span>"Her işin kolay bir yolu var."</span>
-            </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Durak 1 -->
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-2 hover:border-amber-400 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-sm">1</div>
+          <h4 class="font-bold text-slate-800 text-sm">Gaziantep Hayvanat Bahçesi</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">Türkiye'nin en büyük, dünyanın ise sayılı hayvanat bahçelerinden biri.</p>
         </div>
-    </footer>
-
-    <!-- FAVORITES MODAL -->
-    <div id="fav-modal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="glass-panel p-6 rounded-2xl border border-slate-700 max-w-md w-full space-y-4">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                <h3 class="font-bold text-white text-base flex items-center gap-2"><i class="fa-solid fa-star text-amber-400"></i> Favori Araçlar</h3>
-                <button onclick="closeFavoritesModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div id="fav-modal-list" class="space-y-2 max-h-60 overflow-y-auto"></div>
+        <!-- Durak 2 -->
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-2 hover:border-amber-400 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-sm">2</div>
+          <h4 class="font-bold text-slate-800 text-sm">Gaziantep Bilim Merkezi</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">Öğrencilerin interaktif deneyler yapabileceği bilim ve teknoloji merkezi.</p>
         </div>
+        <!-- Durak 3 -->
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-2 hover:border-amber-400 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-sm">3</div>
+          <h4 class="font-bold text-slate-800 text-sm">25 Aralık Kurtuluş Müzesi</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">Gaziantep'in şanlı direniş tarihini ve kahramanlık destanını anlatan müze.</p>
+        </div>
+        <!-- Durak 4 -->
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-2 hover:border-amber-400 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-sm">4</div>
+          <h4 class="font-bold text-slate-800 text-sm">AVM Gezisi & Serbest Zaman</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">Öğrencilerin sosyal vakit geçirebileceği güvenli alışveriş ve eğlence molası.</p>
+        </div>
+      </div>
+
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-amber-900 text-xs sm:text-sm flex items-start gap-3">
+        <i class="fa-solid fa-circle-info text-amber-600 text-base mt-0.5"></i>
+        <div>
+          <strong>Ücret Detayları:</strong> Öğle yemeği tur ücretine dahildir. Kişisel harcamalar, hediyelik eşyalar ve ekstra aktiviteler gezi ücretine dahil değildir.
+        </div>
+      </div>
+    </section>
+
+    <!-- VELİ İZİN FORMU BÖLÜMÜ -->
+    <section id="form-bolumu" class="bg-white rounded-3xl p-6 sm:p-12 shadow-2xl border border-slate-100 print-area space-y-8">
+      <div class="border-b border-slate-100 pb-6 text-center space-y-2">
+        <span class="px-3 py-1 bg-gaziantep-blue/10 text-gaziantep-blue text-xs font-bold rounded-full uppercase tracking-wider">Resmi Veli İzin Belgesi</span>
+        <h3 class="text-2xl sm:text-4xl font-serif font-black text-gaziantep-navy">VELİ İZİN BAŞVURU FORMU</h3>
+        <p class="text-slate-500 text-xs sm:text-sm">Lütfen aşağıdaki alanları eksiksiz doldurunuz ve onay kutularını işaretleyiniz.</p>
+      </div>
+
+      <form id="izinFormu" class="space-y-6" onsubmit="event.preventDefault(); formGonder();">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Veli Ad Soyad -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Veli Adı ve Soyadı <span class="text-red-500">*</span></label>
+            <input type="text" id="veli_ad" required placeholder="Örn: Mehmet Yılmaz" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-gaziantep-blue focus:ring-2 focus:ring-blue-100 outline-none text-sm transition">
+          </div>
+          <!-- Veli Telefon -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Veli Telefon Numarası <span class="text-red-500">*</span></label>
+            <input type="tel" id="veli_tel" required placeholder="05XX XXX XX XX" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-gaziantep-blue focus:ring-2 focus:ring-blue-100 outline-none text-sm transition">
+          </div>
+          <!-- Acil Kişi -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Acil Durumda Aranacak Kişi <span class="text-red-500">*</span></label>
+            <input type="text" id="acil_kisi" required placeholder="Yakınlık derecesi ile adı soyadı" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-gaziantep-blue focus:ring-2 focus:ring-blue-100 outline-none text-sm transition">
+          </div>
+          <!-- Acil Telefon -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Acil Durum Telefonu <span class="text-red-500">*</span></label>
+            <input type="tel" id="acil_tel" required placeholder="05XX XXX XX XX" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-gaziantep-blue focus:ring-2 focus:ring-blue-100 outline-none text-sm transition">
+          </div>
+        </div>
+
+        <!-- Sağlık / Alerji -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Varsa Belirtilmesi Gereken Sağlık Durumu veya Alerjiler</label>
+          <textarea id="saglik_notu" rows="2" placeholder="Örn: Belirli bir gıda alerjisi veya sürekli kullanılan ilaç bilgisi (Yoksa boş bırakınız)" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-gaziantep-blue focus:ring-2 focus:ring-blue-100 outline-none text-sm transition"></textarea>
+        </div>
+
+        <!-- Her Çocuk İçin Ayrı İzin Durumu -->
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
+          <h4 class="font-bold text-slate-800 text-sm flex items-center gap-2">
+            <i class="fa-solid fa-users text-gaziantep-blue"></i> Öğrenci Bazlı İzin Onayları
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-700">1. Öğrenci Gezi Katılımı</span>
+              <select id="izin_ogrenci1" class="px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-bold text-blue-700 bg-blue-50 outline-none">
+                <option value="veriyorum">İzin Veriyorum</option>
+                <option value="vermiyorum">İzin Vermiyorum</option>
+              </select>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-700">2. Öğrenci Gezi Katılımı</span>
+              <select id="izin_ogrenci2" class="px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-bold text-red-700 bg-red-50 outline-none">
+                <option value="veriyorum">İzin Veriyorum</option>
+                <option value="vermiyorum">İzin Vermiyorum</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kriter Metni ve Onay Alanı -->
+        <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-5 sm:p-6 space-y-4">
+          <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed italic">
+            "28 Kasım 2026 tarihinde düzenlenecek Gaziantep gezisinin programını, ücretini (4.600 TL) ve koşullarını okudum. Çocuklarımın belirtilen geziye katılmasına veli olarak izin veriyorum."
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2 border-t border-amber-200/60">
+            <div class="flex items-center gap-3">
+              <input type="checkbox" id="veli_onay_kutusu" required class="w-5 h-5 text-gaziantep-blue rounded border-slate-300 focus:ring-blue-500 cursor-pointer">
+              <label for="veli_onay_kutusu" class="text-xs font-bold text-slate-700 cursor-pointer">
+                Yukarıdaki koşulları okudum ve kabul ediyorum. <span class="text-red-500">*</span>
+              </label>
+            </div>
+            <div class="text-xs text-slate-500 font-semibold bg-white px-3 py-1.5 rounded-lg border border-slate-200">
+              Tarih: <span id="bugunTarih" class="text-slate-800 font-bold"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- İşlem Butonları -->
+        <div class="flex flex-wrap gap-4 pt-4 no-print">
+          <button type="submit" class="flex-1 bg-gaziantep-blue hover:bg-blue-900 text-white font-bold py-4 px-6 rounded-2xl shadow-lg transition transform hover:-translate-y-0.5 text-sm flex items-center justify-center gap-2">
+            <i class="fa-solid fa-paper-plane"></i> Başvuruyu Tamamla ve Özeti Gör
+          </button>
+          <button type="button" onclick="formuTemizle()" class="px-6 py-4 rounded-2xl border border-slate-200 text-slate-600 hover:bg-slate-100 font-bold text-sm transition">
+            Temizle
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- BAŞVURU ÖZETİ MODAL / ALANI (Başarılı Gönderim Sonrası Görünür) -->
+    <div id="basariAlani" class="hidden bg-emerald-50 border border-emerald-200 rounded-3xl p-6 sm:p-10 text-emerald-900 space-y-6 shadow-xl animate-fade-in">
+      <div class="flex items-center gap-4 border-b border-emerald-200 pb-4">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-2xl font-bold">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold font-serif text-emerald-950">Veli İzin Başvurunuz Başarıyla Kaydedildi!</h4>
+          <p class="text-xs sm:text-sm text-emerald-700">Başvuru detaylarınız cihazınızda güvenle işlenmiştir.</p>
+        </div>
+      </div>
+
+      <div id="ozetIcerik" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm">
+        <!-- JS ile doldurulacak -->
+      </div>
+
+      <div class="flex flex-wrap gap-4 pt-2 no-print">
+        <button onclick="sayfayiYazdir()" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-6 rounded-xl shadow transition text-xs sm:text-sm flex items-center gap-2">
+          <i class="fa-solid fa-print"></i> Formu Yazdır / PDF Olarak Kaydet
+        </button>
+        <button onclick="yeniBasvuru()" class="bg-white border border-emerald-300 text-emerald-800 hover:bg-emerald-50 font-bold py-3 px-6 rounded-xl transition text-xs sm:text-sm">
+          Yeni Başvuru Düzenle
+        </button>
+      </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC ENGINE -->
-    <script>
-        /* ==================== GLOBAL STATE ==================== */
-        const state = {
-            favorites: JSON.parse(localStorage.getItem('pratikim_favs')) || [],
-            learnedCards: JSON.parse(localStorage.getItem('pratikim_learned_cards')) || [],
-            todos: JSON.parse(localStorage.getItem('pratikim_todos')) || [
-                { id: 1, text: 'Pratikim platformunu keşfet', completed: true },
-                { id: 2, text: 'Günün egzersizlerini tamamla', completed: false }
-            ],
-            flashcardIdx: 0,
-            cardFlipped: false,
-            pomoTime: 1 * 60,
-            pomoRunning: false,
-            pomoInterval: null,
-            loadedImg: null
-        };
-
-        /* ==================== EXERCISES DATA ==================== */
-        const flashcards = [
-            { en: 'Şınav (Push-up)', tr: 'Göğüs, Omuz ve Arka Kol', phonetic: '3 Set x 12 Tekrar • Vücut Ağırlığı', level: 'Göğüs & Triceps', exEn: 'Vücudunuzu baştan topuğa kadar dümdüz tutun ve kalçanızı düşürmeyin.', exTr: 'Nefes alarak inin, zorlanırken (yukarı iterken) nefes verin.' },
-            { en: 'Squat (Çömelme)', tr: 'Ön Bacak, Arka Bacak ve Kalça', phonetic: '3 Set x 15 Tekrar • Vücut Ağırlığı', level: 'Bacak & Kalça', exEn: 'Dizlerinizin ayak parmak ucunu geçmemesine dikkat edin.', exTr: 'Topuklarınıza yük vererek çömelin ve göğsünüzü dik tutun.' },
-            { en: 'Plank', tr: 'Karın (Core) ve Bel Kasları', phonetic: '3 Set x 45 Saniye • İzometrik', level: 'Karın & Core', exEn: 'Dirsekleriniz omuz hizanızda olsun, karnınızı sıkın.', exTr: 'Nefesinizi tutmayın, düzenli ve derin nefes alıp verin.' },
-            { en: 'Lunge (Adımlama)', tr: 'Bacak, Kalça ve Denge', phonetic: '3 Set x 10 Tekrar (Her bacak)', level: 'Bacak & Denge', exEn: 'Öne adım attığınızda arka diziniz yere değmeye yaklaşsın.', exTr: 'Gövdenizi dik tutun, öndeki diziniz 90 derece bükülmelidir.' },
-            { en: 'Mekik (Crunches)', tr: 'Üst Karın Kasları', phonetic: '3 Set x 20 Tekrar • Yer Egzersizi', level: 'Karın Kasları', exEn: 'Boynunuzdan çekmeyin, karın kaslarınızı sıkarak yükselin.', exTr: 'Belinizi yerden tamamen kaldırmadan sadece kürek kemiklerinizi kaldırın.' },
-            { en: 'Burpee', tr: 'Tüm Vücut & Kardiyo', phonetic: '3 Set x 10 Tekrar • Yüksek Yoğunluk', level: 'Tüm Vücut / Yağ Yakımı', exEn: 'Şınav, squat ve sıçrama hareketlerinin dinamik birleşimidir.', exTr: 'Kondisyon ve kalori yakımı için en etkili egzersizlerden biridir.' },
-            { en: 'Dips (Sandalye Dips)', tr: 'Arka Kol (Triceps)', phonetic: '3 Set x 12 Tekrar • Ev Tipi', level: 'Arka Kol', exEn: 'Ellerinizi sağlam bir sandalyeye koyun, dirseklerinizi arkaya kırın.', exTr: 'Omuzlarınızı zorlamamak için 90 dereceden fazla derine inmeyin.' },
-            { en: 'Mountain Climbers', tr: 'Karın Kasları ve Kardiyo', phonetic: '3 Set x 30 Saniye • Hızlı Tempolu', level: 'Kardiyo & Core', exEn: 'Plank pozisyonunda sırayla dizlerinizi göğsünüze çekin.', exTr: 'Temponuzu koruyun ve sırtınızı düz tutmaya çalışın.' },
-            { en: 'Glute Bridge (Kalça Kaldırma)', tr: 'Kalça ve Arka Bacak', phonetic: '3 Set x 15 Tekrar • Yüz Yukarı', level: 'Kalça & Sırt', exEn: 'Sırtüstü yatıp ayak tabanlarınız yerdeyken kalçanızı yukarı itin.', exTr: 'En tepe noktada kalçanızı 1-2 saniye sıkın.' },
-            { en: 'Jumping Jacks', tr: 'Tüm Vücut & Isınma', phonetic: '3 Set x 40 Saniye • Kardiyo', level: 'Kardiyo & Isınma', exEn: 'Zıplayarak bacaklarınızı açın ve ellerinizi başınızın üstünde birleştirin.', exTr: 'Yumuşak şekilde parmak ucunda zıplayarak eklemleri koruyun.' }
-        ];
-
-        /* ==================== EXERCISE CARDS CONTROLLER ==================== */
-        function flipCard() {
-            const card = document.getElementById('flashcard-inner');
-            state.cardFlipped = !state.cardFlipped;
-            if (state.cardFlipped) {
-                card.classList.add('rotate-y-180');
-            } else {
-                card.classList.remove('rotate-y-180');
-            }
-        }
-
-        function renderFlashcard() {
-            const card = flashcards[state.flashcardIdx];
-            
-            // Auto Reset Flip State when changing cards
-            state.cardFlipped = false;
-            document.getElementById('flashcard-inner').classList.remove('rotate-y-180');
-
-            // Render Front
-            document.getElementById('card-en').innerText = card.en;
-            document.getElementById('card-phonetic').innerText = card.phonetic;
-            document.getElementById('card-level').innerText = card.level;
-
-            // Render Back
-            document.getElementById('card-tr').innerText = card.tr;
-            document.getElementById('card-ex-en').innerText = `"${card.exEn}"`;
-            document.getElementById('card-ex-tr').innerText = `"${card.exTr}"`;
-
-            // Counter & Status
-            document.getElementById('card-counter').innerText = `${state.flashcardIdx + 1} / ${flashcards.length}`;
-            
-            const isLearned = state.learnedCards.includes(card.en);
-            const statusTag = document.getElementById('card-status-tag');
-            const learnedBtn = document.getElementById('btn-learned');
-
-            if (isLearned) {
-                statusTag.classList.remove('hidden');
-                learnedBtn.classList.add('opacity-50');
-                learnedBtn.innerText = 'Tamamlandı ✓';
-            } else {
-                statusTag.classList.add('hidden');
-                learnedBtn.classList.remove('opacity-50');
-                learnedBtn.innerText = 'Tamamladım';
-            }
-
-            updateLearnedProgress();
-        }
-
-        function markAsLearned() {
-            const currentCard = flashcards[state.flashcardIdx].en;
-            if (!state.learnedCards.includes(currentCard)) {
-                state.learnedCards.push(currentCard);
-                localStorage.setItem('pratikim_learned_cards', JSON.stringify(state.learnedCards));
-            } else {
-                state.learnedCards = state.learnedCards.filter(c => c !== currentCard);
-                localStorage.setItem('pratikim_learned_cards', JSON.stringify(state.learnedCards));
-            }
-            renderFlashcard();
-        }
-
-        function resetLearnedState() {
-            state.learnedCards = [];
-            localStorage.removeItem('pratikim_learned_cards');
-            renderFlashcard();
-        }
-
-        function updateLearnedProgress() {
-            const learnedCount = state.learnedCards.length;
-            const total = flashcards.length;
-            const pct = Math.round((learnedCount / total) * 100);
-
-            document.getElementById('learned-counter-badge').innerText = `Tamamlanan: ${learnedCount} / ${total}`;
-            document.getElementById('card-progress-bar').style.width = `${pct}%`;
-        }
-
-        function nextCard() {
-            state.flashcardIdx = (state.flashcardIdx + 1) % flashcards.length;
-            renderFlashcard();
-        }
-
-        function prevCard() {
-            state.flashcardIdx = (state.flashcardIdx - 1 + flashcards.length) % flashcards.length;
-            renderFlashcard();
-        }
-
-        function getRandomCard() {
-            state.flashcardIdx = Math.floor(Math.random() * flashcards.length);
-            renderFlashcard();
-        }
-
-        /* ==================== AI SPELLING ENGINE ==================== */
-        function runAiProcessor() {
-            const mode = document.getElementById('ai-mode').value;
-            const text = document.getElementById('ai-input-text').value;
-            const output = document.getElementById('ai-output');
-            const textOnlyOutput = document.getElementById('ai-output-text-only');
-
-            if (!text || text.trim() === '') {
-                output.innerText = "Lütfen işlenecek bir metin girin.";
-                return;
-            }
-
-            output.innerText = "Yapay Zekâ kural motoru metni analiz ediyor...";
-
-            setTimeout(() => {
-                if (mode === 'fix') {
-                    let changes = [];
-                    let corrected = text;
-
-                    // Comprehensive Turkish Spelling & Phonetic Replacement Rules
-                    const rules = [
-                        { regex: /\bbugun\b/gi, replacement: 'Bugün', label: "'bugun' -> 'Bugün'" },
-                        { regex: /\bcunku\b/gi, replacement: 'çünkü', label: "'cunku' -> 'çünkü'" },
-                        { regex: /\bhissetmiyodum\b/gi, replacement: 'hissetmiyordum', label: "'hissetmiyodum' -> 'hissetmiyordum'" },
-                        { regex: /\byarin\b/gi, replacement: 'yarın', label: "'yarin' -> 'yarın'" },
-                        { regex: /\bogretmenime\b/gi, replacement: 'öğretmenime', label: "'ogretmenime' -> 'öğretmenime'" },
-                        { regex: /\banlatcam\b/gi, replacement: 'anlatacağım', label: "'anlatcam' -> 'anlatacağım'" },
-                        { regex: /\bherşey\b/gi, replacement: 'her şey', label: "'herşey' -> 'her şey'" },
-                        { regex: /\bherkez\b/gi, replacement: 'herkes', label: "'herkez' -> 'herkes'" },
-                        { regex: /\byalnış\b/gi, replacement: 'yanlış', label: "'yalnış' -> 'yanlış'" },
-                        { regex: /\bşuan\b/gi, replacement: 'şu an', label: "'şuan' -> 'şu an'" },
-                        { regex: /\bbide\b/gi, replacement: 'bir de', label: "'bide' -> 'bir de'" },
-                        { regex: /\byapıyo\b/gi, replacement: 'yapıyor', label: "'yapıyo' -> 'yapıyor'" },
-                        { regex: /\bgeliyo\b/gi, replacement: 'geliyor', label: "'geliyo' -> 'geliyor'" },
-                        { regex: /\bgidiyo\b/gi, replacement: 'gidiyor', label: "'gidiyo' -> 'gidiyor'" }
-                    ];
-
-                    rules.forEach(rule => {
-                        if (rule.regex.test(corrected)) {
-                            changes.push(rule.label);
-                            corrected = corrected.replace(rule.regex, rule.replacement);
-                        }
-                    });
-
-                    // Capitalize sentences and fix end punctuation
-                    corrected = corrected.trim();
-                    corrected = corrected.charAt(0).toUpperCase() + corrected.slice(1);
-                    corrected = corrected.replace(/([.!?]\s+)([a-zğüşıöç])/g, (m, p1, p2) => p1 + p2.toUpperCase());
-                    if (!/[.!?]$/.test(corrected)) corrected += '.';
-
-                    textOnlyOutput.innerText = corrected;
-
-                    if (changes.length === 0) {
-                        output.innerHTML = `<span class="text-emerald-400 font-bold">✓ Metinde belirgin bir imla hatası bulunamadı.</span>\n\n${corrected}`;
-                    } else {
-                        output.innerHTML = `
-                            <div class="space-y-3">
-                                <div>
-                                    <span class="text-xs font-bold uppercase text-amber-400">✨ Tespit Edilen & Düzeltilen Değişiklikler:</span>
-                                    <ul class="list-disc list-inside text-xs text-slate-300 mt-1 space-y-0.5">
-                                        ${changes.map(c => `<li>${c}</li>`).join('')}
-                                    </ul>
-                                </div>
-                                <div class="border-t border-slate-800 pt-3">
-                                    <span class="text-xs font-bold uppercase text-emerald-400">Düzeltilmiş Metin:</span>
-                                    <p class="text-white font-medium text-base mt-1 bg-slate-950/60 p-3 rounded-xl border border-slate-800">${corrected}</p>
-                                </div>
-                            </div>
-                        `;
-                    }
-                } else if (mode === 'summarize') {
-                    const sentences = text.split('.').filter(s => s.trim().length > 0);
-                    const summary = sentences.slice(0, Math.max(1, Math.floor(sentences.length / 2))).join('. ') + '.';
-                    textOnlyOutput.innerText = summary;
-                    output.innerText = `📌 METİN ÖZETİ:\n\n${summary}`;
-                } else if (mode === 'ideas') {
-                    const ideaText = `💡 ÖNERİLEN ALT BAŞLIKLAR & FİKİRLER:\n\n1. Metnin Temel Konusu ve Tanımı\n2. Öne Çıkan Başlıca İpuçları ve Detaylar\n3. Pratikte Uygulama Adımları ve Sonuç`;
-                    textOnlyOutput.innerText = ideaText;
-                    output.innerText = ideaText;
-                }
-            }, 300);
-        }
-
-        function clearAiInput() {
-            document.getElementById('ai-input-text').value = '';
-            document.getElementById('ai-output').innerText = 'Sonuçlar burada görüntülenecektir...';
-            document.getElementById('ai-output-text-only').innerText = '';
-        }
-
-        /* ==================== INITIALIZATION ==================== */
-        window.onload = function() {
-            updateUnitOptions();
-            renderDocForm();
-            renderFlashcard();
-            renderTodos();
-            updateFavBadges();
-            const savedNote = localStorage.getItem('pratikim_note');
-            if (savedNote) document.getElementById('quick-notepad').value = savedNote;
-        };
-
-        /* ==================== NAVIGATION & THEME ==================== */
-        function navTo(pageId) {
-            document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
-            const target = document.getElementById('page-' + pageId);
-            if (target) target.classList.remove('hidden');
-
-            document.querySelectorAll('.nav-link').forEach(el => {
-                el.classList.remove('bg-slate-800/80', 'text-white');
-            });
-            const activeNav = document.getElementById('nav-' + pageId);
-            if (activeNav) activeNav.classList.add('bg-slate-800/80', 'text-white');
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleTheme() {
-            document.documentElement.classList.toggle('dark');
-            document.documentElement.classList.toggle('light');
-            const icon = document.getElementById('theme-icon');
-            if (document.documentElement.classList.contains('light')) {
-                icon.className = 'fa-solid fa-sun text-amber-500';
-            } else {
-                icon.className = 'fa-solid fa-moon text-indigo-400';
-            }
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        /* ==================== SEARCH & FAVORITES ==================== */
-        const searchableTools = [
-            { name: 'Yüzde & KDV Hesaplama', page: 'tools', icon: 'fa-percent' },
-            { name: 'Yaş & Yaşanan Gün Hesabı', page: 'tools', icon: 'fa-cake-candles' },
-            { name: 'Not Ortalaması (GPA)', page: 'tools', icon: 'fa-graduation-cap' },
-            { name: 'EBOB / EKOK & Asal Sayı', page: 'tools', icon: 'fa-square-root-variable' },
-            { name: 'Çoklu Birim Dönüştürücü', page: 'tools', icon: 'fa-arrows-rotate' },
-            { name: 'CV & Özgeçmiş Hazırlama', page: 'docs', icon: 'fa-file-contract' },
-            { name: 'Dilekçe & Resmi Yazı', page: 'docs', icon: 'fa-envelope-open-text' },
-            { name: 'Spor & Egzersiz Rehberi', page: 'learn', icon: 'fa-dumbbell' },
-            { name: 'Yapılacaklar Listesi (To-Do)', page: 'life', icon: 'fa-square-check' },
-            { name: 'Yazım & İmla Düzeltici', page: 'ai', icon: 'fa-spell-check' },
-            { name: 'Görsel Boyutlandırma', page: 'files', icon: 'fa-image' }
-        ];
-
-        function handleGlobalSearch() {
-            const query = document.getElementById('global-search').value.toLowerCase().trim();
-            const resultsBox = document.getElementById('search-results');
-            const clearBtn = document.getElementById('search-clear-btn');
-
-            if (!query) {
-                resultsBox.classList.add('hidden');
-                clearBtn.classList.add('hidden');
-                return;
-            }
-
-            clearBtn.classList.remove('hidden');
-            const matches = searchableTools.filter(t => t.name.toLowerCase().includes(query));
-
-            if (matches.length === 0) {
-                resultsBox.innerHTML = '<div class="p-3 text-xs text-slate-400">Aranan araç bulunamadı.</div>';
-            } else {
-                resultsBox.innerHTML = matches.map(m => `
-                    <button onclick="navTo('${m.page}'); clearSearch()" class="w-full text-left p-2.5 rounded-xl hover:bg-slate-800/80 flex items-center justify-between text-xs text-slate-200 transition">
-                        <span class="flex items-center gap-2"><i class="fa-solid ${m.icon} text-brand-400"></i> ${m.name}</span>
-                        <i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i>
-                    </button>
-                `).join('');
-            }
-            resultsBox.classList.remove('hidden');
-        }
-
-        function clearSearch() {
-            document.getElementById('global-search').value = '';
-            document.getElementById('search-results').classList.add('hidden');
-            document.getElementById('search-clear-btn').classList.add('hidden');
-        }
-
-        function toggleFavorite(id) {
-            if (state.favorites.includes(id)) {
-                state.favorites = state.favorites.filter(f => f !== id);
-            } else {
-                state.favorites.push(id);
-            }
-            localStorage.setItem('pratikim_favs', JSON.stringify(state.favorites));
-            updateFavBadges();
-        }
-
-        function updateFavBadges() {
-            const badge = document.getElementById('fav-badge');
-            if (state.favorites.length > 0) {
-                badge.innerText = state.favorites.length;
-                badge.classList.remove('hidden');
-            } else {
-                badge.classList.add('hidden');
-            }
-
-            ['yuzde', 'spor', 'yazim'].forEach(id => {
-                const icon = document.getElementById('star-' + id);
-                if (icon) {
-                    if (state.favorites.includes(id)) {
-                        icon.className = 'fa-solid fa-star text-amber-400';
-                    } else {
-                        icon.className = 'fa-regular fa-star';
-                    }
-                }
-            });
-        }
-
-        function openFavoritesModal() {
-            const modal = document.getElementById('fav-modal');
-            const list = document.getElementById('fav-modal-list');
-            modal.classList.remove('hidden');
-
-            if (state.favorites.length === 0) {
-                list.innerHTML = '<div class="text-xs text-slate-400 p-3 text-center">Henüz favori araç eklemediniz.</div>';
-                return;
-            }
-
-            const favItems = searchableTools.filter(t => state.favorites.includes(t.name.toLowerCase().substring(0, 4)));
-            list.innerHTML = favItems.map(f => `
-                <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
-                    <span class="text-xs font-semibold text-white"><i class="fa-solid ${f.icon} text-brand-400 mr-2"></i>${f.name}</span>
-                    <button onclick="navTo('${f.page}'); closeFavoritesModal()" class="px-3 py-1 rounded-lg bg-brand-600 text-[11px] text-white font-semibold">Aç</button>
-                </div>
-            `).join('');
-        }
-
-        function closeFavoritesModal() {
-            document.getElementById('fav-modal').classList.add('hidden');
-        }
-
-        /* ==================== SMART CALCULATORS ==================== */
-        function runPercentageCalc() {
-            const num = parseFloat(document.getElementById('calc-pct-num').value);
-            const rate = parseFloat(document.getElementById('calc-pct-rate').value);
-            const type = document.getElementById('calc-pct-type').value;
-            const resBox = document.getElementById('res-pct');
-            const resVal = document.getElementById('res-pct-val');
-
-            if (isNaN(num) || isNaN(rate)) {
-                alert('Lütfen geçerli sayılar girin.');
-                return;
-            }
-
-            let result = 0;
-            if (type === 'of') result = (num * rate) / 100;
-            else if (type === 'add') result = num + ((num * rate) / 100);
-            else if (type === 'sub') result = num - ((num * rate) / 100);
-
-            resVal.innerText = result.toLocaleString('tr-TR', { maximumFractionDigits: 2 });
-            resBox.classList.remove('hidden');
-        }
-
-        function resetPctCalc() {
-            document.getElementById('calc-pct-num').value = '';
-            document.getElementById('calc-pct-rate').value = '';
-            document.getElementById('res-pct').classList.add('hidden');
-        }
-
-        function runAgeCalc() {
-            const dateVal = document.getElementById('calc-age-date').value;
-            if (!dateVal) return;
-
-            const birth = new Date(dateVal);
-            const now = new Date();
-            const diffMs = now - birth;
-
-            if (diffMs < 0) {
-                alert('Doğum tarihi bugünden sonra olamaz.');
-                return;
-            }
-
-            const years = Math.floor(diffMs / (1000 * 60 * 60 * 24 * 365.25));
-            const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-
-            document.getElementById('res-age-text').innerText = `Yaşınız: ${years} Yıl`;
-            document.getElementById('res-age-days').innerText = `Dünyada Geçen Süre: Yaklaşık ${days.toLocaleString('tr-TR')} gün`;
-            document.getElementById('res-age').classList.remove('hidden');
-        }
-
-        function addGpaRow() {
-            const container = document.getElementById('gpa-rows');
-            const row = document.createElement('div');
-            row.className = 'grid grid-cols-5 gap-2 gpa-row';
-            row.innerHTML = `
-                <input type="text" placeholder="Ders" class="col-span-2 px-2 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white">
-                <input type="number" placeholder="Not" class="col-span-2 px-2 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white gpa-score">
-                <input type="number" placeholder="Kredi" value="3" class="col-span-1 px-2 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white gpa-credit">
-            `;
-            container.appendChild(row);
-        }
-
-        function runGpaCalc() {
-            const scores = document.querySelectorAll('.gpa-score');
-            const credits = document.querySelectorAll('.gpa-credit');
-
-            let totalScorePoints = 0;
-            let totalCredits = 0;
-
-            scores.forEach((sInput, idx) => {
-                const score = parseFloat(sInput.value);
-                const credit = parseFloat(credits[idx].value) || 1;
-
-                if (!isNaN(score)) {
-                    totalScorePoints += score * credit;
-                    totalCredits += credit;
-                }
-            });
-
-            if (totalCredits === 0) return;
-
-            const gpa = totalScorePoints / totalCredits;
-            document.getElementById('res-gpa-val').innerText = gpa.toFixed(2);
-            document.getElementById('res-gpa-badge').innerText = gpa >= 50 ? 'Geçti' : 'Kaldı';
-            document.getElementById('res-gpa-badge').className = `px-2.5 py-1 rounded-full text-[10px] font-bold ${gpa >= 50 ? 'bg-emerald-500 text-slate-950' : 'bg-rose-500 text-white'}`;
-            document.getElementById('res-gpa').classList.remove('hidden');
-        }
-
-        function runMathEbob() {
-            const n1 = parseInt(document.getElementById('calc-num-1').value);
-            const n2 = parseInt(document.getElementById('calc-num-2').value);
-
-            if (isNaN(n1) || isNaN(n2)) return;
-
-            const gcd = (a, b) => b === 0 ? a : gcd(b, a % b);
-            const ebob = gcd(n1, n2);
-            const ekok = (n1 * n2) / ebob;
-
-            const isPrime = (n) => {
-                if (n <= 1) return false;
-                for (let i = 2; i <= Math.sqrt(n); i++) if (n % i === 0) return false;
-                return true;
-            };
-
-            document.getElementById('res-ebob-val').innerText = `EBOB: ${ebob} | EKOK: ${ekok}`;
-            document.getElementById('res-prime-val').innerText = `${n1} ${isPrime(n1) ? 'Asal' : 'Asal Değil'} | ${n2} ${isPrime(n2) ? 'Asal' : 'Asal Değil'}`;
-            document.getElementById('res-ebob').classList.remove('hidden');
-        }
-
-        const unitUnits = {
-            length: { m: 1, km: 1000, mile: 1609.34, inch: 0.0254 },
-            weight: { kg: 1, g: 0.001, lb: 0.453592, oz: 0.0283495 },
-            data: { MB: 1, GB: 1024, TB: 1048576, KB: 0.0009765625 }
-        };
-
-        function updateUnitOptions() {
-            const cat = document.getElementById('unit-category').value;
-            const fromSelect = document.getElementById('unit-from');
-            const toSelect = document.getElementById('unit-to');
-
-            fromSelect.innerHTML = '';
-            toSelect.innerHTML = '';
-
-            if (cat === 'temp') {
-                ['Celsius (°C)', 'Fahrenheit (°F)'].forEach((u, i) => {
-                    fromSelect.innerHTML += `<option value="${i === 0 ? 'C' : 'F'}">${u}</option>`;
-                    toSelect.innerHTML += `<option value="${i === 1 ? 'F' : 'C'}">${u}</option>`;
-                });
-                return;
-            }
-
-            Object.keys(unitUnits[cat]).forEach(u => {
-                fromSelect.innerHTML += `<option value="${u}">${u}</option>`;
-                toSelect.innerHTML += `<option value="${u}">${u}</option>`;
-            });
-        }
-
-        function runUnitConvert() {
-            const cat = document.getElementById('unit-category').value;
-            const val = parseFloat(document.getElementById('unit-input-val').value);
-            const from = document.getElementById('unit-from').value;
-            const to = document.getElementById('unit-to').value;
-            const resBox = document.getElementById('res-unit');
-
-            if (isNaN(val)) return;
-
-            let result = 0;
-            if (cat === 'temp') {
-                if (from === 'C' && to === 'F') result = (val * 9/5) + 32;
-                else if (from === 'F' && to === 'C') result = (val - 32) * 5/9;
-                else result = val;
-            } else {
-                const baseVal = val * unitUnits[cat][from];
-                result = baseVal / unitUnits[cat][to];
-            }
-
-            resBox.innerText = `${val} ${from} = ${result.toFixed(4)} ${to}`;
-            resBox.classList.remove('hidden');
-        }
-
-        function filterToolsTab(category) {
-            document.querySelectorAll('.tool-tab-btn').forEach(btn => {
-                btn.className = 'tool-tab-btn px-4 py-2 rounded-xl text-xs font-semibold glass-panel text-slate-300';
-            });
-            document.getElementById('tool-tab-' + category).className = 'tool-tab-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-brand-600 text-white shadow';
-
-            document.querySelectorAll('.tool-card').forEach(card => {
-                if (category === 'all' || card.classList.contains(category)) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        }
-
-        /* ==================== DOCUMENT BUILDER ==================== */
-        function renderDocForm() {
-            const docType = document.getElementById('doc-type-select').value;
-            const fieldsContainer = document.getElementById('doc-form-fields');
-
-            if (docType === 'cv') {
-                fieldsContainer.innerHTML = `
-                    <input type="text" id="doc-f1" oninput="updateDocPreview()" placeholder="Ad Soyad" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-                    <input type="text" id="doc-f2" oninput="updateDocPreview()" placeholder="Unvan (Örn: Kıdemli Yazılım Uzmanı)" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-                    <input type="text" id="doc-f3" oninput="updateDocPreview()" placeholder="E-Posta & Telefon" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-                    <textarea id="doc-f4" oninput="updateDocPreview()" placeholder="Özet & Deneyimler" rows="4" class="w-full p-3 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white resize-none"></textarea>
-                `;
-            } else if (docType === 'dilekce') {
-                fieldsContainer.innerHTML = `
-                    <input type="text" id="doc-f1" oninput="updateDocPreview()" placeholder="Hitap Edilen Kurum Adı" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-                    <input type="text" id="doc-f2" oninput="updateDocPreview()" placeholder="Konu / Başlık" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-                    <textarea id="doc-f3" oninput="updateDocPreview()" placeholder="Dilekçe Metni" rows="4" class="w-full p-3 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white resize-none"></textarea>
-                    <input type="text" id="doc-f4" oninput="updateDocPreview()" placeholder="Ad Soyad & İletişim" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-                `;
-            } else {
-                fieldsContainer.innerHTML = `
-                    <input type="text" id="doc-f1" oninput="updateDocPreview()" placeholder="Alıcı Adı / Şirket" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-                    <input type="text" id="doc-f2" oninput="updateDocPreview()" placeholder="Konu" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-                    <textarea id="doc-f3" oninput="updateDocPreview()" placeholder="E-Posta Mesajı" rows="4" class="w-full p-3 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white resize-none"></textarea>
-                `;
-            }
-            updateDocPreview();
-        }
-
-        function updateDocPreview() {
-            const docType = document.getElementById('doc-type-select').value;
-            const preview = document.getElementById('doc-preview-area');
-
-            const f1 = document.getElementById('doc-f1')?.value || '...';
-            const f2 = document.getElementById('doc-f2')?.value || '...';
-            const f3 = document.getElementById('doc-f3')?.value || '...';
-            const f4 = document.getElementById('doc-f4')?.value || '...';
-
-            if (docType === 'cv') {
-                preview.innerHTML = `
-                    <div style="font-family: Arial, sans-serif;">
-                        <h1 style="font-size: 24px; font-weight: bold; color: #1e293b; margin-bottom: 4px;">${f1}</h1>
-                        <h3 style="font-size: 14px; color: #6366f1; font-weight: 600; margin-bottom: 12px;">${f2}</h3>
-                        <p style="font-size: 12px; color: #64748b; margin-bottom: 16px;">${f3}</p>
-                        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin-bottom: 16px;" />
-                        <h4 style="font-size: 12px; font-weight: bold; text-transform: uppercase; color: #475569; margin-bottom: 8px;">ÖZET VE DENEYİM</h4>
-                        <p style="font-size: 13px; color: #334155; white-space: pre-line; line-height: 1.6;">${f4}</p>
-                    </div>
-                `;
-            } else if (docType === 'dilekce') {
-                const dateStr = new Date().toLocaleDateString('tr-TR');
-                preview.innerHTML = `
-                    <div style="font-family: 'Times New Roman', serif; text-align: justify; line-height: 1.8;">
-                        <div style="text-align: center; font-weight: bold; font-size: 16px; margin-bottom: 24px;">T.C.<br>${f1.toUpperCase()} MÜDÜRLÜĞÜ'NE</div>
-                        <div style="text-align: right; font-size: 12px; margin-bottom: 16px;">Tarih: ${dateStr}</div>
-                        <p style="margin-bottom: 16px;"><strong>KONU:</strong> ${f2}</p>
-                        <p style="margin-bottom: 32px; text-indent: 24px;">${f3}</p>
-                        <p style="margin-bottom: 24px;">Gereğini bilgilerinize arz ederim.</p>
-                        <div style="text-align: right; margin-top: 32px;">
-                            <p style="font-weight: bold;">${f4}</p>
-                            <p style="font-size: 12px; color: #64748b;">İmza</p>
-                        </div>
-                    </div>
-                `;
-            } else {
-                preview.innerHTML = `
-                    <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-                        <p style="margin-bottom: 12px;">Sayın <strong>${f1}</strong>,</p>
-                        <p style="margin-bottom: 12px;"><strong>Konu:</strong> ${f2}</p>
-                        <p style="margin-bottom: 20px; white-space: pre-line;">${f3}</p>
-                        <p>Saygılarımla,<br><strong>PRATİKİM Kullanıcısı</strong></p>
-                    </div>
-                `;
-            }
-        }
-
-        function copyDocText() {
-            const text = document.getElementById('doc-preview-area').innerText;
-            copyToClipboardText(text);
-        }
-
-        function printDoc() {
-            const content = document.getElementById('doc-preview-area').innerHTML;
-            const printWin = window.open('', '', 'height=600,width=800');
-            printWin.document.write('<html><head><title>Belge Yazdır</title></head><body>' + content + '</body></html>');
-            printWin.document.close();
-            printWin.focus();
-            printWin.print();
-        }
-
-        /* ==================== MOLA TIMER & TO-DO ==================== */
-        function togglePomodoro() {
-            const btn = document.getElementById('pomo-btn');
-            if (state.pomoRunning) {
-                clearInterval(state.pomoInterval);
-                state.pomoRunning = false;
-                btn.innerText = 'Mola Başlat';
-                btn.className = 'px-3 py-1 rounded-lg bg-emerald-600 text-xs text-white font-semibold';
-            } else {
-                state.pomoRunning = true;
-                btn.innerText = 'Durdur';
-                btn.className = 'px-3 py-1 rounded-lg bg-rose-600 text-xs text-white font-semibold';
-                state.pomoInterval = setInterval(() => {
-                    if (state.pomoTime > 0) {
-                        state.pomoTime--;
-                        const mins = Math.floor(state.pomoTime / 60);
-                        const secs = state.pomoTime % 60;
-                        document.getElementById('pomo-timer-display').innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-                    } else {
-                        clearInterval(state.pomoInterval);
-                        alert('Set Mola Süresi Bitti! Yeni Sete Başlayabilirsiniz.');
-                        state.pomoTime = 1 * 60;
-                        state.pomoRunning = false;
-                        btn.innerText = 'Mola Başlat';
-                        btn.className = 'px-3 py-1 rounded-lg bg-emerald-600 text-xs text-white font-semibold';
-                        document.getElementById('pomo-timer-display').innerText = '01:00';
-                    }
-                }, 1000);
-            }
-        }
-
-        function addTodo() {
-            const input = document.getElementById('todo-input');
-            const text = input.value.trim();
-            if (!text) return;
-
-            state.todos.push({ id: Date.now(), text, completed: false });
-            localStorage.setItem('pratikim_todos', JSON.stringify(state.todos));
-            input.value = '';
-            renderTodos();
-        }
-
-        function toggleTodo(id) {
-            state.todos = state.todos.map(t => t.id === id ? { ...t, completed: !t.completed } : t);
-            localStorage.setItem('pratikim_todos', JSON.stringify(state.todos));
-            renderTodos();
-        }
-
-        function deleteTodo(id) {
-            state.todos = state.todos.filter(t => t.id !== id);
-            localStorage.setItem('pratikim_todos', JSON.stringify(state.todos));
-            renderTodos();
-        }
-
-        function renderTodos() {
-            const list = document.getElementById('todo-list');
-            if (state.todos.length === 0) {
-                list.innerHTML = '<div class="text-xs text-slate-400 p-3 text-center">Henüz eklenmiş bir görev yok.</div>';
-                return;
-            }
-
-            list.innerHTML = state.todos.map(t => `
-                <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
-                    <button onclick="toggleTodo(${t.id})" class="flex items-center space-x-3 text-left">
-                        <i class="fa-regular ${t.completed ? 'fa-square-check text-emerald-400' : 'fa-square text-slate-500'} text-base"></i>
-                        <span class="text-xs ${t.completed ? 'line-through text-slate-500' : 'text-slate-200'}">${t.text}</span>
-                    </button>
-                    <button onclick="deleteTodo(${t.id})" class="text-slate-500 hover:text-rose-400 text-xs p-1"><i class="fa-solid fa-trash"></i></button>
-                </div>
-            `).join('');
-        }
-
-        function saveQuickNote() {
-            const val = document.getElementById('quick-notepad').value;
-            localStorage.setItem('pratikim_note', val);
-        }
-
-        /* ==================== FILE PROCESSING ==================== */
-        function handleImageSelect(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = (evt) => {
-                const img = new Image();
-                img.onload = () => {
-                    state.loadedImg = img;
-                    document.getElementById('img-width').value = img.width;
-                };
-                img.src = evt.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-
-        function processImage() {
-            if (!state.loadedImg) {
-                alert('Lütfen önce bir görsel seçin.');
-                return;
-            }
-
-            const width = parseInt(document.getElementById('img-width').value) || state.loadedImg.width;
-            const format = document.getElementById('img-format').value;
-            const aspect = state.loadedImg.height / state.loadedImg.width;
-            const height = Math.round(width * aspect);
-
-            const canvas = document.getElementById('hidden-canvas');
-            canvas.width = width;
-            canvas.height = height;
-
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(state.loadedImg, 0, 0, width, height);
-
-            const link = document.createElement('a');
-            link.download = `pratikim_image.${format.split('/')[1]}`;
-            link.href = canvas.toDataURL(format, 0.9);
-            link.click();
-        }
-
-        function downloadTxtFile() {
-            const name = document.getElementById('txt-file-name').value || 'belge';
-            const content = document.getElementById('txt-file-content').value;
-
-            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = `${name}.txt`;
-            link.click();
-        }
-
-        /* ==================== UTILITY FUNCTIONS ==================== */
-        function copyToClipboard(elementId) {
-            const text = document.getElementById(elementId)?.innerText;
-            if (text) copyToClipboardText(text);
-        }
-
-        function copyToClipboardText(text) {
-            const temp = document.createElement('textarea');
-            temp.value = text;
-            document.body.appendChild(temp);
-            temp.select();
-            document.execCommand('copy');
-            document.body.removeChild(temp);
-            alert('Metin panoya kopyalandı!');
-        }
-    </script>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gaziantep-navy text-slate-400 py-8 border-t border-slate-800 mt-16 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-gaziantep-red text-white flex items-center justify-center font-bold text-xs">AMY</div>
+        <span class="text-slate-200 font-semibold">Ahmet Mesut Yılmaz Ortaokulu © 2026</span>
+      </div>
+      <p class="text-center sm:text-right">
+        Gaziantep Kültür Gezisi İzin Sistemi • Tüm hakları saklıdır.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT İŞLEMLERİ -->
+  <script>
+    // Bugünün tarihini otomatik yazdır
+    document.addEventListener("DOMContentLoaded", function() {
+      const bugun = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('bugunTarih').innerText = bugun.toLocaleDateString('tr-TR', options);
+    });
+
+    function formGonder() {
+      // Alanları kontrol et
+      const ogrenci1 = document.getElementById('ogrenci1_ad').value.trim();
+      const ogrenci2 = document.getElementById('ogrenci2_ad').value.trim();
+      const veliAd = document.getElementById('veli_ad').value.trim();
+      const veliTel = document.getElementById('veli_tel').value.trim();
+      const acilKisi = document.getElementById('acil_kisi').value.trim();
+      const acilTel = document.getElementById('acil_tel').value.trim();
+      const onayKutusu = document.getElementById('veli_onay_kutusu').checked;
+
+      if(!ogrenci1 || !ogrenci2) {
+        alert("Lütfen iki öğrencinin de adını ve soyadını eksiksiz giriniz.");
+        return;
+      }
+
+      if(!onayKutusu) {
+        alert("Lütfen koşulları okuduğunuza dair onay kutusunu işaretleyiniz.");
+        return;
+      }
+
+      // Özet alanını doldur
+      const ozetHTML = `
+        <div><strong>Veli Adı Soyadı:</strong> <span class="text-slate-700">${veliAd}</span></div>
+        <div><strong>Veli Telefon:</strong> <span class="text-slate-700">${veliTel}</span></div>
+        <div><strong>1. Öğrenci:</strong> <span class="text-slate-700">${ogrenci1} (6. Sınıf - 2. Otobüs)</span></div>
+        <div><strong>2. Öğrenci:</strong> <span class="text-slate-700">${ogrenci2} (8. Sınıf - 3. Otobüs)</span></div>
+        <div><strong>Acil Durum Kişisi:</strong> <span class="text-slate-700">${acilKisi} (${acilTel})</span></div>
+        <div><strong>Toplam Ücret:</strong> <span class="text-amber-600 font-bold">4.600 TL</span></div>
+        <div><strong>Sağlık Notu:</strong> <span class="text-slate-700">${document.getElementById('saglik_notu').value || 'Belirtilmedi'}</span></div>
+        <div><strong>İzin Durumu:</strong> <span class="text-emerald-700 font-bold">Onaylandı</span></div>
+      `;
+
+      document.getElementById('ozetIcerik').innerHTML = ozetHTML;
+      document.getElementById('basariAlani').classList.remove('hidden');
+      
+      // Formu yukarı kaydır
+      document.getElementById('basariAlani').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function formuTemizle() {
+      document.getElementById('izinFormu').reset();
+      document.getElementById('basariAlani').classList.add('hidden');
+    }
+
+    function yeniBasvuru() {
+      document.getElementById('basariAlani').classList.add('hidden');
+      window.scrollTo({ top: document.getElementById('form-bolumu').offsetTop - 100, behavior: 'smooth' });
+    }
+
+    function sayfayiYazdir() {
+      window.print();
+    }
+  </script>
 </body>
 </html>
