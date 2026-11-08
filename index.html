@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahmet Mesut Yılmaz Ortaokulu - Gaziantep Gezisi İzin Başvuru Portalı</title>
-  <!-- Tailwind CSS -->
+  <title>Gaziantep Gezisi 2026 — Aileye Özel Değerlendirme ve İkna Dosyası</title>
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome İkonları -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
@@ -19,13 +20,13 @@
             serif: ['Playfair Display', 'serif'],
           },
           colors: {
-            gaziantep: {
-              navy: '#0f172a',
-              blue: '#1e3a8a',
-              red: '#991b1b',
-              accentRed: '#dc2626',
+            corporate: {
+              navy: '#0b1329',
+              dark: '#0f172a',
+              card: '#1e293b',
+              accent: '#d97706',
               gold: '#f59e0b',
-              lightGold: '#fef3c7'
+              gray: '#64748b'
             }
           }
         }
@@ -34,384 +35,504 @@
   </script>
   <style>
     @media print {
-      body { background: white !important; color: black !important; }
-      header, footer, .no-print { display: none !important; }
-      .print-area { box-shadow: none !important; border: none !important; padding: 0 !important; }
+      body { background: white !important; color: #0b1329 !important; }
+      header, .no-print { display: none !important; }
+      .print-box { border: 1px solid #cbd5e1 !important; box-shadow: none !important; }
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col selection:bg-red-600 selection:text-white">
+<body class="bg-corporate-navy text-slate-100 font-sans min-h-screen selection:bg-amber-500 selection:text-slate-950">
 
-  <!-- BİLDİRİM BANNER -->
-  <div class="bg-amber-100 border-b border-amber-200 text-amber-900 px-4 py-2 text-center text-xs sm:text-sm font-medium no-print">
-    <i class="fa-solid fa-triangle-exclamation mr-1.5 text-amber-600"></i> 
-    <strong>Bilgilendirme:</strong> Bu site Ahmet Mesut Yılmaz Ortaokulu veli izin ve bilgilendirme simülasyonu olup, veriler yalnızca cihazınızda işlenmektedir.
-  </div>
-
-  <!-- ÜST MENÜ / HEADER -->
-  <header class="bg-gaziantep-navy text-white shadow-lg sticky top-0 z-50 no-print">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+  <!-- KURUMSAL HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-corporate-navy/90 backdrop-blur-md border-b border-slate-800 transition-all duration-300 no-print">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-gaziantep-red to-amber-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
-          <i class="fa-solid fa-school"></i>
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 to-amber-400 flex items-center justify-center text-slate-950 font-bold shadow-lg">
+          <i class="fa-solid fa-compass"></i>
         </div>
         <div>
-          <h1 class="font-bold text-sm sm:text-lg tracking-wide">Ahmet Mesut Yılmaz Ortaokulu</h1>
-          <p class="text-[11px] sm:text-xs text-amber-400 font-medium">Gaziantep Kültür ve Eğitim Gezisi Portalı</p>
+          <span class="font-serif font-bold text-lg tracking-wider text-white block">GAZİANTEP 2026</span>
+          <span class="text-[10px] tracking-widest uppercase text-amber-400 font-semibold">Aile Bilgilendirme ve Değerlendirme Dosyası</span>
         </div>
       </div>
-      <div class="hidden md:flex items-center gap-4 text-xs font-semibold text-slate-300">
-        <span><i class="fa-regular fa-calendar text-amber-400 mr-1.5"></i> 28 Kasım 2026</span>
-        <span><i class="fa-solid fa-location-dot text-red-500 mr-1.5"></i> Gaziantep</span>
-      </div>
+      <nav class="hidden md:flex items-center gap-8 text-xs font-medium text-slate-300">
+        <a href="#onem" class="hover:text-amber-400 transition">Gerekçe</a>
+        <a href="#program" class="hover:text-amber-400 transition">Rota</a>
+        <a href="#maliyet" class="hover:text-amber-400 transition">Maliyet Analizi</a>
+        <a href="#guvenlik" class="hover:text-amber-400 transition">Güvenlik</a>
+        <a href="#planimiz" class="hover:text-amber-400 transition">Kardeş Planı</a>
+        <a href="#sorular" class="hover:text-amber-400 transition">Sorularınız</a>
+        <a href="#karar" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2 rounded-xl transition shadow-md">Sonuç / Karar</a>
+      </nav>
     </div>
   </header>
 
-  <!-- ANA İÇERİK -->
-  <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+  <!-- HİRO / AÇILIŞ EKRANI -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <!-- Sinematik Arka Plan Görseli -->
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 scale-105 transform transition duration-1000" style="background-image: url('https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=1920&q=80');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-corporate-navy via-corporate-navy/70 to-transparent"></div>
 
-    <!-- HERO BÖLÜMÜ -->
-    <section class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-gaziantep-blue via-gaziantep-navy to-slate-900 text-white shadow-2xl">
-      <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:16px_16px]"></div>
-      <div class="relative z-10 p-8 sm:p-12 lg:p-16 flex flex-col md:flex-row items-center justify-between gap-8">
-        <div class="space-y-4 max-w-xl text-center md:text-left">
-          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-red-600/30 border border-red-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider">
-            <i class="fa-solid fa-star"></i> 2026 Sonbahar Gezisi
-          </span>
-          <h2 class="text-3xl sm:text-5xl font-serif font-black tracking-tight text-white leading-tight">
-            GAZİANTEP GEZİSİ 2026
-          </h2>
-          <p class="text-amber-200 text-lg sm:text-xl font-medium">
-            İki kardeş, tek gezi, unutulmaz anılar!
-          </p>
-          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-            Tarih kokan sokakları, eşsiz müzeleri ve zengin kültürel mirasıyla Gaziantep'i keşfetmeye hazır mısınız? Okulumuz tarafından öğrencilerimiz için özel olarak planlanmıştır.
-          </p>
-          <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-4 text-xs font-bold">
-            <div class="bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/10 flex items-center gap-2">
-              <i class="fa-regular fa-calendar-days text-amber-400"></i> 28 Kasım 2026 Cumartesi
-            </div>
-            <div class="bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/10 flex items-center gap-2">
-              <i class="fa-regular fa-clock text-amber-400"></i> Saat: 05.00
-            </div>
-          </div>
-        </div>
-        
-        <!-- Özet Bilgi Kartı -->
-        <div class="w-full md:w-80 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-xl space-y-4 text-white">
-          <h3 class="font-bold text-amber-300 text-base border-b border-white/10 pb-3 flex items-center justify-between">
-            <span>Gezi Özeti</span>
-            <i class="fa-solid fa-info-circle text-amber-400"></i>
-          </h3>
-          <ul class="space-y-3 text-xs sm:text-sm">
-            <li class="flex justify-between items-center"><span class="text-slate-300">Hareket Yeri:</span> <strong class="text-right">Ahmet Mesut Yılmaz OO</strong></li>
-            <li class="flex justify-between items-center"><span class="text-slate-300">Kişi Başı Ücret:</span> <strong class="text-amber-300">2.300 TL</strong></li>
-            <li class="flex justify-between items-center"><span class="text-slate-300">Katılımcı Kardeş:</span> <strong class="text-amber-300">2 Öğrenci</strong></li>
-            <li class="flex justify-between items-center pt-2 border-t border-white/10 text-base"><span class="font-bold">Toplam Tutar:</span> <strong class="text-amber-400 font-extrabold text-lg">4.600 TL</strong></li>
-          </ul>
-          <a href="#form-bolumu" class="w-full block text-center bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 text-sm">
-            Hemen İzin Ver / Başvur
-          </a>
-        </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-6 py-20">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-widest backdrop-blur-sm">
+        <i class="fa-solid fa-calendar-days"></i> 28 Kasım 2026 | Cumartesi
       </div>
-    </section>
+      
+      <h1 class="font-serif font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-tight">
+        GAZİANTEP 2026
+      </h1>
+      
+      <p class="text-xl sm:text-2xl text-slate-300 font-light tracking-wide max-w-2xl mx-auto">
+        Bir günlük bir gezi, unutulmaz bir deneyim ve ortak bir gelişim yolculuğu.
+      </p>
 
-    <!-- KATILACAK ÖĞRENCİLER BÖLÜMÜ -->
-    <section class="space-y-6">
-      <div class="text-center max-w-2xl mx-auto space-y-2">
-        <h3 class="text-2xl sm:text-3xl font-bold font-serif text-gaziantep-navy">Katılacak Öğrenci Bilgileri</h3>
-        <p class="text-slate-600 text-xs sm:text-sm">Gezide yer alacak kardeş öğrencilerin sınıf ve otobüs yerleşim detayları</p>
+      <p class="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto leading-relaxed">
+        Bu dosya; gezi planını, eğitsel kazanımları, şeffaf maliyet hesaplamasını, güvenlik çerçevesini ve kişisel sorumluluk taahhütlerimi anne ve babamın incelemesi için hazırlanmıştır.
+      </p>
+
+      <div class="pt-6 flex flex-wrap justify-center gap-4">
+        <a href="#onem" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-8 py-4 rounded-2xl shadow-xl transition transform hover:-translate-y-0.5 text-sm flex items-center gap-2">
+          <i class="fa-solid fa-arrow-down"></i> Sunumu İncele
+        </a>
+        <a href="#program" class="bg-slate-800/80 hover:bg-slate-800 text-white border border-slate-700 font-bold px-8 py-4 rounded-2xl backdrop-blur-md transition text-sm flex items-center gap-2">
+          <i class="fa-solid fa-map-location-dot"></i> Gezi Planını Gör
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANA İÇERİK KAPSAYICISI -->
+  <main class="max-w-5xl mx-auto px-6 space-y-28 py-20">
+
+    <!-- 3. BU GEZİ NEDEN ÖNEMLİ? -->
+    <section id="onem" class="space-y-12">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Eğitsel Gerekçelendirme</span>
+        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">Bu Gezi Neden Önemli?</h2>
+        <p class="text-slate-400 text-sm">Sadece bir seyahat değil; kişisel gelişime ve ortak anılara yapılan değerli bir yatırımdır.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- 1. Öğrenci Kartı -->
-        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100 relative overflow-hidden group hover:shadow-2xl transition duration-300">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-0 group-hover:scale-110 transition duration-300"></div>
-          <div class="relative z-10 space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">1. Öğrenci</span>
-              <i class="fa-solid fa-child-reaching text-2xl text-blue-600"></i>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Öğrenci Adı ve Soyadı</label>
-              <input type="text" id="ogrenci1_ad" placeholder="Örn: Ahmet Yılmaz" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none font-semibold text-slate-800 text-sm transition">
-            </div>
-            <div class="grid grid-cols-2 gap-4 pt-2 border-t border-slate-100 text-xs sm:text-sm">
-              <div>
-                <span class="text-slate-400 block">Sınıf Seviyesi</span>
-                <strong class="text-slate-700 font-bold">6. Sınıf</strong>
-              </div>
-              <div>
-                <span class="text-slate-400 block">Otobüs Planı</span>
-                <strong class="text-blue-700 font-bold"><i class="fa-solid fa-bus mr-1"></i> 2. Otobüs (6. Sınıflar)</strong>
-              </div>
-            </div>
+        <div class="bg-corporate-card/60 border border-slate-800 p-8 rounded-3xl space-y-4 backdrop-blur-md hover:border-slate-700 transition">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-brain"></i>
           </div>
-        </div>
-
-        <!-- 2. Öğrenci Kartı -->
-        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100 relative overflow-hidden group hover:shadow-2xl transition duration-300">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-bl-full -z-0 group-hover:scale-110 transition duration-300"></div>
-          <div class="relative z-10 space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="px-3 py-1 bg-red-100 text-red-800 text-xs font-bold rounded-full">2. Öğrenci</span>
-              <i class="fa-solid fa-child text-2xl text-red-600"></i>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Öğrenci Adı ve Soyadı</label>
-              <input type="text" id="ogrenci2_ad" placeholder="Örn: Ayşe Yılmaz" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-red-600 focus:ring-2 focus:ring-red-100 outline-none font-semibold text-slate-800 text-sm transition">
-            </div>
-            <div class="grid grid-cols-2 gap-4 pt-2 border-t border-slate-100 text-xs sm:text-sm">
-              <div>
-                <span class="text-slate-400 block">Sınıf Seviyesi</span>
-                <strong class="text-slate-700 font-bold">8. Sınıf</strong>
-              </div>
-              <div>
-                <span class="text-slate-400 block">Otobüs Planı</span>
-                <strong class="text-red-700 font-bold"><i class="fa-solid fa-bus mr-1"></i> 3. Otobüs (7-8. Sınıflar)</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GEZİ PROGRAMI BÖLÜMÜ -->
-    <section class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100 space-y-6">
-      <div class="text-center max-w-2xl mx-auto space-y-2">
-        <span class="text-red-600 font-bold text-xs uppercase tracking-widest">Rota ve Plan</span>
-        <h3 class="text-2xl sm:text-3xl font-bold font-serif text-gaziantep-navy">Gaziantep Gezi Programı</h3>
-        <p class="text-slate-600 text-xs sm:text-sm">28 Kasım 2026 Cumartesi günü gerçekleştirilecek tur güzergahı</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <!-- Durak 1 -->
-        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-2 hover:border-amber-400 transition">
-          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-sm">1</div>
-          <h4 class="font-bold text-slate-800 text-sm">Gaziantep Hayvanat Bahçesi</h4>
-          <p class="text-xs text-slate-500 leading-relaxed">Türkiye'nin en büyük, dünyanın ise sayılı hayvanat bahçelerinden biri.</p>
-        </div>
-        <!-- Durak 2 -->
-        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-2 hover:border-amber-400 transition">
-          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-sm">2</div>
-          <h4 class="font-bold text-slate-800 text-sm">Gaziantep Bilim Merkezi</h4>
-          <p class="text-xs text-slate-500 leading-relaxed">Öğrencilerin interaktif deneyler yapabileceği bilim ve teknoloji merkezi.</p>
-        </div>
-        <!-- Durak 3 -->
-        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-2 hover:border-amber-400 transition">
-          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-sm">3</div>
-          <h4 class="font-bold text-slate-800 text-sm">25 Aralık Kurtuluş Müzesi</h4>
-          <p class="text-xs text-slate-500 leading-relaxed">Gaziantep'in şanlı direniş tarihini ve kahramanlık destanını anlatan müze.</p>
-        </div>
-        <!-- Durak 4 -->
-        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-2 hover:border-amber-400 transition">
-          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-sm">4</div>
-          <h4 class="font-bold text-slate-800 text-sm">AVM Gezisi & Serbest Zaman</h4>
-          <p class="text-xs text-slate-500 leading-relaxed">Öğrencilerin sosyal vakit geçirebileceği güvenli alışveriş ve eğlence molası.</p>
-        </div>
-      </div>
-
-      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-amber-900 text-xs sm:text-sm flex items-start gap-3">
-        <i class="fa-solid fa-circle-info text-amber-600 text-base mt-0.5"></i>
-        <div>
-          <strong>Ücret Detayları:</strong> Öğle yemeği tur ücretine dahildir. Kişisel harcamalar, hediyelik eşyalar ve ekstra aktiviteler gezi ücretine dahil değildir.
-        </div>
-      </div>
-    </section>
-
-    <!-- VELİ İZİN FORMU BÖLÜMÜ -->
-    <section id="form-bolumu" class="bg-white rounded-3xl p-6 sm:p-12 shadow-2xl border border-slate-100 print-area space-y-8">
-      <div class="border-b border-slate-100 pb-6 text-center space-y-2">
-        <span class="px-3 py-1 bg-gaziantep-blue/10 text-gaziantep-blue text-xs font-bold rounded-full uppercase tracking-wider">Resmi Veli İzin Belgesi</span>
-        <h3 class="text-2xl sm:text-4xl font-serif font-black text-gaziantep-navy">VELİ İZİN BAŞVURU FORMU</h3>
-        <p class="text-slate-500 text-xs sm:text-sm">Lütfen aşağıdaki alanları eksiksiz doldurunuz ve onay kutularını işaretleyiniz.</p>
-      </div>
-
-      <form id="izinFormu" class="space-y-6" onsubmit="event.preventDefault(); formGonder();">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <!-- Veli Ad Soyad -->
-          <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Veli Adı ve Soyadı <span class="text-red-500">*</span></label>
-            <input type="text" id="veli_ad" required placeholder="Örn: Mehmet Yılmaz" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-gaziantep-blue focus:ring-2 focus:ring-blue-100 outline-none text-sm transition">
-          </div>
-          <!-- Veli Telefon -->
-          <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Veli Telefon Numarası <span class="text-red-500">*</span></label>
-            <input type="tel" id="veli_tel" required placeholder="05XX XXX XX XX" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-gaziantep-blue focus:ring-2 focus:ring-blue-100 outline-none text-sm transition">
-          </div>
-          <!-- Acil Kişi -->
-          <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Acil Durumda Aranacak Kişi <span class="text-red-500">*</span></label>
-            <input type="text" id="acil_kisi" required placeholder="Yakınlık derecesi ile adı soyadı" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-gaziantep-blue focus:ring-2 focus:ring-blue-100 outline-none text-sm transition">
-          </div>
-          <!-- Acil Telefon -->
-          <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Acil Durum Telefonu <span class="text-red-500">*</span></label>
-            <input type="tel" id="acil_tel" required placeholder="05XX XXX XX XX" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-gaziantep-blue focus:ring-2 focus:ring-blue-100 outline-none text-sm transition">
-          </div>
-        </div>
-
-        <!-- Sağlık / Alerji -->
-        <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Varsa Belirtilmesi Gereken Sağlık Durumu veya Alerjiler</label>
-          <textarea id="saglik_notu" rows="2" placeholder="Örn: Belirli bir gıda alerjisi veya sürekli kullanılan ilaç bilgisi (Yoksa boş bırakınız)" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-gaziantep-blue focus:ring-2 focus:ring-blue-100 outline-none text-sm transition"></textarea>
-        </div>
-
-        <!-- Her Çocuk İçin Ayrı İzin Durumu -->
-        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
-          <h4 class="font-bold text-slate-800 text-sm flex items-center gap-2">
-            <i class="fa-solid fa-users text-gaziantep-blue"></i> Öğrenci Bazlı İzin Onayları
-          </h4>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-center justify-between">
-              <span class="text-xs font-semibold text-slate-700">1. Öğrenci Gezi Katılımı</span>
-              <select id="izin_ogrenci1" class="px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-bold text-blue-700 bg-blue-50 outline-none">
-                <option value="veriyorum">İzin Veriyorum</option>
-                <option value="vermiyorum">İzin Vermiyorum</option>
-              </select>
-            </div>
-            <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-center justify-between">
-              <span class="text-xs font-semibold text-slate-700">2. Öğrenci Gezi Katılımı</span>
-              <select id="izin_ogrenci2" class="px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-bold text-red-700 bg-red-50 outline-none">
-                <option value="veriyorum">İzin Veriyorum</option>
-                <option value="vermiyorum">İzin Vermiyorum</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <!-- Kriter Metni ve Onay Alanı -->
-        <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-5 sm:p-6 space-y-4">
-          <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed italic">
-            "28 Kasım 2026 tarihinde düzenlenecek Gaziantep gezisinin programını, ücretini (4.600 TL) ve koşullarını okudum. Çocuklarımın belirtilen geziye katılmasına veli olarak izin veriyorum."
+          <h3 class="font-serif font-bold text-xl text-white">Kişisel Gelişim ve Özgüven</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Yeni yerler keşfetmek, okul dışındaki ortamlarda bulunmak ve farklı kültürlerle tanışmak bakış açımı genişletir. Sorumluluk bilincimi ve sosyal becerilerimi doğrudan destekler.
           </p>
+        </div>
 
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2 border-t border-amber-200/60">
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="veli_onay_kutusu" required class="w-5 h-5 text-gaziantep-blue rounded border-slate-300 focus:ring-blue-500 cursor-pointer">
-              <label for="veli_onay_kutusu" class="text-xs font-bold text-slate-700 cursor-pointer">
-                Yukarıdaki koşulları okudum ve kabul ediyorum. <span class="text-red-500">*</span>
-              </label>
-            </div>
-            <div class="text-xs text-slate-500 font-semibold bg-white px-3 py-1.5 rounded-lg border border-slate-200">
-              Tarih: <span id="bugunTarih" class="text-slate-800 font-bold"></span>
-            </div>
+        <div class="bg-corporate-card/60 border border-slate-800 p-8 rounded-3xl space-y-4 backdrop-blur-md hover:border-slate-700 transition">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-atom"></i>
+          </div>
+          <h3 class="font-serif font-bold text-xl text-white">Bilimsel ve Tarihsel Deneyim</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Bilim merkezinde interaktif deneyler yaparak teorik bilgileri pratiğe dökmek, tarih müzesinde ise Gaziantep'in milli mücadeledeki yerini yerinde görmek kalıcı öğrenme sağlar.
+          </p>
+        </div>
+
+        <div class="bg-corporate-card/60 border border-slate-800 p-8 rounded-3xl space-y-4 backdrop-blur-md hover:border-slate-700 transition">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-paw"></i>
+          </div>
+          <h3 class="font-serif font-bold text-xl text-white">Doğa ve Canlı Bilinci</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Hayvanat bahçesi ziyaretiyle ekosistemi, nesli tükenen hayvanları ve doğa koruma bilincini gözlemleyerek biyoloji ve çevre konularına olan ilgimi artırma fırsatı bulacağım.
+          </p>
+        </div>
+
+        <div class="bg-corporate-card/60 border border-slate-800 p-8 rounded-3xl space-y-4 backdrop-blur-md hover:border-slate-700 transition">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-users-rectangle"></i>
+          </div>
+          <h3 class="font-serif font-bold text-xl text-white">Ablamla Ortak Anı Biriktirme</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Ablamın 8. sınıf yoğunluk dönemi başlamadan önce, onunla birlikte bu okul gezisine katılarak gelecekte hatırlandığında mutlu olacağımız ortak güzel bir anı yaratmak istiyorum.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. GEZİ PROGRAMI (ROTALAR) -->
+    <section id="program" class="space-y-12">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Güzergah Detayları</span>
+        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">Gaziantep Gezi Programı</h2>
+        <p class="text-slate-400 text-sm">28 Kasım 2026 tarihinde ziyaret edilecek 4 temel durak ve kazanımları.</p>
+      </div>
+
+      <div class="space-y-8">
+        <!-- Durak 1 -->
+        <div class="bg-corporate-card/40 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-8 items-center">
+          <img src="https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=600&q=80" alt="Hayvanat Bahçesi" class="w-full md:w-72 h-48 object-cover rounded-2xl shadow-md">
+          <div class="space-y-3">
+            <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">1. Durak</span>
+            <h3 class="font-serif font-bold text-2xl text-white">Gaziantep Hayvanat Bahçesi</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              <strong>Neden Ziyaret Ediliyor?</strong> Türkiye'nin en büyük, dünyanın ise sayılı hayvanat bahçelerinden biri olması sebebiyle doğa ve hayvan sevgisini pekiştirmek için planlanmıştır.
+            </p>
+            <p class="text-slate-400 text-xs"><strong>Kazanım:</strong> Farklı türlerin yaşam alanlarını inceleme, ekosistem dengesini anlama ve canlı çeşitliliğini yerinde gözlemleme deneyimi.</p>
           </div>
         </div>
 
-        <!-- İşlem Butonları -->
-        <div class="flex flex-wrap gap-4 pt-4 no-print">
-          <button type="submit" class="flex-1 bg-gaziantep-blue hover:bg-blue-900 text-white font-bold py-4 px-6 rounded-2xl shadow-lg transition transform hover:-translate-y-0.5 text-sm flex items-center justify-center gap-2">
-            <i class="fa-solid fa-paper-plane"></i> Başvuruyu Tamamla ve Özeti Gör
-          </button>
-          <button type="button" onclick="formuTemizle()" class="px-6 py-4 rounded-2xl border border-slate-200 text-slate-600 hover:bg-slate-100 font-bold text-sm transition">
-            Temizle
-          </button>
+        <!-- Durak 2 -->
+        <div class="bg-corporate-card/40 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-8 items-center">
+          <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=600&q=80" alt="Bilim Merkezi" class="w-full md:w-72 h-48 object-cover rounded-2xl shadow-md">
+          <div class="space-y-3">
+            <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">2. Durak</span>
+            <h3 class="font-serif font-bold text-2xl text-white">Gaziantep Bilim Merkezi</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              <strong>Neden Ziyaret Ediliyor?</strong> Öğrencilerin fen bilimleri, teknoloji ve matematik konularına olan merakını interaktif sergilerle artırmak amacıyla seçilmiştir.
+            </p>
+            <p class="text-slate-400 text-xs"><strong>Kazanım:</strong> Soyut fen kavramlarını deney düzenekleriyle somutlaştırma, analitik düşünme ve teknolojik gelişmeleri yakından inceleme fırsatı.</p>
+          </div>
         </div>
-      </form>
+
+        <!-- Durak 3 -->
+        <div class="bg-corporate-card/40 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-8 items-center">
+          <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=600&q=80" alt="Müze" class="w-full md:w-72 h-48 object-cover rounded-2xl shadow-md">
+          <div class="space-y-3">
+            <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">3. Durak</span>
+            <h3 class="font-serif font-bold text-2xl text-white">25 Aralık Kurtuluş Savaşı Müzesi</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              <strong>Neden Ziyaret Ediliyor?</strong> Gaziantep'in "Gazilik" unvanını almasını sağlayan şanlı milli mücadele tarihini ve kahramanlık destanını yeni nesillere aktarmak için.
+            </p>
+            <p class="text-slate-400 text-xs"><strong>Kazanım:</strong> Tarih bilincini güçlendirme, vatan sevgisini ve milli mücadele döneminde halkın gösterdiği fedakarlığı birinci elden kavrama.</p>
+          </div>
+        </div>
+
+        <!-- Durak 4 -->
+        <div class="bg-corporate-card/40 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-8 items-center">
+          <img src="https://images.unsplash.com/photo-1555529771-835f59fc5efe?auto=format&fit=crop&w=600&q=80" alt="AVM Gezisi" class="w-full md:w-72 h-48 object-cover rounded-2xl shadow-md">
+          <div class="space-y-3">
+            <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">4. Durak</span>
+            <h3 class="font-serif font-bold text-2xl text-white">AVM Gezisi ve Serbest Zaman</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              <strong>Neden Ziyaret Ediliyor?</strong> Yoğun geçen müze ve merkez programının ardından öğrencilerin güvenli bir ortamda dinlenmesi, sosyalleşmesi ve yemek molası vermesi için.
+            </p>
+            <p class="text-slate-400 text-xs"><strong>Kazanım:</strong> Akranlarla güvenli alan içerisinde zaman yönetimi yapma ve sosyal iletişim kurma becerisi.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- BAŞVURU ÖZETİ MODAL / ALANI (Başarılı Gönderim Sonrası Görünür) -->
-    <div id="basariAlani" class="hidden bg-emerald-50 border border-emerald-200 rounded-3xl p-6 sm:p-10 text-emerald-900 space-y-6 shadow-xl animate-fade-in">
-      <div class="flex items-center gap-4 border-b border-emerald-200 pb-4">
-        <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-2xl font-bold">
-          <i class="fa-solid fa-check"></i>
+    <!-- 5. MALİYET ANALİZİ -->
+    <section id="maliyet" class="bg-corporate-card/50 border border-slate-800 rounded-3xl p-8 sm:p-12 space-y-8 backdrop-blur-md">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Şeffaf Bütçe Planı</span>
+        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">Maliyet Analizi</h2>
+        <p class="text-slate-400 text-sm">Gaziantep gezisinin iki kardeş için toplam bütçe dökümü ve kapsamı.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-corporate-navy p-6 rounded-2xl border border-slate-800 space-y-2">
+          <span class="text-slate-400 text-xs uppercase font-semibold">Kişi Başı Ücret</span>
+          <div class="font-serif font-bold text-3xl text-white">2.300 TL</div>
+          <p class="text-slate-400 text-xs">Tek öğrenci katılım bedeli.</p>
         </div>
-        <div>
-          <h4 class="text-xl font-bold font-serif text-emerald-950">Veli İzin Başvurunuz Başarıyla Kaydedildi!</h4>
-          <p class="text-xs sm:text-sm text-emerald-700">Başvuru detaylarınız cihazınızda güvenle işlenmiştir.</p>
+
+        <div class="bg-corporate-navy p-6 rounded-2xl border border-slate-800 space-y-2">
+          <span class="text-slate-400 text-xs uppercase font-semibold">Katılımcı Kardeşler</span>
+          <div class="font-serif font-bold text-3xl text-white">2 Öğrenci</div>
+          <p class="text-slate-400 text-xs">Ben (6. Sınıf) ve Ablam (8. Sınıf).</p>
+        </div>
+
+        <div class="bg-corporate-navy p-6 rounded-2xl border border-amber-500/40 space-y-2 bg-gradient-to-br from-corporate-navy to-amber-950/20">
+          <span class="text-amber-400 text-xs uppercase font-semibold">Toplam Yatırım</span>
+          <div class="font-serif font-bold text-3xl text-amber-400">4.600 TL</div>
+          <p class="text-amber-200/70 text-xs">İki kardeş için toplam gezi bedeli.</p>
         </div>
       </div>
 
-      <div id="ozetIcerik" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm">
-        <!-- JS ile doldurulacak -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 text-sm">
+        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <h4 class="font-bold text-emerald-400 flex items-center gap-2">
+            <i class="fa-solid fa-circle-check"></i> Fiyata Dahil Olanlar
+          </h4>
+          <ul class="space-y-2 text-slate-300 text-xs">
+            <li>• Hayvanat Bahçesi giriş ücretleri</li>
+            <li>• Öğle yemeği organizasyonu</li>
+            <li>• Gezi kapsamında belirtilen ulaşım ve rehberlik giderleri (Okul yönetiminden doğrulanacaktır)</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <h4 class="font-bold text-amber-400 flex items-center gap-2">
+            <i class="fa-solid fa-circle-xmark"></i> Fiyata Dahil Olmayanlar
+          </h4>
+          <ul class="space-y-2 text-slate-300 text-xs">
+            <li>• Kişisel harcamalar</li>
+            <li>• Ekstra aktiviteler veya hediyelik eşyalar</li>
+            <li>• AVM içerisindeki kişisel alışverişler</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="flex flex-wrap gap-4 pt-2 no-print">
-        <button onclick="sayfayiYazdir()" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-6 rounded-xl shadow transition text-xs sm:text-sm flex items-center gap-2">
-          <i class="fa-solid fa-print"></i> Formu Yazdır / PDF Olarak Kaydet
-        </button>
-        <button onclick="yeniBasvuru()" class="bg-white border border-emerald-300 text-emerald-800 hover:bg-emerald-50 font-bold py-3 px-6 rounded-xl transition text-xs sm:text-sm">
-          Yeni Başvuru Düzenle
+      <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-5 text-amber-300 text-xs sm:text-sm flex items-center gap-3">
+        <i class="fa-solid fa-triangle-exclamation text-amber-400 text-base flex-shrink-0"></i>
+        <p>
+          <strong>Not ve Taahhüt:</strong> AVM gezisi kesinlikle alışveriş yapmak zorunda olduğumuz anlamına gelmez. Ekstra harcama yapmadan da bu geziye tam katılım sağlayabiliriz.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. GÜVENLİK VE SORULAR -->
+    <section id="guvenlik" class="space-y-8">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Şeffaflık İlkesi</span>
+        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">Güvenlik ve Operasyonel Detaylar</h2>
+        <p class="text-slate-400 text-sm">Ailemin aklındaki temel sorular ve resmi okul teyit protokolü.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-corporate-card/60 border border-slate-800 p-6 rounded-2xl space-y-2">
+          <h4 class="font-bold text-white text-base flex items-center gap-2">
+            <i class="fa-solid fa-user-shield text-amber-500"></i> Yolculuk Sorumluluğu
+          </h4>
+          <p class="text-slate-300 text-xs leading-relaxed">
+            Gezinin başından sonuna kadar tüm öğrenciler Ahmet Mesut Yılmaz Ortaokulu öğretmenlerinin gözetimi ve sorumluluğu altındadır.
+          </p>
+        </div>
+
+        <div class="bg-corporate-card/60 border border-slate-800 p-6 rounded-2xl space-y-2">
+          <h4 class="font-bold text-white text-base flex items-center gap-2">
+            <i class="fa-solid fa-bus text-amber-500"></i> Otobüs Güvenliği
+          </h4>
+          <p class="text-slate-300 text-xs leading-relaxed">
+            Kullanılacak otobüslerin yasal belgeleri, turizm taşımacılığı uygunlukları ve sürücü yeterlilikleri okul yönetimi tarafından teyit edilecektir.
+          </p>
+        </div>
+
+        <div class="bg-corporate-card/60 border border-slate-800 p-6 rounded-2xl space-y-2">
+          <h4 class="font-bold text-white text-base flex items-center gap-2">
+            <i class="fa-solid fa-phone-volume text-amber-500"></i> Acil Durum İletişimi
+          </h4>
+          <p class="text-slate-300 text-xs leading-relaxed">
+            Acil durumlarda velilere anında ulaşılabilmesi için okul idaresi tarafından veli iletişim listeleri ve öğretmen irtibat numaraları aktif tutulacaktır.
+          </p>
+        </div>
+
+        <div class="bg-corporate-card/60 border border-slate-800 p-6 rounded-2xl space-y-2">
+          <h4 class="font-bold text-white text-base flex items-center gap-2">
+            <i class="fa-solid fa-clock text-amber-500"></i> Dönüş Saati ve Program
+          </h4>
+          <p class="text-slate-300 text-xs leading-relaxed">
+            Sabah saat 05.00'te okul önünden hareket edilecek olup, dönüş saati ve güzergah detayları kesinleştiğinde okul yönetimi tarafından ailelere bildirilecektir.
+          </p>
+        </div>
+      </div>
+
+      <!-- Okula Sorulacaklar Kontrol Listesi -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-8 space-y-4">
+        <h3 class="font-serif font-bold text-xl text-white flex items-center gap-2">
+          <i class="fa-solid fa-clipboard-question text-amber-500"></i> Ailemin Okuldan Teyit Etmesi Gereken Konular
+        </h3>
+        <p class="text-slate-400 text-xs">Kesin olmayan veya detaylandırılması gereken noktaları doğrudan okul yönetimine sorabilmeniz için başlıklar:</p>
+        <ul class="space-y-2 text-slate-300 text-xs">
+          <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-amber-500"></i> Görevli öğretmenlerin tam listesi ve otobüs bazlı dağılımı nedir?</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-amber-500"></i> Dönüş saatimiz tahmini olarak saat kaçta okul önünde olacaktır?</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-amber-500"></i> İki kardeş farklı otobüslerde olacağı için buluşma noktaları nasıl organize edilecek?</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. İKİ KARDEŞİN GEZİ PLANI -->
+    <section id="planimiz" class="space-y-8">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Yerleşim Mimarisi</span>
+        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">İki Kardeşin Gezi Planı</h2>
+        <p class="text-slate-400 text-sm">Farklı sınıf seviyeleri nedeniyle oluşan otobüs dağılımı ve koordinasyon.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- 1. Öğrenci -->
+        <div class="bg-corporate-card/50 border border-slate-800 p-6 rounded-3xl space-y-4">
+          <div class="flex justify-between items-center">
+            <span class="px-3 py-1 bg-amber-500/10 text-amber-400 text-xs font-bold rounded-full">1. Öğrenci (Ben)</span>
+            <i class="fa-solid fa-child-reaching text-amber-500 text-xl"></i>
+          </div>
+          <div class="space-y-1">
+            <div class="text-slate-400 text-xs">Sınıf Seviyesi: <strong class="text-white">6. Sınıf</strong></div>
+            <div class="text-slate-400 text-xs">Otobüs Planı: <strong class="text-amber-400 font-semibold"><i class="fa-solid fa-bus mr-1"></i> 2. Otobüs (6. Sınıflar)</strong></div>
+          </div>
+        </div>
+
+        <!-- 2. Öğrenci -->
+        <div class="bg-corporate-card/50 border border-slate-800 p-6 rounded-3xl space-y-4">
+          <div class="flex justify-between items-center">
+            <span class="px-3 py-1 bg-amber-500/10 text-amber-400 text-xs font-bold rounded-full">2. Öğrenci (Ablam)</span>
+            <i class="fa-solid fa-child text-amber-500 text-xl"></i>
+          </div>
+          <div class="space-y-1">
+            <div class="text-slate-400 text-xs">Sınıf Seviyesi: <strong class="text-white">8. Sınıf</strong></div>
+            <div class="text-slate-400 text-xs">Otobüs Planı: <strong class="text-amber-400 font-semibold"><i class="fa-solid fa-bus mr-1"></i> 3. Otobüs (7 ve 8. Sınıflar)</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-slate-300 text-xs leading-relaxed space-y-2">
+        <strong class="text-white block font-serif text-sm">Farklı Otobüslerde Olma Durumu ve Koordinasyon:</strong>
+        Ablamla farklı otobüslerde (2. ve 3. otobüsler) seyahat edecek olmamız, gezi alanlarında (müze, bilim merkezi, hayvanat bahçesi ve AVM) öğretmenlerimizin ortak buluşma noktalarında bir araya gelmemize engel değildir. Bu durumun güvenliği olumsuz etkilememesi için hareket saatlerinde ve durak geçişlerinde öğretmen gözetiminde koordine olacağız.
+      </div>
+    </section>
+
+    <!-- 8. KİŞİSEL SORUMLULUK SÖZÜ -->
+    <section class="bg-corporate-card/60 border border-slate-800 rounded-3xl p-8 sm:p-12 space-y-6 backdrop-blur-md print-box">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Resmi Taahhütname</span>
+        <h2 class="font-serif font-bold text-2xl sm:text-3xl text-white">Kişisel Sorumluluk Sözü</h2>
+        <p class="text-slate-400 text-xs">Bu geziye katılmak istiyorsam sorumluluklarını da kabul etmeliyim.</p>
+      </div>
+
+      <div class="bg-corporate-navy p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <p class="font-serif italic text-amber-200">
+          "Anneciğim, babacığım... Gaziantep gezisine katılımım boyunca aşağıdaki kurallara harfiyen uyacağımı şimdiden taahhüt ediyorum:"
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> Öğretmenlerin bütün talimatlarına ve zaman planlamalarına tam olarak uyacağım.</li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> Belirlenen gruptan ve rehber öğretmenimden asla ayrılmayacağım.</li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> Haber vermeden hiçbir yere gitmeyecek, her hareketimde bilgi vereceğim.</li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> Telefonumu sürekli yanımda ve ulaşılabilir durumda tutacağım.</li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> Bütçemizi zorlayacak gereksiz harcamalardan kesinlikle kaçınacağım.</li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> Ablamla ve diğer tüm okul arkadaşlarımla uyumlu, saygılı ve dikkatli hareket edeceğim.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 9. AİLEMİN ENDİŞELERİ (İNTERAKTİF AKORDİYON) -->
+    <section id="sorular" class="space-y-8">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Açık İletişim</span>
+        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">Karar Vermeden Önce Aklınızdaki Sorular</h2>
+        <p class="text-slate-400 text-sm">Endişelerinize saygılı, mantıklı ve şeffaf yanıtlar.</p>
+      </div>
+
+      <div class="space-y-4 max-w-3xl mx-auto">
+        <!-- Soru 1 -->
+        <div class="bg-corporate-card/40 border border-slate-800 rounded-2xl overflow-hidden">
+          <button onclick="toggleSoru(1)" class="w-full p-5 text-left font-semibold text-white flex justify-between items-center text-sm sm:text-base hover:bg-slate-800/40 transition">
+            <span>4.600 TL iki kardeş için fazla değil mi?</span>
+            <i id="icon-1" class="fa-solid fa-chevron-down text-amber-500 text-xs transition"></i>
+          </button>
+          <div id="ans-1" class="hidden p-5 pt-0 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/60 bg-slate-900/40">
+            Haklısınız, iki çocuk için 4.600 TL önemli bir bütçe kalemi oluşturuyor. Bu yüzden bütçenizi zorlamayacaksa ve eğitimsel/sosyal katkısını uygun bulursanız gitmemi istedim. Ekstra harcama yapmayarak bu maliyeti minimumda tutacağıma söz veriyorum.
+          </div>
+        </div>
+
+        <!-- Soru 2 -->
+        <div class="bg-corporate-card/40 border border-slate-800 rounded-2xl overflow-hidden">
+          <button onclick="toggleSoru(2)" class="w-full p-5 text-left font-semibold text-white flex justify-between items-center text-sm sm:text-base hover:bg-slate-800/40 transition">
+            <span>Sabah 05.00'te yola çıkmak güvenli mi?</span>
+            <i id="icon-2" class="fa-solid fa-chevron-down text-amber-500 text-xs transition"></i>
+          </button>
+          <div id="ans-2" class="hidden p-5 pt-0 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/60 bg-slate-900/40">
+            Erken saatlerde yola çıkılacak olması kulağa yorucu gelebilir; ancak gezi programının verimli işleyebilmesi ve tüm noktalara zamanında yetişilebilmesi için okul turlarunda bu saat standart olarak tercih edilmektedir. Otobüs ve şoför denetimlerini okuldan teyit edebiliriz.
+          </div>
+        </div>
+
+        <!-- Soru 3 -->
+        <div class="bg-corporate-card/40 border border-slate-800 rounded-2xl overflow-hidden">
+          <button onclick="toggleSoru(3)" class="w-full p-5 text-left font-semibold text-white flex justify-between items-center text-sm sm:text-base hover:bg-slate-800/40 transition">
+            <span>İki kardeş farklı otobüslerde olursa ne olacak?</span>
+            <i id="icon-3" class="fa-solid fa-chevron-down text-amber-500 text-xs transition"></i>
+          </button>
+          <div id="ans-3" class="hidden p-5 pt-0 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/60 bg-slate-900/40">
+            Ben 6. sınıflarla 2. otobüste, ablam ise 8. sınıflarla 3. otobüste olacak. Seyahat süresi dışında tüm gezi duraklarında aynı alanlarda bulunacağız ve öğretmenlerimiz her iki grubu da koordine edecek.
+          </div>
+        </div>
+
+        <!-- Soru 4 -->
+        <div class="bg-corporate-card/40 border border-slate-800 rounded-2xl overflow-hidden">
+          <button onclick="toggleSoru(4)" class="w-full p-5 text-left font-semibold text-white flex justify-between items-center text-sm sm:text-base hover:bg-slate-800/40 transition">
+            <span>Gezi gerçekten eğitici mi yoksa sadece eğlence mi?</span>
+            <i id="icon-4" class="fa-solid fa-chevron-down text-amber-500 text-xs transition"></i>
+          </button>
+          <div id="ans-4" class="hidden p-5 pt-0 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/60 bg-slate-900/40">
+            Programın büyük kısmı bilim merkezi, tarih müzesi ve hayvanat bahçesi gibi kurumsal noktalardan oluşuyor. AVM ziyareti ise sadece yemek ve kısa dinlenme molası olarak planlandı. Eğitici yönü oldukça yüksek bir rota.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. SON BÖLÜM: SONUÇTA KARAR SİZİN -->
+    <section id="karar" class="bg-gradient-to-b from-corporate-card to-corporate-navy border border-amber-500/30 rounded-3xl p-8 sm:p-12 text-center space-y-8 shadow-2xl">
+      <div class="max-w-2xl mx-auto space-y-4">
+        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Son Değerlendirme</span>
+        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">SONUÇTA KARAR SİZİN.</h2>
+        
+        <div class="bg-slate-900/70 p-6 rounded-2xl border border-slate-800 text-slate-300 text-xs sm:text-sm leading-relaxed text-left space-y-3 font-serif italic">
+          <p>"Anneciğim, babacığım...</p>
+          <p>Bu geziye katılmayı gerçekten istiyorum. Sadece gezmek veya eğlenmek için değil, yeni yerler görmek, farklı şeyler öğrenmek ve ablamla güzel bir anı biriktirmek için gitmek istiyorum.</p>
+          <p>Sizin için maliyetin, güvenliğin ve diğer bütün şartların önemli olduğunu biliyorum. Bu yüzden sizden düşünmeden karar vermenizi istemiyorum. Geziyle ilgili bütün detayları birlikte inceleyelim. Aklınıza takılan soruları okuldan öğrenelim.</p>
+          <p>Eğer şartları uygun görürseniz bu deneyimi yaşamayı çok isterim.</p>
+          <p class="not-italic font-sans text-right font-bold text-white pt-2">— Beni dinlediğiniz için teşekkür ederim."</p>
+        </div>
+      </div>
+
+      <!-- İnteraktif Karar Seçenekleri -->
+      <div class="space-y-4 max-w-md mx-auto no-print">
+        <p class="text-xs text-slate-400 font-medium">Lütfen birlikte karar vermek için bir adım seçin:</p>
+        <div class="grid grid-cols-1 gap-3">
+          <button onclick="secenekSec('birlikte')" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3.5 px-6 rounded-xl transition text-xs sm:text-sm shadow-md">
+            Birlikte değerlendirelim
+          </button>
+          <button onclick="secenekSec('sorular')" class="w-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold py-3.5 px-6 rounded-xl transition text-xs sm:text-sm">
+            Okula sorulacak soruları inceleyelim
+          </button>
+          <button onclick="secenekSec('istemiyorum')" class="w-full bg-transparent hover:bg-slate-800/50 text-slate-400 hover:text-white border border-slate-800 font-medium py-3 px-6 rounded-xl transition text-xs">
+            Şimdilik karar vermek istemiyorum
+          </button>
+        </div>
+        <div id="secenekMesaj" class="hidden pt-4 text-xs font-semibold text-amber-400 animate-fade-in"></div>
+      </div>
+
+      <div class="pt-6 border-t border-slate-800 flex flex-wrap justify-center gap-4 no-print">
+        <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-6 py-3 rounded-xl transition text-xs flex items-center gap-2">
+          <i class="fa-solid fa-print"></i> Sunumu Yazdır / PDF Kaydet
         </button>
       </div>
-    </div>
+    </section>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-gaziantep-navy text-slate-400 py-8 border-t border-slate-800 mt-16 no-print">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-      <div class="flex items-center gap-2">
-        <div class="w-7 h-7 rounded-lg bg-gaziantep-red text-white flex items-center justify-center font-bold text-xs">AMY</div>
-        <span class="text-slate-200 font-semibold">Ahmet Mesut Yılmaz Ortaokulu © 2026</span>
-      </div>
-      <p class="text-center sm:text-right">
-        Gaziantep Kültür Gezisi İzin Sistemi • Tüm hakları saklıdır.
-      </p>
-    </div>
+  <!-- KURUMSAL FOOTER -->
+  <footer class="bg-slate-950 text-slate-500 py-8 border-t border-slate-900 text-center text-xs space-y-2 no-print">
+    <p>Gaziantep Gezisi 2026 • Aileye Özel Dijital Değerlendirme ve İkna Dosyası</p>
+    <p class="text-slate-600">Ahmet Mesut Yılmaz Ortaokulu Gezi Programı Kapsamında Hazırlanmıştır.</p>
   </footer>
 
   <!-- JAVASCRIPT İŞLEMLERİ -->
   <script>
-    // Bugünün tarihini otomatik yazdır
-    document.addEventListener("DOMContentLoaded", function() {
-      const bugun = new Date();
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      document.getElementById('bugunTarih').innerText = bugun.toLocaleDateString('tr-TR', options);
-    });
-
-    function formGonder() {
-      // Alanları kontrol et
-      const ogrenci1 = document.getElementById('ogrenci1_ad').value.trim();
-      const ogrenci2 = document.getElementById('ogrenci2_ad').value.trim();
-      const veliAd = document.getElementById('veli_ad').value.trim();
-      const veliTel = document.getElementById('veli_tel').value.trim();
-      const acilKisi = document.getElementById('acil_kisi').value.trim();
-      const acilTel = document.getElementById('acil_tel').value.trim();
-      const onayKutusu = document.getElementById('veli_onay_kutusu').checked;
-
-      if(!ogrenci1 || !ogrenci2) {
-        alert("Lütfen iki öğrencinin de adını ve soyadını eksiksiz giriniz.");
-        return;
-      }
-
-      if(!onayKutusu) {
-        alert("Lütfen koşulları okuduğunuza dair onay kutusunu işaretleyiniz.");
-        return;
-      }
-
-      // Özet alanını doldur
-      const ozetHTML = `
-        <div><strong>Veli Adı Soyadı:</strong> <span class="text-slate-700">${veliAd}</span></div>
-        <div><strong>Veli Telefon:</strong> <span class="text-slate-700">${veliTel}</span></div>
-        <div><strong>1. Öğrenci:</strong> <span class="text-slate-700">${ogrenci1} (6. Sınıf - 2. Otobüs)</span></div>
-        <div><strong>2. Öğrenci:</strong> <span class="text-slate-700">${ogrenci2} (8. Sınıf - 3. Otobüs)</span></div>
-        <div><strong>Acil Durum Kişisi:</strong> <span class="text-slate-700">${acilKisi} (${acilTel})</span></div>
-        <div><strong>Toplam Ücret:</strong> <span class="text-amber-600 font-bold">4.600 TL</span></div>
-        <div><strong>Sağlık Notu:</strong> <span class="text-slate-700">${document.getElementById('saglik_notu').value || 'Belirtilmedi'}</span></div>
-        <div><strong>İzin Durumu:</strong> <span class="text-emerald-700 font-bold">Onaylandı</span></div>
-      `;
-
-      document.getElementById('ozetIcerik').innerHTML = ozetHTML;
-      document.getElementById('basariAlani').classList.remove('hidden');
+    // Akordiyon Soru Toggle Fonksiyonu
+    function toggleSoru(id) {
+      const ans = document.getElementById('ans-' + id);
+      const icon = document.getElementById('icon-' + id);
       
-      // Formu yukarı kaydır
-      document.getElementById('basariAlani').scrollIntoView({ behavior: 'smooth' });
+      if (ans.classList.contains('hidden')) {
+        ans.classList.remove('hidden');
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-up');
+      } else {
+        ans.classList.add('hidden');
+        icon.classList.remove('fa-chevron-up');
+        icon.classList.add('fa-chevron-down');
+      }
     }
 
-    function formuTemizle() {
-      document.getElementById('izinFormu').reset();
-      document.getElementById('basariAlani').classList.add('hidden');
-    }
-
-    function yeniBasvuru() {
-      document.getElementById('basariAlani').classList.add('hidden');
-      window.scrollTo({ top: document.getElementById('form-bolumu').offsetTop - 100, behavior: 'smooth' });
-    }
-
-    function sayfayiYazdir() {
-      window.print();
+    // Karar Seçenekleri Etkileşimi
+    function secenekSec(tip) {
+      const mesajDiv = document.getElementById('secenekMesaj');
+      mesajDiv.classList.remove('hidden');
+      
+      if (tip === 'birlikte') {
+        mesajDiv.innerText = "Harika! Akşam uygun olduğunuzda detayları birlikte masa başında inceleyebiliriz.";
+      } else if (tip === 'sorular') {
+        mesajDiv.innerText = "Okul yönetimiyle görüşerek netleştirmemiz gereken soruları listeye ekledim. İstediğiniz zaman sorabiliriz.";
+      } else if (tip === 'istemiyorum') {
+        mesajDiv.innerText = "Anlıyorum, acele etmeyelim. İstediğiniz zaman bu dosyayı tekrar inceleyebilirsiniz.";
+      }
     }
   </script>
 </body>
