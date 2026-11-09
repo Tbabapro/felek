@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZOR SEVİYE – 100 EXTREME CEZA ÇARKI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark: #070913;
@@ -863,7 +863,7 @@
             updateUI();
         }
 
-        // --- ANIMATED WHEEL SPIN ---
+        // --- ANIMATED WHEEL SPIN WITH EXACT ANGLE ALIGNMENT ---
         let animationStartTime;
         let startAngleVal = 0;
         let targetAngleVal = 0;
@@ -876,19 +876,26 @@
             totalSpins++;
 
             let winningIndex = Math.floor(Math.random() * numSlices);
-            // Prevent exact duplicate back to back
             if (winningIndex === lastTaskIndex) {
                 winningIndex = (winningIndex + 1) % numSlices;
             }
             lastTaskIndex = winningIndex;
 
-            const sliceAngle = 2 * Math.PI / numSlices;
+            const sliceAngle = (2 * Math.PI) / numSlices;
             const fullRotations = 7 * 2 * Math.PI;
-            const targetSliceCenterAngle = winningIndex * sliceAngle + sliceAngle / 2;
-            const desiredFinalAngle = fullRotations + (2 * Math.PI - targetSliceCenterAngle);
+
+            // Target pointer is at top (12 o'clock = 1.5 * PI = 270 deg)
+            let targetAngleNorm = (1.5 * Math.PI - (winningIndex + 0.5) * sliceAngle) % (2 * Math.PI);
+            if (targetAngleNorm < 0) targetAngleNorm += 2 * Math.PI;
+
+            let currentAngleNorm = currentAngle % (2 * Math.PI);
+            if (currentAngleNorm < 0) currentAngleNorm += 2 * Math.PI;
+
+            let angleDiff = targetAngleNorm - currentAngleNorm;
+            if (angleDiff <= 0) angleDiff += 2 * Math.PI;
 
             startAngleVal = currentAngle;
-            targetAngleVal = startAngleVal + desiredFinalAngle;
+            targetAngleVal = currentAngle + fullRotations + angleDiff;
             animationStartTime = performance.now();
 
             requestAnimationFrame(animateWheel);
@@ -913,8 +920,10 @@
                 document.getElementById('spinBtn').disabled = false;
                 playSound('gong');
 
-                const normalizedAngle = (2 * Math.PI - (currentAngle % (2 * Math.PI))) % (2 * Math.PI);
-                const winningIndex = Math.floor(normalizedAngle / arcSize) % numSlices;
+                // Determine exact winning index under 12 o'clock pointer
+                let initialAngleAtPointer = (1.5 * Math.PI - (currentAngle % (2 * Math.PI))) % (2 * Math.PI);
+                if (initialAngleAtPointer < 0) initialAngleAtPointer += 2 * Math.PI;
+                const winningIndex = Math.floor(initialAngleAtPointer / arcSize) % numSlices;
 
                 currentSelectedTask = tasks[winningIndex];
                 showPunishmentModal(currentSelectedTask);
