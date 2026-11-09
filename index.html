@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>100 CEZA – ÇILGIN ÇARK</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <title>ZOR SEVİYE – 100 EXTREME CEZA ÇARKI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=display" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0b0f19;
-            --card-bg: rgba(17, 24, 39, 0.85);
-            --accent-primary: #6366f1;
-            --accent-secondary: #ec4899;
-            --accent-gold: #f59e0b;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-color: rgba(255, 255, 255, 0.1);
+            --bg-dark: #070913;
+            --card-bg: rgba(15, 23, 42, 0.85);
+            --cat-fiziksel: #ef4444;
+            --cat-zihin: #3b82f6;
+            --cat-konusma: #8b5cf6;
+            --cat-extreme: #ec4899;
+            --cat-efsane: #f59e0b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.12);
         }
 
         * {
@@ -28,50 +30,67 @@
         body {
             background-color: var(--bg-dark);
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 40%);
+                radial-gradient(circle at 15% 15%, rgba(239, 68, 68, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 50% 85%, rgba(245, 158, 11, 0.15) 0%, transparent 50%);
             color: var(--text-main);
             min-height: 100vh;
-            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            overflow-x: hidden;
         }
 
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 20px;
         }
 
-        /* HEADER */
         header {
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #6366f1, #ec4899, #f59e0b);
+            background: linear-gradient(135deg, #ef4444, #ec4899, #f59e0b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            text-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
         }
 
         .subtitle {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
-        /* TOP CONTROLS / STATS */
+        .category-legend {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .legend-item {
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -79,33 +98,33 @@
             width: 100%;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 15px 25px;
+            padding: 14px 24px;
             border-radius: 16px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             flex-wrap: wrap;
             gap: 15px;
         }
 
         .current-player-display {
             font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--accent-gold);
+            font-weight: 800;
+            color: var(--cat-efsane);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .stats-group {
             display: flex;
             gap: 20px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
         }
 
         .stats-group span {
             color: var(--text-main);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .btn-group {
@@ -114,33 +133,34 @@
         }
 
         .btn {
-            background: linear-gradient(135deg, var(--accent-primary), #4f46e5);
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 18px;
             border-radius: 10px;
             font-weight: 600;
+            font-size: 0.85rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             border: 1px solid var(--border-color);
             box-shadow: none;
         }
+
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.18);
             box-shadow: none;
         }
 
-        /* MAIN GAME AREA */
         .game-area {
             display: grid;
             grid-template-columns: 1fr 380px;
@@ -148,40 +168,39 @@
             width: 100%;
         }
 
-        @media (max-width: 950px) {
+        @media (max-width: 960px) {
             .game-area {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* WHEEL SECTION */
-        .wheel-container-card {
+        .wheel-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 20px;
-            padding: 30px;
+            padding: 25px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             position: relative;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
             min-height: 520px;
         }
 
         .wheel-wrapper {
             position: relative;
-            width: 420px;
-            height: 420px;
+            width: 440px;
+            height: 440px;
             max-width: 100%;
             aspect-ratio: 1;
         }
 
         @media (max-width: 480px) {
             .wheel-wrapper {
-                width: 320px;
-                height: 320px;
+                width: 310px;
+                height: 310px;
             }
         }
 
@@ -189,8 +208,7 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), inset 0 0 20px rgba(0,0,0,0.8);
-            transition: transform 4s cubic-bezier(0.15, 0, 0.15, 1);
+            box-shadow: 0 0 35px rgba(239, 68, 68, 0.3), inset 0 0 25px rgba(0,0,0,0.9);
         }
 
         .wheel-pointer {
@@ -200,41 +218,40 @@
             transform: translateX(-50%);
             width: 0;
             height: 0;
-            border-left: 18px solid transparent;
-            border-right: 18px solid transparent;
-            border-top: 35px solid var(--accent-secondary);
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 38px solid #f59e0b;
+            filter: drop-shadow(0 4px 10px rgba(245, 158, 11, 0.8));
             z-index: 10;
         }
 
         .spin-btn {
             margin-top: 25px;
-            background: linear-gradient(135deg, var(--accent-secondary), #d946ef);
+            background: linear-gradient(135deg, #ef4444, #dc2626);
             color: white;
             border: none;
-            padding: 15px 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
+            padding: 16px 55px;
+            font-size: 1.25rem;
+            font-weight: 800;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.5);
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.6);
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .spin-btn:hover:not(:disabled) {
             transform: scale(1.05);
-            box-shadow: 0 15px 35px rgba(236, 72, 153, 0.7);
+            box-shadow: 0 15px 35px rgba(239, 68, 68, 0.8);
         }
 
         .spin-btn:disabled {
-            opacity: 0.6;
+            opacity: 0.5;
             cursor: not-allowed;
             transform: none;
         }
 
-        /* SIDEBAR PANEL */
         .sidebar {
             display: flex;
             flex-direction: column;
@@ -246,12 +263,12 @@
             border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 20px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
         .panel h3 {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-bottom: 15px;
             color: var(--text-main);
             border-bottom: 1px solid var(--border-color);
@@ -261,25 +278,25 @@
             align-items: center;
         }
 
-        /* PLAYERS LIST */
         .player-input-box {
             display: flex;
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .player-input-box input {
             flex: 1;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.4);
             border: 1px solid var(--border-color);
-            padding: 10px 15px;
+            padding: 10px 14px;
             border-radius: 10px;
             color: white;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             outline: none;
         }
+
         .player-input-box input:focus {
-            border-color: var(--accent-primary);
+            border-color: #ef4444;
         }
 
         .players-list {
@@ -288,7 +305,6 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            padding-right: 5px;
         }
 
         .player-item {
@@ -298,14 +314,13 @@
             background: rgba(255,255,255,0.03);
             padding: 8px 12px;
             border-radius: 8px;
-            border: 1px solid transparent;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
 
         .player-item.active {
-            border-color: var(--accent-gold);
-            background: rgba(245, 158, 11, 0.1);
-            font-weight: 600;
+            border: 1px solid var(--cat-efsane);
+            background: rgba(245, 158, 11, 0.12);
+            font-weight: 700;
         }
 
         .player-item button {
@@ -313,48 +328,45 @@
             border: none;
             color: #ef4444;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
-        /* HISTORY LOG */
         .history-list {
-            max-height: 200px;
+            max-height: 220px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
             gap: 8px;
-            font-size: 0.85rem;
-            padding-right: 5px;
+            font-size: 0.83rem;
         }
 
         .history-item {
-            background: rgba(0,0,0,0.2);
+            background: rgba(0,0,0,0.3);
             padding: 8px 12px;
             border-radius: 8px;
-            border-left: 3px solid var(--accent-primary);
+            border-left: 4px solid var(--cat-zihin);
         }
 
         .history-item .h-player {
-            color: var(--accent-gold);
-            font-weight: 600;
+            color: var(--cat-efsane);
+            font-weight: 700;
         }
 
-        /* MODAL OVERLAY (PUNISHMENT REVEAL) */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(5, 7, 12, 0.85);
-            backdrop-filter: blur(15px);
+            background: rgba(4, 6, 14, 0.9);
+            backdrop-filter: blur(18px);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1000;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.35s ease;
         }
 
         .modal-overlay.active {
@@ -363,18 +375,17 @@
         }
 
         .modal-card {
-            background: linear-gradient(135deg, #111827, #1f2937);
-            border: 2px solid var(--accent-primary);
+            background: linear-gradient(145deg, #0f172a, #1e293b);
+            border: 2px solid var(--border-color);
             border-radius: 24px;
-            padding: 40px;
-            max-width: 600px;
-            width: 90%;
+            padding: 35px 30px;
+            max-width: 620px;
+            width: 92%;
             text-align: center;
-            box-shadow: 0 25px 60px rgba(99, 102, 241, 0.4);
-            transform: scale(0.7);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+            transform: scale(0.75);
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            overflow: hidden;
         }
 
         .modal-overlay.active .modal-card {
@@ -382,120 +393,110 @@
         }
 
         .tension-text {
-            font-size: 1.1rem;
-            color: var(--accent-secondary);
+            font-size: 1.05rem;
+            color: var(--cat-extreme);
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 15px;
-            font-weight: 700;
-            animation: pulseText 1s infinite alternate;
+            margin-bottom: 12px;
+            font-weight: 800;
         }
 
-        @keyframes pulseText {
-            0% { opacity: 0.5; }
-            100% { opacity: 1; }
+        .badge-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 15px;
         }
 
         .punishment-badge {
-            display: inline-block;
-            background: rgba(99, 102, 241, 0.2);
-            color: var(--accent-primary);
-            padding: 6px 16px;
+            padding: 5px 14px;
             border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            border: 1px solid rgba(99, 102, 241, 0.4);
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .punishment-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 900;
             color: white;
-            margin-bottom: 20px;
-            line-height: 1.3;
+            margin-bottom: 16px;
+            line-height: 1.35;
         }
 
-        .punishment-desc {
-            font-size: 1.15rem;
-            color: #d1d5db;
-            margin-bottom: 30px;
-            background: rgba(0,0,0,0.3);
-            padding: 20px;
-            border-radius: 14px;
-            border: 1px solid var(--border-color);
+        .task-timer-display {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--cat-efsane);
+            margin: 10px 0;
+            font-family: monospace;
+            display: none;
         }
 
         .modal-actions {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         .modal-btn {
-            padding: 12px 24px;
+            padding: 12px 22px;
             border-radius: 12px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             border: none;
-            transition: all 0.3s;
-            font-size: 0.95rem;
+            transition: all 0.25s;
+            font-size: 0.9rem;
         }
 
-        .btn-success {
-            background: #10b981;
-            color: white;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-        }
+        .btn-success { background: #10b981; color: white; }
         .btn-success:hover { background: #059669; }
+        .btn-timer { background: #3b82f6; color: white; }
+        .btn-timer:hover { background: #2563eb; }
+        .btn-pass { background: #64748b; color: white; }
+        .btn-pass:hover { background: #475569; }
+        .btn-spin-again { background: #ec4899; color: white; }
+        .btn-spin-again:hover { background: #db2777; }
 
-        .btn-pass {
-            background: #6b7280;
-            color: white;
-        }
-        .btn-pass:hover { background: #4b5563; }
-
-        .btn-spin-again {
-            background: var(--accent-primary);
-            color: white;
-        }
-        .btn-spin-again:hover { background: #4f46e5; }
-
-        /* SCROLLBAR CUSTOMIZATION */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.1);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.2);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(255,255,255,0.4);
+        canvas#confettiCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1001;
         }
     </style>
 </head>
 <body>
 
+    <canvas id="confettiCanvas"></canvas>
+
     <div class="container">
-        <!-- HEADER -->
         <header>
-            <h1>100 Ceza – Çılgın Çark</h1>
-            <div class="subtitle">Arkadaş ortamının en eğlenceli, güvenli ve heyecan dolu ceza meydan okuması!</div>
+            <h1>Zor Seviye – 100 Extreme Ceza Çarkı</h1>
+            <div class="subtitle">Fiziksel güç, zihin hızı, özgüven ve performans sınırlarını zorlayan 100 gerçek hayat meydan okuması!</div>
+            <div class="category-legend">
+                <span class="legend-item" style="background: rgba(239,68,68,0.2); color: #ef4444;">💪 Fiziksel (1-20)</span>
+                <span class="legend-item" style="background: rgba(59,130,246,0.2); color: #3b82f6;">🧠 Zihin & Hafıza (21-40)</span>
+                <span class="legend-item" style="background: rgba(139,92,246,0.2); color: #8b5cf6;">🎤 Konuşma & Özgüven (41-60)</span>
+                <span class="legend-item" style="background: rgba(236,72,153,0.2); color: #ec4899;">🔥 Extreme Karışık (61-80)</span>
+                <span class="legend-item" style="background: rgba(245,158,11,0.2); color: #f59e0b;">👑 Efsane Seviye (81-100)</span>
+            </div>
         </header>
 
-        <!-- TOP BAR -->
         <div class="top-bar">
-            <div class="current-player-display" id="currentPlayerDisplay">
+            <div class="current-player-display">
                 Sıra: <span id="activePlayerName">Oyuncu 1</span>
             </div>
             <div class="stats-group">
                 <div>Toplam Çevirme: <span id="totalSpinsCount">0</span></div>
-                <div>Tamamlanan: <span id="completedCount">0</span></div>
+                <div>Başarı: <span id="completedCount">0</span></div>
+                <div>Pas: <span id="passedCount">0</span></div>
             </div>
             <div class="btn-group">
                 <button class="btn btn-secondary" id="soundToggleBtn">Ses: Açık</button>
@@ -503,51 +504,47 @@
             </div>
         </div>
 
-        <!-- GAME AREA -->
         <div class="game-area">
-            <!-- WHEEL SECTION -->
-            <div class="wheel-container-card">
+            <div class="wheel-card">
                 <div class="wheel-wrapper">
                     <div class="wheel-pointer"></div>
-                    <canvas id="wheelCanvas" width="500" height="500"></canvas>
+                    <canvas id="wheelCanvas" width="600" height="600"></canvas>
                 </div>
-                <button class="spin-btn" id="spinBtn" onclick="spinWheel()">Çarkı Çevir!</button>
+                <button class="spin-btn" id="spinBtn" onclick="spinWheel()">Zor Çarkı Çevir!</button>
             </div>
 
-            <!-- SIDEBAR -->
             <div class="sidebar">
-                <!-- PLAYERS PANEL -->
                 <div class="panel">
                     <h3>Oyuncular (<span id="playerCount">2</span>/10)</h3>
                     <div class="player-input-box">
-                        <input type="text" id="playerNameInput" placeholder="Oyuncu Adı..." maxlength="15">
+                        <input type="text" id="playerNameInput" placeholder="Oyuncu İsmi..." maxlength="15">
                         <button class="btn" onclick="addPlayer()">Ekle</button>
                     </div>
-                    <div class="players-list" id="playersListContainer">
-                        <!-- Dynamic Players -->
-                    </div>
+                    <div class="players-list" id="playersListContainer"></div>
                 </div>
 
-                <!-- HISTORY PANEL -->
                 <div class="panel">
-                    <h3>Ceza Geçmişi</h3>
+                    <h3>Görev Geçmişi</h3>
                     <div class="history-list" id="historyListContainer">
-                        <div style="color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 10px;">Henüz ceza çıkmadı.</div>
+                        <div style="color: var(--text-muted); text-align: center; padding: 15px;">Henüz görev seçilmedi.</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- PUNISHMENT REVEAL MODAL -->
     <div class="modal-overlay" id="punishmentModal">
         <div class="modal-card">
-            <div class="tension-text" id="modalTension">Gerilim Artıyor...</div>
-            <div class="punishment-badge" id="modalCategory">Kategori</div>
-            <div class="punishment-title" id="modalTitle">Ceza Başlığı</div>
-            <div class="punishment-desc" id="modalDesc">Ceza açıklaması burada yer alacak.</div>
+            <div class="tension-text">MEYDAN OKUMA GELDİ!</div>
+            <div class="badge-row">
+                <span class="punishment-badge" id="modalCategory">Kategori</span>
+                <span class="punishment-badge" id="modalLevel">Seviye</span>
+            </div>
+            <div class="punishment-title" id="modalTitle">Görev Metni</div>
+            <div class="task-timer-display" id="modalTimer">00:00</div>
             <div class="modal-actions">
-                <button class="modal-btn btn-success" onclick="completePunishment()">Cezayı Yaptım! ✅</button>
+                <button class="modal-btn btn-timer" id="timerStartBtn" onclick="toggleTaskTimer()">Zamanlayıcıyı Başlat ⏱️</button>
+                <button class="modal-btn btn-success" onclick="completePunishment()">Tamamladım! ✅</button>
                 <button class="modal-btn btn-spin-again" onclick="spinAgain()">Bir Daha Çevir 🔄</button>
                 <button class="modal-btn btn-pass" onclick="passPunishment()">Pas Geç (Şartsız) ⏭️</button>
             </div>
@@ -555,48 +552,52 @@
     </div>
 
     <script>
-        // --- SOUND SYSTEM (Web Audio API) ---
+        // --- WEB AUDIO API SES MOTORU ---
         let soundEnabled = true;
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
         function playSound(type) {
             if (!soundEnabled) return;
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
+            if (audioCtx.state === 'suspended') audioCtx.resume();
 
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
             osc.connect(gain);
             gain.connect(audioCtx.destination);
-
             const now = audioCtx.currentTime;
 
             if (type === 'tick') {
                 osc.type = 'triangle';
-                osc.frequency.setValueAtTime(400, now);
-                osc.frequency.exponentialRampToValueAtTime(100, now + 0.05);
+                osc.frequency.setValueAtTime(300 + Math.random() * 200, now);
+                osc.frequency.exponentialRampToValueAtTime(80, now + 0.04);
                 gain.gain.setValueAtTime(0.08, now);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
                 osc.start(now);
-                osc.stop(now + 0.05);
+                osc.stop(now + 0.04);
             } else if (type === 'gong') {
                 osc.type = 'sine';
-                osc.frequency.setValueAtTime(220, now);
-                osc.frequency.exponentialRampToValueAtTime(110, now + 0.8);
-                gain.gain.setValueAtTime(0.3, now);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.exponentialRampToValueAtTime(60, now + 1.2);
+                gain.gain.setValueAtTime(0.4, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
                 osc.start(now);
-                osc.stop(now + 0.8);
+                osc.stop(now + 1.2);
             } else if (type === 'success') {
                 osc.type = 'sine';
-                osc.frequency.setValueAtTime(523.25, now); // C5
-                osc.frequency.setValueAtTime(659.25, now + 0.1); // E5
-                osc.frequency.setValueAtTime(783.99, now + 0.2); // G5
-                gain.gain.setValueAtTime(0.2, now);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+                osc.frequency.setValueAtTime(523.25, now);
+                osc.frequency.setValueAtTime(659.25, now + 0.1);
+                osc.frequency.setValueAtTime(783.99, now + 0.2);
+                gain.gain.setValueAtTime(0.25, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
                 osc.start(now);
-                osc.stop(now + 0.4);
+                osc.stop(now + 0.5);
+            } else if (type === 'timerTick') {
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(800, now);
+                gain.gain.setValueAtTime(0.05, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
+                osc.start(now);
+                osc.stop(now + 0.03);
             }
         }
 
@@ -605,152 +606,154 @@
             document.getElementById('soundToggleBtn').textContent = soundEnabled ? 'Ses: Açık' : 'Ses: Kapalı';
         });
 
-        // --- 100 CEZA LİSTESİ ---
-        const punishments = [
-            // Sır ve itiraf cezaları (1-10)
-            { id: 1, cat: "Sır ve İtiraf", title: "İç Ses", text: "Kendinle ilgili pek bilinmeyen bir gerçeği anlat." },
-            { id: 2, cat: "Sır ve İtiraf", title: "Utanç Duvarı", text: "En utandığın komik anını anlat." },
-            { id: 3, cat: "Sır ve İtiraf", title: "Çocukluk Masalı", text: "Çocukken inandığın en saçma şeyi söyle." },
-            { id: 4, cat: "Sır ve İtiraf", title: "Garip Alışkanlık", text: "En garip alışkanlığını açıkla." },
-            { id: 5, cat: "Sır ve İtiraf", title: "Komik Hata", text: "Bugüne kadar yaptığın en komik hatayı anlat." },
-            { id: 6, cat: "Sır ve İtiraf", title: "Melodi", text: "En sevdiğin şarkıyı söyle." },
-            { id: 7, cat: "Sır ve İtiraf", title: "Lakap", text: "En komik lakabını anlat." },
-            { id: 8, cat: "Sır ve İtiraf", title: "Güzel Söz", text: "Bir arkadaşına söylemek istediğin güzel bir şeyi söyle." },
-            { id: 9, cat: "Sır ve İtiraf", title: "Saçma Korku", text: "En saçma korkunu anlat." },
-            { id: 10, cat: "Sır ve İtiraf", title: "Üçlü Bilgi", text: "Kendinle ilgili üç ilginç bilgi ver." },
+        // --- 100 SEVİYELİ GÖREV LİSTESİ ---
+        const tasks = [
+            // FİZİKSEL MEYDAN OKUMALAR (1-20)
+            { id: 1, cat: "Fiziksel", level: "Orta", text: "45 saniye plank pozisyonunda kal.", duration: 45 },
+            { id: 2, cat: "Fiziksel", level: "Orta", text: "20 kontrollü squat yap." },
+            { id: 3, cat: "Fiziksel", level: "Kolay", text: "30 saniye tek ayak üzerinde dengede dur.", duration: 30 },
+            { id: 4, cat: "Fiziksel", level: "Zor", text: "15 kontrollü şınav yap (gerekirse diz üstü)." },
+            { id: 5, cat: "Fiziksel", level: "Orta", text: "45 saniye duvar oturuşu yap.", duration: 45 },
+            { id: 6, cat: "Fiziksel", level: "Kolay", text: "30 saniye boyunca hiç durmadan dans et.", duration: 30 },
+            { id: 7, cat: "Fiziksel", level: "Kolay", text: "10 kez kontrollü çömelip ayağa kalk." },
+            { id: 8, cat: "Fiziksel", level: "Orta", text: "30 saniye boyunca tek ayak üzerinde dururken alfabe say.", duration: 30 },
+            { id: 9, cat: "Fiziksel", level: "Orta", text: "60 saniye boyunca müzik olmadan dans et.", duration: 60 },
+            { id: 10, cat: "Fiziksel", level: "Orta", text: "30 saniyede 5 farklı dans hareketi göster.", duration: 30 },
+            { id: 11, cat: "Fiziksel", level: "Kolay", text: "30 saniye boyunca hayali ip atla.", duration: 30 },
+            { id: 12, cat: "Fiziksel", level: "Kolay", text: "45 saniye boyunca yavaş çekimde hareket et.", duration: 45 },
+            { id: 13, cat: "Fiziksel", level: "Kolay", text: "20 saniye boyunca heykel gibi hareketsiz kal.", duration: 20 },
+            { id: 14, cat: "Fiziksel", level: "Kolay", text: "30 saniye boyunca bir hayvanın hareketlerini taklit et.", duration: 30 },
+            { id: 15, cat: "Fiziksel", level: "Orta", text: "45 saniye boyunca ritim tutarak dans et.", duration: 45 },
+            { id: 16, cat: "Fiziksel", level: "Orta", text: "10 kontrollü mekik yap." },
+            { id: 17, cat: "Fiziksel", level: "Orta", text: "30 saniye boyunca dengeni koruyarak farklı pozlar oluştur.", duration: 30 },
+            { id: 18, cat: "Fiziksel", level: "Zor", text: "1 dakika boyunca bir spor spikeri gibi hareketleri anlat.", duration: 60 },
+            { id: 19, cat: "Fiziksel", level: "Kolay", text: "30 saniye boyunca müziğin ritmine uygun hareket et.", duration: 30 },
+            { id: 20, cat: "Fiziksel", level: "Zor", text: "45 saniyelik doğaçlama dans gösterisi yap.", duration: 45 },
 
-            // Komedi cezaları (11-20)
-            { id: 11, cat: "Komedi", title: "Robot Modu", text: "30 saniye boyunca robot gibi konuş." },
-            { id: 12, cat: "Komedi", title: "Canlı Yayın", text: "Bir dakika boyunca spiker gibi konuş." },
-            { id: 13, cat: "Komedi", title: "Vahşi Yaşam", text: "Bir hayvanı taklit et." },
-            { id: 14, cat: "Komedi", title: "Animasyon", text: "Bir çizgi film karakterini taklit et." },
-            { id: 15, cat: "Komedi", title: "Opera Gecesi", text: "30 saniye boyunca opera sanatçısı gibi şarkı söyle." },
-            { id: 16, cat: "Komedi", title: "Sayın Seyirciler", text: "Bir dakika boyunca her cümlene 'Sayın seyirciler' diye başla." },
-            { id: 17, cat: "Komedi", title: "Gizli Hat", text: "Görünmez bir telefonla konuş." },
-            { id: 18, cat: "Komedi", title: "Reklam Kuşağı", text: "Bir reklam filmi sunuyormuş gibi suyu tanıt." },
-            { id: 19, cat: "Komedi", title: "Kahkaha Terapisi", text: "En komik kahkahanı at." },
-            { id: 20, cat: "Komedi", title: "Ciddi Haber", text: "Bir dakika boyunca aşırı ciddi bir haber sunucusu ol." },
+            // ZİHİN VE HAFIZA (21-40)
+            { id: 21, cat: "Zihin & Hafıza", level: "Zor", text: "20 saniyede 15 şehir ismi say.", duration: 20 },
+            { id: 22, cat: "Zihin & Hafıza", level: "Orta", text: "30 saniyede 15 hayvan ismi say.", duration: 30 },
+            { id: 23, cat: "Zihin & Hafıza", level: "Zor", text: "Grubun söylediği 10 kelimeyi dinle ve sırasıyla tekrar et." },
+            { id: 24, cat: "Zihin & Hafıza", level: "Zor", text: "30 saniyede 10 ülkenin başkentini söyle.", duration: 30 },
+            { id: 25, cat: "Zihin & Hafıza", level: "Orta", text: "20 saniye içinde 10 farklı meslek say.", duration: 20 },
+            { id: 26, cat: "Zihin & Hafıza", level: "Zor", text: "Grubun seçtiği bir kelimeyi tersten harf harf söyle." },
+            { id: 27, cat: "Zihin & Hafıza", level: "Zor", text: "60 saniyede 20 farklı kelime üret.", duration: 60 },
+            { id: 28, cat: "Zihin & Hafıza", level: "Orta", text: "Grubun verdiği üç rastgele kelimeyle anlamlı hikâye oluştur." },
+            { id: 29, cat: "Zihin & Hafıza", level: "Orta", text: "30 saniye boyunca aynı harfle başlayan 15 kelime söyle.", duration: 30 },
+            { id: 30, cat: "Zihin & Hafıza", level: "Extreme", text: "10 saniye boyunca havaya çizilen şekilleri hafızanda tut ve tekrar çiz." },
+            { id: 31, cat: "Zihin & Hafıza", level: "Zor", text: "Bir dakika boyunca zihinden hızlı matematik işlemlerini cevapla.", duration: 60 },
+            { id: 32, cat: "Zihin & Hafıza", level: "Orta", text: "20 saniyede 10 film veya kitap adı say.", duration: 20 },
+            { id: 33, cat: "Zihin & Hafıza", level: "Orta", text: "Bir atasözünü kelimelerini kullanmadan anlamıyla anlat." },
+            { id: 34, cat: "Zihin & Hafıza", level: "Extreme", text: "30 saniyede arkadaştan gelen beş hızlı soruyu cevapla.", duration: 30 },
+            { id: 35, cat: "Zihin & Hafıza", level: "Extreme", text: "60 saniyede 10 farklı ülkeyi kıtalarıyla eşleştir.", duration: 60 },
+            { id: 36, cat: "Zihin & Hafıza", level: "Kolay", text: "15 saniyede 10 meyve say.", duration: 15 },
+            { id: 37, cat: "Zihin & Hafıza", level: "Orta", text: "Bir kelimeyi adını söylemeden grubuna tarif et." },
+            { id: 38, cat: "Zihin & Hafıza", level: "Orta", text: "30 saniyede 10 eş anlamlı kelime çifti söyle.", duration: 30 },
+            { id: 39, cat: "Zihin & Hafıza", level: "Orta", text: "20 saniyede 10 zıt anlamlı kelime çifti oluştur.", duration: 20 },
+            { id: 40, cat: "Zihin & Hafıza", level: "Extreme", text: "1 dakika boyunca söylenen kelime serisini hafızada tutup tekrar et.", duration: 60 },
 
-            // Cesaret cezaları (21-30)
-            { id: 21, cat: "Cesaret", title: "Pist Senin", text: "30 saniye boyunca dans et." },
-            { id: 22, cat: "Cesaret", title: "Nakarat", text: "Sevdiğin bir şarkının nakaratını söyle." },
-            { id: 23, cat: "Cesaret", title: "Gözler Kör", text: "Gözlerini kapatıp bir şarkıyı mırıldan." },
-            { id: 24, cat: "Cesaret", title: "Flamingo", text: "20 saniye boyunca tek ayak üzerinde dengede dur." },
-            { id: 25, cat: "Cesaret", title: "Dil Bükücü", text: "Bir tekerlemeyi üç kez hızlı söyle." },
-            { id: 26, cat: "Cesaret", title: "Fragman", text: "Kendi hayatının fragmanını anlat." },
-            { id: 27, cat: "Cesaret", title: "Süper Kahraman", text: "Hayalindeki süper kahramanı canlandır." },
-            { id: 28, cat: "Cesaret", title: "Taş Heykel", text: "30 saniye boyunca hiç gülmeden dur." },
-            { id: 29, cat: "Cesaret", title: "Hoca Efendi", text: "Bir dakikalığına öğretmen rolü yap." },
-            { id: 30, cat: "Cesaret", title: "Antika Değer", text: "Rastgele bir nesneyi çok değerliymiş gibi tanıt." },
+            // KONUŞMA VE ÖZGÜVEN (41-60)
+            { id: 41, cat: "Konuşma & Özgüven", level: "Zor", text: "90 saniye boyunca hiç duraksamadan bir konu hakkında konuş.", duration: 90 },
+            { id: 42, cat: "Konuşma & Özgüven", level: "Orta", text: "Bir dakika boyunca seçilen rastgele bir fikri savun.", duration: 60 },
+            { id: 43, cat: "Konuşma & Özgüven", level: "Zor", text: "60 saniyelik doğaçlama stand-up gösterisi yap.", duration: 60 },
+            { id: 44, cat: "Konuşma & Özgüven", level: "Orta", text: "Rastgele bir nesne için 1 dakikalık reklam konuşması yap.", duration: 60 },
+            { id: 45, cat: "Konuşma & Özgüven", level: "Zor", text: "90 saniye boyunca ana haber sunucusu gibi konuş.", duration: 90 },
+            { id: 46, cat: "Konuşma & Özgüven", level: "Orta", text: "Bir dakikada kendini iş görüşmesindeymiş gibi tanıt.", duration: 60 },
+            { id: 47, cat: "Konuşma & Özgüven", level: "Orta", text: "Rastgele verilen üç kelimeyi kullanarak akıcı konuşma yap." },
+            { id: 48, cat: "Konuşma & Özgüven", level: "Zor", text: "60 saniye boyunca sadece sorularla konuş.", duration: 60 },
+            { id: 49, cat: "Konuşma & Özgüven", level: "Extreme", text: "Bir hikâyeyi üç farklı karakterin sesiyle canlandır." },
+            { id: 50, cat: "Konuşma & Özgüven", level: "Zor", text: "Bir dakika boyunca hiç 'ııı', 'eee' demeden konuş.", duration: 60 },
+            { id: 51, cat: "Konuşma & Özgüven", level: "Zor", text: "Hayali bir ülkenin lideriymış gibi halka hitap et.", duration: 60 },
+            { id: 52, cat: "Konuşma & Özgüven", level: "Orta", text: "Bir dakika boyunca profesör gibi ders anlat.", duration: 60 },
+            { id: 53, cat: "Konuşma & Özgüven", level: "Zor", text: "90 saniyelik motivasyon konuşması yap.", duration: 90 },
+            { id: 54, cat: "Konuşma & Özgüven", level: "Orta", text: "Bir filmi 60 saniyede anlat ama adını asla söyleme.", duration: 60 },
+            { id: 55, cat: "Konuşma & Özgüven", level: "Orta", text: "Bir dakikalık sürükleyici korku hikâyesi anlat.", duration: 60 },
+            { id: 56, cat: "Konuşma & Özgüven", level: "Extreme", text: "Bir konuyu hem savun hem de hemen ardından karşı görüşünü açıkla.", duration: 60 },
+            { id: 57, cat: "Konuşma & Özgüven", level: "Zor", text: "60 saniye boyunca yalnızca İngilizce konuş.", duration: 60 },
+            { id: 58, cat: "Konuşma & Özgüven", level: "Orta", text: "Bir dakikalığına heyecanlı spor yorumcusu ol.", duration: 60 },
+            { id: 59, cat: "Konuşma & Özgüven", level: "Orta", text: "Sıradan bir kalemi dünyanın en önemli icadı gibi tanıt.", duration: 60 },
+            { id: 60, cat: "Konuşma & Özgüven", level: "Zor", text: "90 saniye boyunca doğaçlama bir masal anlat.", duration: 90 },
 
-            // Yaratıcılık cezaları (31-40)
-            { id: 31, cat: "Yaratıcılık", title: "Anında Hikaye", text: "20 saniyede bir hikâye uydur." },
-            { id: 32, cat: "Yaratıcılık", title: "Yeni Dünya", text: "Yeni bir ülke icat et ve tanıt." },
-            { id: 33, cat: "Yaratıcılık", title: "İnovasyon", text: "Hayali bir ürün için reklam yap." },
-            { id: 34, cat: "Yaratıcılık", title: "Özel Güç", text: "Kendi süper gücünü ve zayıflığını anlat." },
-            { id: 35, cat: "Yaratıcılık", title: "Şair Ruh", text: "Bir dakikada komik bir şiir oluştur." },
-            { id: 36, cat: "Yaratıcılık", title: "Üç Kelime", text: "Üç rastgele kelimeyle hikâye oluştur." },
-            { id: 37, cat: "Yaratıcılık", title: "Karakter Tasarımı", text: "Bir oyun karakteri tasarla." },
-            { id: 38, cat: "Yaratıcılık", title: "Bülten", text: "Hayali bir haber bülteni hazırla." },
-            { id: 39, cat: "Yaratıcılık", title: "Vizyon", text: "Kendi filmine isim bul." },
-            { id: 40, cat: "Yaratıcılık", title: "Motivatör", text: "Bir dakikalığına motivasyon konuşması yap." },
+            // EXTREME KARIŞIK (61-80)
+            { id: 61, cat: "Extreme Karışık", level: "Extreme", text: "30 saniye plank yaparken bir tekerleme söyle.", duration: 30 },
+            { id: 62, cat: "Extreme Karışık", level: "Orta", text: "Tek ayak üzerinde dururken 50'den geriye say.", duration: 30 },
+            { id: 63, cat: "Extreme Karışık", level: "Extreme", text: "30 saniye dans ederken akıcı bir hikâye anlat.", duration: 30 },
+            { id: 64, cat: "Extreme Karışık", level: "Extreme", text: "10 squat yaparken aynı anda 10 şehir ismi say." },
+            { id: 65, cat: "Extreme Karışık", level: "Orta", text: "30 saniye ritim tutarken alfabeyi tersten söylemeye çalış.", duration: 30 },
+            { id: 66, cat: "Extreme Karışık", level: "Zor", text: "Bir dakika boyunca komik bir uzaylı karakterini canlandır.", duration: 60 },
+            { id: 67, cat: "Extreme Karışık", level: "Zor", text: "60 saniyede bir hikâye oluştur ve beklenmedik ters köşe bir son ekle.", duration: 60 },
+            { id: 68, cat: "Extreme Karışık", level: "Zor", text: "30 saniye içinde beş farklı duygu halini canlandır.", duration: 30 },
+            { id: 69, cat: "Extreme Karışık", level: "Extreme", text: "Bir dakika boyunca grubun seçtiği yasaklı kelimeyi hiç söylemeden konuş.", duration: 60 },
+            { id: 70, cat: "Extreme Karışık", level: "Extreme", text: "Bir dakika boyunca aynı anda iki farklı karakterin diyaloglarını canlandır.", duration: 60 },
+            { id: 71, cat: "Extreme Karışık", level: "Extreme", text: "20 saniyede 10 kelime ezberle ve ters sırayla tekrar et.", duration: 20 },
+            { id: 72, cat: "Extreme Karışık", level: "Zor", text: "Bir dakika boyunca takılmadan hızlı tekerleme söyle.", duration: 60 },
+            { id: 73, cat: "Extreme Karışık", level: "Extreme", text: "30 saniye gözlerin kapalı oturduğun yerden bulunduğun şehri tarif et.", duration: 30 },
+            { id: 74, cat: "Extreme Karışık", level: "Extreme", text: "60 saniyelik sahte bir basın toplantısı yap ve gruptan gelen soruları yanıtla.", duration: 60 },
+            { id: 75, cat: "Extreme Karışık", level: "Zor", text: "Bir dakika içinde 10 farklı spor dalı ve kuralı hakkında bilgi ver.", duration: 60 },
+            { id: 76, cat: "Extreme Karışık", level: "Zor", text: "Bir dakikada kendi tasarladığın hayali oyunu sun.", duration: 60 },
+            { id: 77, cat: "Extreme Karışık", level: "Zor", text: "30 saniye boyunca dans ederken 100'den geriye 7'şer say.", duration: 30 },
+            { id: 78, cat: "Extreme Karışık", level: "Extreme", text: "Bir dakika boyunca hiç aynı kelimeyle başlamayan cümleler kur.", duration: 60 },
+            { id: 79, cat: "Extreme Karışık", level: "Extreme", text: "90 saniyede üç farklı karakterin bulunduğu tiyatro sahnesi oluştur.", duration: 90 },
+            { id: 80, cat: "Extreme Karışık", level: "Extreme", text: "60 saniye boyunca rastgele sorulara hiç düşünmeden anında cevap ver.", duration: 60 },
 
-            // Zorlayıcı ama güvenli cezalar (41-50)
-            { id: 41, cat: "Zorlayıcı", title: "Soru Bankası", text: "60 saniye boyunca sadece sorularla konuş." },
-            { id: 42, cat: "Zorlayıcı", title: "Yasak Kelime", text: "30 saniye boyunca hiç 'evet' veya 'hayır' deme." },
-            { id: 43, cat: "Zorlayıcı", title: "Hayvanat Bahçesi", text: "20 saniye içinde 10 hayvan say." },
-            { id: 44, cat: "Zorlayıcı", title: "Geri Sayım", text: "Alfabenin sonundan başlayarak saymaya çalış." },
-            { id: 45, cat: "Zorlayıcı", title: "Ekstra Kelime", text: "Bir dakika boyunca her cümlenin sonuna farklı bir kelime ekle." },
-            { id: 46, cat: "Zorlayıcı", title: "Ciddi Tekerleme", text: "Bir tekerlemeyi gülmeden söyle." },
-            { id: 47, cat: "Zorlayıcı", title: "Sansür", text: "30 saniye boyunca bir kelimeyi kullanmadan konuş." },
-            { id: 48, cat: "Zorlayıcı", title: "Dünya Turu", text: "Bir dakikada 10 ülke say." },
-            { id: 49, cat: "Zorlayıcı", title: "Manav", text: "15 saniyede 10 meyve say." },
-            { id: 50, cat: "Zorlayıcı", title: "Gizli Ajan", text: "Bir dakika boyunca fısıldayarak konuş." },
-
-            // Arkadaş ortamı cezaları (51-60)
-            { id: 51, cat: "Arkadaş", title: "Övgü Yağmuru", text: "Yanındaki oyuncuya üç güzel özellik söyle." },
-            { id: 52, cat: "Arkadaş", title: "Ayna", text: "Bir oyuncunun komik bir hareketini taklit et." },
-            { id: 53, cat: "Arkadaş", title: "Lakap Takma", text: "Bir oyuncuya komik ama nazik bir lakap bul." },
-            { id: 54, cat: "Arkadaş", title: "Bilmece Zamanı", text: "Gruba bir bilmece sor." },
-            { id: 55, cat: "Arkadaş", title: "İltifat", text: "Bir oyuncuya iltifat et." },
-            { id: 56, cat: "Arkadaş", title: "Grup Bestesi", text: "Grubun seçtiği bir kelimeyle şarkı uydur." },
-            { id: 57, cat: "Arkadaş", title: "Hikaye Zinciri", text: "Her oyuncuya bir kelime söyle ve onlardan hikâye oluştur." },
-            { id: 58, cat: "Arkadaş", title: "Düello", text: "Bir oyuncuyla taş-kâğıt-makas oyna." },
-            { id: 59, cat: "Arkadaş", title: "Maskot", text: "Grubun seçtiği bir hayvanı taklit et." },
-            { id: 60, cat: "Arkadaş", title: "Tahmin Et", text: "Bir oyuncuya üç ipucuyla bilmece sor." },
-
-            // Mimik ve hareket cezaları (61-70)
-            { id: 61, cat: "Mimik & Hareket", title: "Heykel", text: "30 saniye boyunca heykel gibi dur." },
-            { id: 62, cat: "Mimik & Hareket", title: "Duygu Sel", text: "Mutlu, üzgün ve şaşkın yüz ifadelerini sırayla yap." },
-            { id: 63, cat: "Mimik & Hareket", title: "Ağır Çekim", text: "Ağır çekimde yürüyormuş gibi davran." },
-            { id: 64, cat: "Mimik & Hareket", title: "Görünmez Duvar", text: "Bir dakikalığına görünmez bir duvarı it." },
-            { id: 65, cat: "Mimik & Hareket", title: "Podyum", text: "Komik bir podyum yürüyüşü yap." },
-            { id: 66, cat: "Mimik & Hareket", title: "Çizgi Film", text: "Bir çizgi film karakterinin yürüyüşünü taklit et." },
-            { id: 67, cat: "Mimik & Hareket", title: "Yerinde Durma", text: "20 saniye boyunca dans ederek yerinde dur." },
-            { id: 68, cat: "Mimik & Hareket", title: "Doğa Belgeseli", text: "Bir hayvanın yürüyüşünü taklit et." },
-            { id: 69, cat: "Mimik & Hareket", title: "Spor Yorumcusu", text: "Bir dakikalığına spor yorumcusu ol." },
-            { id: 70, cat: "Mimik & Hareket", title: "Ödül Töreni", text: "Hayali bir ödül kazanmış gibi teşekkür konuşması yap." },
-
-            // Zekâ cezaları (71-80)
-            { id: 71, cat: "Zekâ", title: "Şehir Turu", text: "10 saniyede beş şehir say." },
-            { id: 72, cat: "Zekâ", title: "Bilmece", text: "Bir bilmeceyi çözmeye çalış." },
-            { id: 73, cat: "Zekâ", title: "Sinema Kuşağı", text: "20 saniyede beş film adı say." },
-            { id: 74, cat: "Zekâ", title: "Tersten Okuma", text: "Bir kelimeyi tersten söyle." },
-            { id: 75, cat: "Zekâ", title: "Cümle Kurma", text: "Üç kelimeyi kullanarak anlamlı cümle kur." },
-            { id: 76, cat: "Zekâ", title: "Hafıza", text: "Bir dakika boyunca aklına gelen ülkeleri say." },
-            { id: 77, cat: "Zekâ", title: "Renk Cümbüşü", text: "Beş saniyede beş renk söyle." },
-            { id: 78, cat: "Zekâ", title: "Atasözü", text: "Bir atasözünü açıkla." },
-            { id: 79, cat: "Zekâ", title: "Kelime İcadı", text: "Bir dakikada üç yeni kelime uydur." },
-            { id: 80, cat: "Zekâ", title: "Tabu", text: "Bir nesneyi adını söylemeden tarif et." },
-
-            // Sürpriz cezalar (81-90)
-            { id: 81, cat: "Sürpriz", title: "Müzik Kulak", text: "Gözlerin kapalıyken bir şarkıyı tahmin et." },
-            { id: 82, cat: "Sürpriz", title: "Rastgele Nota", text: "Rastgele seçilen bir kelimeyle şarkı söyle." },
-            { id: 83, cat: "Sürpriz", title: "Üçüncü Şahıs", text: "Bir dakika boyunca yalnızca üçüncü şahıs gibi kendinden bahset." },
-            { id: 84, cat: "Sürpriz", title: "Hava Durumu", text: "Bir dakikalığına hava durumu sunucusu ol." },
-            { id: 85, cat: "Sürpriz", title: "Uzaylı Teması", text: "Hayali bir uzaylıyla tanışıyormuş gibi konuş." },
-            { id: 86, cat: "Sürpriz", title: "Şokta", text: "Bir dakika boyunca her şeyi çok şaşırmış gibi karşıla." },
-            { id: 87, cat: "Sürpriz", title: "Seslendirme", text: "Bir çizgi film sahnesini seslendir." },
-            { id: 88, cat: "Sürpriz", title: "Şef", text: "Bir dakikalığına restoran şefi rolü yap." },
-            { id: 89, cat: "Sürpriz", title: "Maç Anlatımı", text: "Hayali bir spor müsabakasını anlat." },
-            { id: 90, cat: "Sürpriz", title: "Duygu Modeli", text: "Grubun seçtiği bir duyguyu mimiklerinle canlandır." },
-
-            // Efsane cezalar (91-100)
-            { id: 91, cat: "Efsane", title: "Stand-Up", text: "60 saniyelik komedi gösterisi yap." },
-            { id: 92, cat: "Efsane", title: "Korku Saati", text: "Bir dakikalık korku hikâyesi anlat." },
-            { id: 93, cat: "Efsane", title: "Belgesel", text: "Kendi hayatını belgesel anlatıcısı gibi anlat." },
-            { id: 94, cat: "Efsane", title: "Üçlü Karakter", text: "30 saniyede üç farklı karakter canlandır." },
-            { id: 95, cat: "Efsane", title: "Seçim Konuşması", text: "Bir dakikalığına seçim konuşması yap." },
-            { id: 96, cat: "Efsane", title: "Münazara", text: "Grubun seçtiği bir konuyu savunuyormuş gibi konuş." },
-            { id: 97, cat: "Efsane", title: "Tarz Değişimi", text: "Bir şarkıyı farklı bir müzik türünde söyle." },
-            { id: 98, cat: "Efsane", title: "Medya Yıldızı", text: "Bir dakikalığına ünlü bir sunucu gibi davran." },
-            { id: 99, cat: "Efsane", title: "Tiyatro Sahnesi", text: "Rastgele üç kelimeyle komik bir tiyatro sahnesi oluştur." },
-            { id: 100, cat: "Efsane", title: "Doğaçlama Şov", text: "90 saniyelik doğaçlama gösteri yap." }
+            // EFSANE SEVİYE (81-100)
+            { id: 81, cat: "Efsane", level: "Efsane", text: "İki dakika boyunca hiç durmadan doğaçlama hikâye anlat.", duration: 120 },
+            { id: 82, cat: "Efsane", level: "Efsane", text: "60 saniyede bir ürünün reklamını, sloganını ve satış konuşmasını yap.", duration: 60 },
+            { id: 83, cat: "Efsane", level: "Efsane", text: "30 saniye plank yaparken 10 şehir ve 10 hayvan say.", duration: 30 },
+            { id: 84, cat: "Efsane", level: "Efsane", text: "Bir dakika boyunca seçilen konunun hem olumlu hem olumsuz yönlerini savun.", duration: 60 },
+            { id: 85, cat: "Efsane", level: "Efsane", text: "90 saniyede tamamen doğaçlama bir tiyatro oyunu sergile.", duration: 90 },
+            { id: 86, cat: "Efsane", level: "Efsane", text: "Grubun söylediği 15 kelimeyi ezberle ve sırasıyla tekrarla." },
+            { id: 87, cat: "Efsane", level: "Efsane", text: "60 saniye boyunca seçtiğin bir karakteri hiç bozmadan canlandır.", duration: 60 },
+            { id: 88, cat: "Efsane", level: "Efsane", text: "Bir dakikalık bilim insanı edasıyla hayali bir buluş sun.", duration: 60 },
+            { id: 89, cat: "Efsane", level: "Efsane", text: "90 saniyelik bir haber programı sun ve üç farklı haber uydur.", duration: 90 },
+            { id: 90, cat: "Efsane", level: "Efsane", text: "60 saniye boyunca kuantum fiziğini çocuklara anlatır gibi açıkla.", duration: 60 },
+            { id: 91, cat: "Efsane", level: "Efsane", text: "30 saniyede 10 kelimeyi tersten harf harf söylemeye çalış.", duration: 30 },
+            { id: 92, cat: "Efsane", level: "Efsane", text: "Bir dakika boyunca aynı anda hikâye anlatıp masaya ritim vur.", duration: 60 },
+            { id: 93, cat: "Efsane", level: "Efsane", text: "İki dakika içinde bir Hollywood film senaryosunun girişini yap.", duration: 120 },
+            { id: 94, cat: "Efsane", level: "Efsane", text: "Bir dakika boyunca üç farklı aksan ve karakterle konuş.", duration: 60 },
+            { id: 95, cat: "Efsane", level: "Efsane", text: "60 saniyelik coşkulu bir seçim kampanyası konuşması yap.", duration: 60 },
+            { id: 96, cat: "Efsane", level: "Efsane", text: "30 saniye plank sonrasında hiç nefeslenmeden 1 dakika doğaçlama konuş.", duration: 60 },
+            { id: 97, cat: "Efsane", level: "Efsane", text: "Bir dakikada 20 farklı nesne say ve her birini tek kelimeyle tanımla.", duration: 60 },
+            { id: 98, cat: "Efsane", level: "Efsane", text: "90 saniyelik bir belgesel anlatımı yap.", duration: 90 },
+            { id: 99, cat: "Efsane", level: "Efsane", text: "Bir dakika boyunca karşılıklı iki karakterin tartışmasını tek başına canlandır.", duration: 60 },
+            { id: 100, cat: "Efsane", level: "👑 SON SINAV", text: "SON SINAV: 2 dakikalık doğaçlama gösteri yap! İçinde dans, hikâye, taklit ve konuşma aynı anda bulunsun.", duration: 120 }
         ];
 
         // --- STATE MANAGEMENT ---
         let players = [
-            { id: 1, name: "Oyuncu 1", completed: 0 },
-            { id: 2, name: "Oyuncu 2", completed: 0 }
+            { id: 1, name: "Oyuncu 1", completed: 0, passed: 0 },
+            { id: 2, name: "Oyuncu 2", completed: 0, passed: 0 }
         ];
         let activePlayerIndex = 0;
         let totalSpins = 0;
         let completedTotal = 0;
+        let passedTotal = 0;
         let historyLog = [];
-        let currentSelectedPunishment = null;
+        let currentSelectedTask = null;
+        let lastTaskIndex = -1;
+
+        // TIMER STATE
+        let timerInterval = null;
+        let timerSecondsLeft = 0;
 
         // --- CANVAS WHEEL SETUP ---
         const canvas = document.getElementById('wheelCanvas');
         const ctx = canvas.getContext('2d');
-        const numSlices = punishments.length; // 100
+        const numSlices = tasks.length; // 100
         const arcSize = (2 * Math.PI) / numSlices;
         let currentAngle = 0;
         let isSpinning = false;
 
-        const colors = [
-            '#6366f1', '#ec4899', '#8b5cf6', '#3b82f6', 
-            '#10b981', '#f59e0b', '#ef4444', '#14b8a6'
-        ];
+        function getCategoryColor(cat) {
+            switch(cat) {
+                case "Fiziksel": return '#ef4444';
+                case "Zihin & Hafıza": return '#3b82f6';
+                case "Konuşma & Özgüven": return '#8b5cf6';
+                case "Extreme Karışık": return '#ec4899';
+                case "Efsane": return '#f59e0b';
+                default: return '#6366f1';
+            }
+        }
 
         function drawWheel(angle = 0) {
             const width = canvas.width;
@@ -759,7 +762,6 @@
             const center = radius;
 
             ctx.clearRect(0, 0, width, height);
-
             ctx.save();
             ctx.translate(center, center);
             ctx.rotate(angle);
@@ -770,74 +772,72 @@
 
                 ctx.beginPath();
                 ctx.moveTo(0, 0);
-                ctx.arc(0, 0, radius - 10, startAngle, endAngle);
+                ctx.arc(0, 0, radius - 12, startAngle, endAngle);
                 ctx.closePath();
 
-                ctx.fillStyle = colors[i % colors.length];
+                ctx.fillStyle = getCategoryColor(tasks[i].cat);
                 ctx.fill();
-                ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+                ctx.strokeStyle = 'rgba(0,0,0,0.4)';
                 ctx.lineWidth = 1;
                 ctx.stroke();
 
-                // Draw Slice Number
                 ctx.save();
                 ctx.rotate(startAngle + arcSize / 2);
                 ctx.textAlign = 'right';
                 ctx.fillStyle = '#ffffff';
-                ctx.font = 'bold 10px Poppins';
-                ctx.fillText(`#${i + 1}`, radius - 20, 4);
+                ctx.font = 'bold 9px Poppins';
+                ctx.fillText(`${i + 1}`, radius - 22, 3);
                 ctx.restore();
             }
 
             ctx.restore();
 
-            // Center Knob
+            // Center Ring
             ctx.beginPath();
-            ctx.arc(center, center, 35, 0, 2 * Math.PI);
-            ctx.fillStyle = '#1f2937';
+            ctx.arc(center, center, 42, 0, 2 * Math.PI);
+            ctx.fillStyle = '#0f172a';
             ctx.fill();
-            ctx.lineWidth = 6;
-            ctx.strokeStyle = '#ec4899';
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = '#f59e0b';
             ctx.stroke();
 
             ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 12px Poppins';
+            ctx.font = '900 12px Poppins';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText('CEZA', center, center);
+            ctx.fillText('EXTREME', center, center - 6);
+            ctx.fillText('100', center, center + 8);
         }
 
-        // --- GAME LOGIC ---
         function updateUI() {
-            // Active Player
             document.getElementById('activePlayerName').textContent = players[activePlayerIndex].name;
             document.getElementById('totalSpinsCount').textContent = totalSpins;
             document.getElementById('completedCount').textContent = completedTotal;
+            document.getElementById('passedCount').textContent = passedTotal;
             document.getElementById('playerCount').textContent = players.length;
 
-            // Players List
             const pContainer = document.getElementById('playersListContainer');
             pContainer.innerHTML = '';
             players.forEach((p, idx) => {
                 const div = document.createElement('div');
                 div.className = `player-item ${idx === activePlayerIndex ? 'active' : ''}`;
                 div.innerHTML = `
-                    <span>${p.name} <small style="color:var(--text-muted)">(${p.completed} ceza)</small></span>
+                    <span>${p.name} <small style="color:var(--text-muted)">(✅${p.completed} | ⏭️${p.passed})</small></span>
                     ${players.length > 2 ? `<button onclick="removePlayer(${p.id})">Sil</button>` : ''}
                 `;
                 pContainer.appendChild(div);
             });
 
-            // History List
             const hContainer = document.getElementById('historyListContainer');
             if (historyLog.length === 0) {
-                hContainer.innerHTML = `<div style="color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 10px;">Henüz ceza çıkmadı.</div>`;
+                hContainer.innerHTML = `<div style="color: var(--text-muted); text-align: center; padding: 15px;">Henüz görev seçilmedi.</div>`;
             } else {
                 hContainer.innerHTML = '';
                 historyLog.forEach(h => {
                     const item = document.createElement('div');
                     item.className = 'history-item';
-                    item.innerHTML = `<span class="h-player">${h.player}</span>: ${h.title} <span style="color:var(--text-muted); font-size:0.75rem">(${h.status})</span>`;
+                    item.style.borderLeftColor = getCategoryColor(h.cat);
+                    item.innerHTML = `<span class="h-player">${h.player}</span>: #${h.id} ${h.title} <span style="color:var(--text-muted); font-size:0.75rem">(${h.status})</span>`;
                     hContainer.appendChild(item);
                 });
             }
@@ -848,10 +848,10 @@
             const name = input.value.trim();
             if (!name) return;
             if (players.length >= 10) {
-                alert('En fazla 10 oyuncu ekleyebilirsiniz.');
+                alert('Maksimum 10 oyuncu eklenebilir.');
                 return;
             }
-            players.push({ id: Date.now(), name: name, completed: 0 });
+            players.push({ id: Date.now(), name: name, completed: 0, passed: 0 });
             input.value = '';
             updateUI();
         }
@@ -863,49 +863,11 @@
             updateUI();
         }
 
-        function spinWheel() {
-            if (isSpinning) return;
-            isSpinning = true;
-            document.getElementById('spinBtn').disabled = true;
-
-            totalSpins++;
-            playSound('tick');
-
-            // Random target slice (0 to 99)
-            const winningIndex = Math.floor(Math.random() * numSlices);
-            
-            // Calculate target rotation angle
-            const extraSpins = 6 + Math.floor(Math.random() * 4); // 6 to 9 full spins
-            const sliceAngle = 2 * Math.PI / numSlices;
-            // Pointer is at top (-PI/2 or 0 depending on alignment). Here pointer is at top (12 o'clock).
-            // Let's align rotation so winning index is at the top.
-            const targetAngle = currentAngle + (extraSpins * 2 * Math.PI) + (2 * Math.PI - (winningIndex * sliceAngle + sliceAngle / 2)) - (currentAngle % (2 * Math.PI));
-
-            currentAngle = targetAngle;
-            drawWheel(currentAngle);
-
-            // Audio simulation ticks during spin
-            let tickInterval = setInterval(() => {
-                playSound('tick');
-            }, 120);
-
-            setTimeout(() => {
-                clearInterval(tickInterval);
-                isSpinning = false;
-                document.getElementById('spinBtn').disabled = false;
-                playSound('gong');
-
-                // Get punishment result
-                currentSelectedPunishment = punishments[winningIndex];
-                showPunishmentModal(currentSelectedPunishment);
-            }, 4000); // 4 seconds animation match CSS transition if any, but we draw via JS or CSS. Let's use CSS transition on canvas wrapper or direct angle redraw.
-        }
-
-        // We can hook canvas transform transition or animate via requestAnimationFrame for perfect sync
+        // --- ANIMATED WHEEL SPIN ---
         let animationStartTime;
         let startAngleVal = 0;
         let targetAngleVal = 0;
-        let animationDuration = 4000;
+        const animationDuration = 4500;
 
         function spinWheel() {
             if (isSpinning) return;
@@ -913,12 +875,15 @@
             document.getElementById('spinBtn').disabled = true;
             totalSpins++;
 
-            const winningIndex = Math.floor(Math.random() * numSlices);
+            let winningIndex = Math.floor(Math.random() * numSlices);
+            // Prevent exact duplicate back to back
+            if (winningIndex === lastTaskIndex) {
+                winningIndex = (winningIndex + 1) % numSlices;
+            }
+            lastTaskIndex = winningIndex;
+
             const sliceAngle = 2 * Math.PI / numSlices;
-            
-            // Target angle computation
-            const fullRotations = 8 * 2 * Math.PI;
-            // Top pointer corresponds to angle 0 when wheel is rotated such that slice center is at top.
+            const fullRotations = 7 * 2 * Math.PI;
             const targetSliceCenterAngle = winningIndex * sliceAngle + sliceAngle / 2;
             const desiredFinalAngle = fullRotations + (2 * Math.PI - targetSliceCenterAngle);
 
@@ -932,15 +897,12 @@
         function animateWheel(currentTime) {
             const elapsed = currentTime - animationStartTime;
             const progress = Math.min(elapsed / animationDuration, 1);
-            
-            // Ease out cubic
             const easeProgress = 1 - Math.pow(1 - progress, 3);
             currentAngle = startAngleVal + (targetAngleVal - startAngleVal) * easeProgress;
 
             drawWheel(currentAngle);
 
-            // Play tick sound on passing slices
-            if (Math.floor(currentAngle * 10) % 5 === 0) {
+            if (Math.floor(currentAngle * 12) % 6 === 0) {
                 playSound('tick');
             }
 
@@ -951,39 +913,99 @@
                 document.getElementById('spinBtn').disabled = false;
                 playSound('gong');
 
-                // Determine winning index based on final angle normalized
                 const normalizedAngle = (2 * Math.PI - (currentAngle % (2 * Math.PI))) % (2 * Math.PI);
                 const winningIndex = Math.floor(normalizedAngle / arcSize) % numSlices;
 
-                currentSelectedPunishment = punishments[winningIndex];
-                showPunishmentModal(currentSelectedPunishment);
+                currentSelectedTask = tasks[winningIndex];
+                showPunishmentModal(currentSelectedTask);
             }
         }
 
-        // --- MODAL & FLOW ---
-        function showPunishmentModal(punishment) {
+        // --- MODAL & TIMER MANAGEMENT ---
+        function showPunishmentModal(task) {
             const modal = document.getElementById('punishmentModal');
-            document.getElementById('modalCategory').textContent = `Kategori: ${punishment.cat} (No: ${punishment.id})`;
-            document.getElementById('modalTitle').textContent = punishment.title;
-            document.getElementById('modalDesc').textContent = punishment.text;
+            const catBadge = document.getElementById('modalCategory');
+            const lvlBadge = document.getElementById('modalLevel');
+            const timerDisplay = document.getElementById('modalTimer');
+            const timerBtn = document.getElementById('timerStartBtn');
+
+            catBadge.textContent = task.cat;
+            catBadge.style.backgroundColor = getCategoryColor(task.cat) + '33';
+            catBadge.style.color = getCategoryColor(task.cat);
+
+            lvlBadge.textContent = `No: ${task.id} | ${task.level}`;
+            document.getElementById('modalTitle').textContent = task.text;
+
+            // Reset Timer
+            clearInterval(timerInterval);
+            timerInterval = null;
+
+            if (task.duration) {
+                timerSecondsLeft = task.duration;
+                timerDisplay.style.display = 'block';
+                timerBtn.style.display = 'inline-block';
+                timerBtn.textContent = `Zamanlayıcıyı Başlat (${task.duration}s) ⏱️`;
+                updateTimerDisplay();
+            } else {
+                timerDisplay.style.display = 'none';
+                timerBtn.style.display = 'none';
+            }
+
             modal.classList.add('active');
         }
 
+        function updateTimerDisplay() {
+            const mins = Math.floor(timerSecondsLeft / 60);
+            const secs = timerSecondsLeft % 60;
+            document.getElementById('modalTimer').textContent = 
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function toggleTaskTimer() {
+            const timerBtn = document.getElementById('timerStartBtn');
+
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                timerBtn.textContent = 'Devam Et ⏱️';
+            } else {
+                if (timerSecondsLeft <= 0) return;
+                timerBtn.textContent = 'Durdur ⏸️';
+                timerInterval = setInterval(() => {
+                    timerSecondsLeft--;
+                    playSound('timerTick');
+                    updateTimerDisplay();
+
+                    if (timerSecondsLeft <= 0) {
+                        clearInterval(timerInterval);
+                        timerInterval = null;
+                        playSound('success');
+                        timerBtn.textContent = 'Süre Doldu! 🔔';
+                        triggerConfetti();
+                    }
+                }, 1000);
+            }
+        }
+
         function closeModal() {
+            clearInterval(timerInterval);
+            timerInterval = null;
             document.getElementById('punishmentModal').classList.remove('active');
-            // Next player turn
             activePlayerIndex = (activePlayerIndex + 1) % players.length;
             updateUI();
         }
 
         function completePunishment() {
             playSound('success');
+            triggerConfetti();
             completedTotal++;
             players[activePlayerIndex].completed++;
-            
+
             historyLog.unshift({
                 player: players[activePlayerIndex].name,
-                title: currentSelectedPunishment.title,
+                id: currentSelectedTask.id,
+                title: currentSelectedTask.text.substring(0, 30) + "...",
+                cat: currentSelectedTask.cat,
                 status: 'Tamamlandı ✅'
             });
             if (historyLog.length > 20) historyLog.pop();
@@ -993,36 +1015,96 @@
 
         function spinAgain() {
             closeModal();
-            // Immediate re-spin for same player
             setTimeout(() => {
-                activePlayerIndex = (activePlayerIndex - 1 + players.length) % players.length; // Revert index change
+                activePlayerIndex = (activePlayerIndex - 1 + players.length) % players.length;
                 updateUI();
                 spinWheel();
             }, 300);
         }
 
         function passPunishment() {
+            passedTotal++;
+            players[activePlayerIndex].passed++;
+
             historyLog.unshift({
                 player: players[activePlayerIndex].name,
-                title: currentSelectedPunishment.title,
+                id: currentSelectedTask.id,
+                title: currentSelectedTask.text.substring(0, 30) + "...",
+                cat: currentSelectedTask.cat,
                 status: 'Pas Geçildi ⏭️'
             });
             if (historyLog.length > 20) historyLog.pop();
+
             closeModal();
         }
 
         function resetGameData() {
-            if (confirm('Tüm ilerleme ve istatistikler sıfırlansın mı?')) {
+            if (confirm('Tüm skorlar ve ilerleme sıfırlansın mı?')) {
                 totalSpins = 0;
                 completedTotal = 0;
+                passedTotal = 0;
                 historyLog = [];
-                players.forEach(p => p.completed = 0);
+                players.forEach(p => { p.completed = 0; p.passed = 0; });
                 activePlayerIndex = 0;
                 updateUI();
             }
         }
 
-        // Initialize
+        // --- CONFETTI EFFECT ---
+        const cCanvas = document.getElementById('confettiCanvas');
+        const cCtx = cCanvas.getContext('2d');
+        let confettiParticles = [];
+
+        function resizeConfetti() {
+            cCanvas.width = window.innerWidth;
+            cCanvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeConfetti);
+        resizeConfetti();
+
+        function triggerConfetti() {
+            confettiParticles = [];
+            for (let i = 0; i < 90; i++) {
+                confettiParticles.push({
+                    x: cCanvas.width / 2,
+                    y: cCanvas.height / 2,
+                    vx: (Math.random() - 0.5) * 16,
+                    vy: (Math.random() - 0.7) * 16,
+                    color: ['#ef4444', '#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981'][Math.floor(Math.random() * 6)],
+                    size: Math.random() * 8 + 4,
+                    rotation: Math.random() * 360,
+                    opacity: 1
+                });
+            }
+            requestAnimationFrame(animateConfetti);
+        }
+
+        function animateConfetti() {
+            cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+            let active = false;
+
+            confettiParticles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.35;
+                p.opacity -= 0.015;
+
+                if (p.opacity > 0) {
+                    active = true;
+                    cCtx.save();
+                    cCtx.translate(p.x, p.y);
+                    cCtx.rotate(p.rotation * Math.PI / 180);
+                    cCtx.fillStyle = p.color;
+                    cCtx.globalAlpha = Math.max(0, p.opacity);
+                    cCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                    cCtx.restore();
+                }
+            });
+
+            if (active) requestAnimationFrame(animateConfetti);
+        }
+
+        // INIT
         drawWheel();
         updateUI();
     </script>
