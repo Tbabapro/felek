@@ -1,539 +1,1030 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth">
+<html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gaziantep Gezisi 2026 — Aileye Özel Değerlendirme ve İkna Dosyası</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome İkonları -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
-            serif: ['Playfair Display', 'serif'],
-          },
-          colors: {
-            corporate: {
-              navy: '#0b1329',
-              dark: '#0f172a',
-              card: '#1e293b',
-              accent: '#d97706',
-              gold: '#f59e0b',
-              gray: '#64748b'
-            }
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 CEZA – ÇILGIN ÇARK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.85);
+            --accent-primary: #6366f1;
+            --accent-secondary: #ec4899;
+            --accent-gold: #f59e0b;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.1);
         }
-      }
-    }
-  </script>
-  <style>
-    @media print {
-      body { background: white !important; color: #0b1329 !important; }
-      header, .no-print { display: none !important; }
-      .print-box { border: 1px solid #cbd5e1 !important; box-shadow: none !important; }
-    }
-  </style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            user-select: none;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 40%);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #6366f1, #ec4899, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        /* TOP CONTROLS / STATS */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 15px 25px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .current-player-display {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stats-group {
+            display: flex;
+            gap: 20px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .stats-group span {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--accent-primary), #4f46e5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-color);
+            box-shadow: none;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: none;
+        }
+
+        /* MAIN GAME AREA */
+        .game-area {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 25px;
+            width: 100%;
+        }
+
+        @media (max-width: 950px) {
+            .game-area {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* WHEEL SECTION */
+        .wheel-container-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            min-height: 520px;
+        }
+
+        .wheel-wrapper {
+            position: relative;
+            width: 420px;
+            height: 420px;
+            max-width: 100%;
+            aspect-ratio: 1;
+        }
+
+        @media (max-width: 480px) {
+            .wheel-wrapper {
+                width: 320px;
+                height: 320px;
+            }
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), inset 0 0 20px rgba(0,0,0,0.8);
+            transition: transform 4s cubic-bezier(0.15, 0, 0.15, 1);
+        }
+
+        .wheel-pointer {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 18px solid transparent;
+            border-right: 18px solid transparent;
+            border-top: 35px solid var(--accent-secondary);
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+            z-index: 10;
+        }
+
+        .spin-btn {
+            margin-top: 25px;
+            background: linear-gradient(135deg, var(--accent-secondary), #d946ef);
+            color: white;
+            border: none;
+            padding: 15px 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.5);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .spin-btn:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(236, 72, 153, 0.7);
+        }
+
+        .spin-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* SIDEBAR PANEL */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .panel {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .panel h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* PLAYERS LIST */
+        .player-input-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .player-input-box input {
+            flex: 1;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            padding: 10px 15px;
+            border-radius: 10px;
+            color: white;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        .player-input-box input:focus {
+            border-color: var(--accent-primary);
+        }
+
+        .players-list {
+            max-height: 180px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-right: 5px;
+        }
+
+        .player-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.03);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            font-size: 0.9rem;
+        }
+
+        .player-item.active {
+            border-color: var(--accent-gold);
+            background: rgba(245, 158, 11, 0.1);
+            font-weight: 600;
+        }
+
+        .player-item button {
+            background: none;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        /* HISTORY LOG */
+        .history-list {
+            max-height: 200px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.85rem;
+            padding-right: 5px;
+        }
+
+        .history-item {
+            background: rgba(0,0,0,0.2);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-primary);
+        }
+
+        .history-item .h-player {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* MODAL OVERLAY (PUNISHMENT REVEAL) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(5, 7, 12, 0.85);
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: linear-gradient(135deg, #111827, #1f2937);
+            border: 2px solid var(--accent-primary);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 25px 60px rgba(99, 102, 241, 0.4);
+            transform: scale(0.7);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .tension-text {
+            font-size: 1.1rem;
+            color: var(--accent-secondary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            animation: pulseText 1s infinite alternate;
+        }
+
+        @keyframes pulseText {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .punishment-badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--accent-primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+        }
+
+        .punishment-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .punishment-desc {
+            font-size: 1.15rem;
+            color: #d1d5db;
+            margin-bottom: 30px;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .modal-btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .btn-success {
+            background: #10b981;
+            color: white;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+        .btn-success:hover { background: #059669; }
+
+        .btn-pass {
+            background: #6b7280;
+            color: white;
+        }
+        .btn-pass:hover { background: #4b5563; }
+
+        .btn-spin-again {
+            background: var(--accent-primary);
+            color: white;
+        }
+        .btn-spin-again:hover { background: #4f46e5; }
+
+        /* SCROLLBAR CUSTOMIZATION */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.4);
+        }
+    </style>
 </head>
-<body class="bg-corporate-navy text-slate-100 font-sans min-h-screen selection:bg-amber-500 selection:text-slate-950">
+<body>
 
-  <!-- KURUMSAL HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-corporate-navy/90 backdrop-blur-md border-b border-slate-800 transition-all duration-300 no-print">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 to-amber-400 flex items-center justify-center text-slate-950 font-bold shadow-lg">
-          <i class="fa-solid fa-compass"></i>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <h1>100 Ceza – Çılgın Çark</h1>
+            <div class="subtitle">Arkadaş ortamının en eğlenceli, güvenli ve heyecan dolu ceza meydan okuması!</div>
+        </header>
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="current-player-display" id="currentPlayerDisplay">
+                Sıra: <span id="activePlayerName">Oyuncu 1</span>
+            </div>
+            <div class="stats-group">
+                <div>Toplam Çevirme: <span id="totalSpinsCount">0</span></div>
+                <div>Tamamlanan: <span id="completedCount">0</span></div>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-secondary" id="soundToggleBtn">Ses: Açık</button>
+                <button class="btn btn-secondary" onclick="resetGameData()">Sıfırla</button>
+            </div>
         </div>
-        <div>
-          <span class="font-serif font-bold text-lg tracking-wider text-white block">GAZİANTEP 2026</span>
-          <span class="text-[10px] tracking-widest uppercase text-amber-400 font-semibold">Aile Bilgilendirme ve Değerlendirme Dosyası</span>
+
+        <!-- GAME AREA -->
+        <div class="game-area">
+            <!-- WHEEL SECTION -->
+            <div class="wheel-container-card">
+                <div class="wheel-wrapper">
+                    <div class="wheel-pointer"></div>
+                    <canvas id="wheelCanvas" width="500" height="500"></canvas>
+                </div>
+                <button class="spin-btn" id="spinBtn" onclick="spinWheel()">Çarkı Çevir!</button>
+            </div>
+
+            <!-- SIDEBAR -->
+            <div class="sidebar">
+                <!-- PLAYERS PANEL -->
+                <div class="panel">
+                    <h3>Oyuncular (<span id="playerCount">2</span>/10)</h3>
+                    <div class="player-input-box">
+                        <input type="text" id="playerNameInput" placeholder="Oyuncu Adı..." maxlength="15">
+                        <button class="btn" onclick="addPlayer()">Ekle</button>
+                    </div>
+                    <div class="players-list" id="playersListContainer">
+                        <!-- Dynamic Players -->
+                    </div>
+                </div>
+
+                <!-- HISTORY PANEL -->
+                <div class="panel">
+                    <h3>Ceza Geçmişi</h3>
+                    <div class="history-list" id="historyListContainer">
+                        <div style="color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 10px;">Henüz ceza çıkmadı.</div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <nav class="hidden md:flex items-center gap-8 text-xs font-medium text-slate-300">
-        <a href="#onem" class="hover:text-amber-400 transition">Gerekçe</a>
-        <a href="#program" class="hover:text-amber-400 transition">Rota</a>
-        <a href="#maliyet" class="hover:text-amber-400 transition">Maliyet Analizi</a>
-        <a href="#guvenlik" class="hover:text-amber-400 transition">Güvenlik</a>
-        <a href="#planimiz" class="hover:text-amber-400 transition">Kardeş Planı</a>
-        <a href="#sorular" class="hover:text-amber-400 transition">Sorularınız</a>
-        <a href="#karar" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2 rounded-xl transition shadow-md">Sonuç / Karar</a>
-      </nav>
     </div>
-  </header>
 
-  <!-- HİRO / AÇILIŞ EKRANI -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-    <!-- Sinematik Arka Plan Görseli -->
-    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 scale-105 transform transition duration-1000" style="background-image: url('https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=1920&q=80');"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-corporate-navy via-corporate-navy/70 to-transparent"></div>
-
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-6 py-20">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-widest backdrop-blur-sm">
-        <i class="fa-solid fa-calendar-days"></i> 28 Kasım 2026 | Cumartesi
-      </div>
-      
-      <h1 class="font-serif font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-tight">
-        GAZİANTEP 2026
-      </h1>
-      
-      <p class="text-xl sm:text-2xl text-slate-300 font-light tracking-wide max-w-2xl mx-auto">
-        Bir günlük bir gezi, unutulmaz bir deneyim ve ortak bir gelişim yolculuğu.
-      </p>
-
-      <p class="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto leading-relaxed">
-        Bu dosya; gezi planını, eğitsel kazanımları, şeffaf maliyet hesaplamasını, güvenlik çerçevesini ve kişisel sorumluluk taahhütlerimi anne ve babamın incelemesi için hazırlanmıştır.
-      </p>
-
-      <div class="pt-6 flex flex-wrap justify-center gap-4">
-        <a href="#onem" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-8 py-4 rounded-2xl shadow-xl transition transform hover:-translate-y-0.5 text-sm flex items-center gap-2">
-          <i class="fa-solid fa-arrow-down"></i> Sunumu İncele
-        </a>
-        <a href="#program" class="bg-slate-800/80 hover:bg-slate-800 text-white border border-slate-700 font-bold px-8 py-4 rounded-2xl backdrop-blur-md transition text-sm flex items-center gap-2">
-          <i class="fa-solid fa-map-location-dot"></i> Gezi Planını Gör
-        </a>
-      </div>
+    <!-- PUNISHMENT REVEAL MODAL -->
+    <div class="modal-overlay" id="punishmentModal">
+        <div class="modal-card">
+            <div class="tension-text" id="modalTension">Gerilim Artıyor...</div>
+            <div class="punishment-badge" id="modalCategory">Kategori</div>
+            <div class="punishment-title" id="modalTitle">Ceza Başlığı</div>
+            <div class="punishment-desc" id="modalDesc">Ceza açıklaması burada yer alacak.</div>
+            <div class="modal-actions">
+                <button class="modal-btn btn-success" onclick="completePunishment()">Cezayı Yaptım! ✅</button>
+                <button class="modal-btn btn-spin-again" onclick="spinAgain()">Bir Daha Çevir 🔄</button>
+                <button class="modal-btn btn-pass" onclick="passPunishment()">Pas Geç (Şartsız) ⏭️</button>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- ANA İÇERİK KAPSAYICISI -->
-  <main class="max-w-5xl mx-auto px-6 space-y-28 py-20">
+    <script>
+        // --- SOUND SYSTEM (Web Audio API) ---
+        let soundEnabled = true;
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
-    <!-- 3. BU GEZİ NEDEN ÖNEMLİ? -->
-    <section id="onem" class="space-y-12">
-      <div class="text-center max-w-2xl mx-auto space-y-3">
-        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Eğitsel Gerekçelendirme</span>
-        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">Bu Gezi Neden Önemli?</h2>
-        <p class="text-slate-400 text-sm">Sadece bir seyahat değil; kişisel gelişime ve ortak anılara yapılan değerli bir yatırımdır.</p>
-      </div>
+        function playSound(type) {
+            if (!soundEnabled) return;
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-corporate-card/60 border border-slate-800 p-8 rounded-3xl space-y-4 backdrop-blur-md hover:border-slate-700 transition">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl">
-            <i class="fa-solid fa-brain"></i>
-          </div>
-          <h3 class="font-serif font-bold text-xl text-white">Kişisel Gelişim ve Özgüven</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Yeni yerler keşfetmek, okul dışındaki ortamlarda bulunmak ve farklı kültürlerle tanışmak bakış açımı genişletir. Sorumluluk bilincimi ve sosyal becerilerimi doğrudan destekler.
-          </p>
-        </div>
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
 
-        <div class="bg-corporate-card/60 border border-slate-800 p-8 rounded-3xl space-y-4 backdrop-blur-md hover:border-slate-700 transition">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl">
-            <i class="fa-solid fa-atom"></i>
-          </div>
-          <h3 class="font-serif font-bold text-xl text-white">Bilimsel ve Tarihsel Deneyim</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Bilim merkezinde interaktif deneyler yaparak teorik bilgileri pratiğe dökmek, tarih müzesinde ise Gaziantep'in milli mücadeledeki yerini yerinde görmek kalıcı öğrenme sağlar.
-          </p>
-        </div>
+            const now = audioCtx.currentTime;
 
-        <div class="bg-corporate-card/60 border border-slate-800 p-8 rounded-3xl space-y-4 backdrop-blur-md hover:border-slate-700 transition">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl">
-            <i class="fa-solid fa-paw"></i>
-          </div>
-          <h3 class="font-serif font-bold text-xl text-white">Doğa ve Canlı Bilinci</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Hayvanat bahçesi ziyaretiyle ekosistemi, nesli tükenen hayvanları ve doğa koruma bilincini gözlemleyerek biyoloji ve çevre konularına olan ilgimi artırma fırsatı bulacağım.
-          </p>
-        </div>
+            if (type === 'tick') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(400, now);
+                osc.frequency.exponentialRampToValueAtTime(100, now + 0.05);
+                gain.gain.setValueAtTime(0.08, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+                osc.start(now);
+                osc.stop(now + 0.05);
+            } else if (type === 'gong') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(220, now);
+                osc.frequency.exponentialRampToValueAtTime(110, now + 0.8);
+                gain.gain.setValueAtTime(0.3, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+                osc.start(now);
+                osc.stop(now + 0.8);
+            } else if (type === 'success') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, now); // C5
+                osc.frequency.setValueAtTime(659.25, now + 0.1); // E5
+                osc.frequency.setValueAtTime(783.99, now + 0.2); // G5
+                gain.gain.setValueAtTime(0.2, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+                osc.start(now);
+                osc.stop(now + 0.4);
+            }
+        }
 
-        <div class="bg-corporate-card/60 border border-slate-800 p-8 rounded-3xl space-y-4 backdrop-blur-md hover:border-slate-700 transition">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl">
-            <i class="fa-solid fa-users-rectangle"></i>
-          </div>
-          <h3 class="font-serif font-bold text-xl text-white">Ablamla Ortak Anı Biriktirme</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Ablamın 8. sınıf yoğunluk dönemi başlamadan önce, onunla birlikte bu okul gezisine katılarak gelecekte hatırlandığında mutlu olacağımız ortak güzel bir anı yaratmak istiyorum.
-          </p>
-        </div>
-      </div>
-    </section>
+        document.getElementById('soundToggleBtn').addEventListener('click', () => {
+            soundEnabled = !soundEnabled;
+            document.getElementById('soundToggleBtn').textContent = soundEnabled ? 'Ses: Açık' : 'Ses: Kapalı';
+        });
 
-    <!-- 4. GEZİ PROGRAMI (ROTALAR) -->
-    <section id="program" class="space-y-12">
-      <div class="text-center max-w-2xl mx-auto space-y-3">
-        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Güzergah Detayları</span>
-        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">Gaziantep Gezi Programı</h2>
-        <p class="text-slate-400 text-sm">28 Kasım 2026 tarihinde ziyaret edilecek 4 temel durak ve kazanımları.</p>
-      </div>
+        // --- 100 CEZA LİSTESİ ---
+        const punishments = [
+            // Sır ve itiraf cezaları (1-10)
+            { id: 1, cat: "Sır ve İtiraf", title: "İç Ses", text: "Kendinle ilgili pek bilinmeyen bir gerçeği anlat." },
+            { id: 2, cat: "Sır ve İtiraf", title: "Utanç Duvarı", text: "En utandığın komik anını anlat." },
+            { id: 3, cat: "Sır ve İtiraf", title: "Çocukluk Masalı", text: "Çocukken inandığın en saçma şeyi söyle." },
+            { id: 4, cat: "Sır ve İtiraf", title: "Garip Alışkanlık", text: "En garip alışkanlığını açıkla." },
+            { id: 5, cat: "Sır ve İtiraf", title: "Komik Hata", text: "Bugüne kadar yaptığın en komik hatayı anlat." },
+            { id: 6, cat: "Sır ve İtiraf", title: "Melodi", text: "En sevdiğin şarkıyı söyle." },
+            { id: 7, cat: "Sır ve İtiraf", title: "Lakap", text: "En komik lakabını anlat." },
+            { id: 8, cat: "Sır ve İtiraf", title: "Güzel Söz", text: "Bir arkadaşına söylemek istediğin güzel bir şeyi söyle." },
+            { id: 9, cat: "Sır ve İtiraf", title: "Saçma Korku", text: "En saçma korkunu anlat." },
+            { id: 10, cat: "Sır ve İtiraf", title: "Üçlü Bilgi", text: "Kendinle ilgili üç ilginç bilgi ver." },
 
-      <div class="space-y-8">
-        <!-- Durak 1 -->
-        <div class="bg-corporate-card/40 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-8 items-center">
-          <img src="https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=600&q=80" alt="Hayvanat Bahçesi" class="w-full md:w-72 h-48 object-cover rounded-2xl shadow-md">
-          <div class="space-y-3">
-            <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">1. Durak</span>
-            <h3 class="font-serif font-bold text-2xl text-white">Gaziantep Hayvanat Bahçesi</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">
-              <strong>Neden Ziyaret Ediliyor?</strong> Türkiye'nin en büyük, dünyanın ise sayılı hayvanat bahçelerinden biri olması sebebiyle doğa ve hayvan sevgisini pekiştirmek için planlanmıştır.
-            </p>
-            <p class="text-slate-400 text-xs"><strong>Kazanım:</strong> Farklı türlerin yaşam alanlarını inceleme, ekosistem dengesini anlama ve canlı çeşitliliğini yerinde gözlemleme deneyimi.</p>
-          </div>
-        </div>
+            // Komedi cezaları (11-20)
+            { id: 11, cat: "Komedi", title: "Robot Modu", text: "30 saniye boyunca robot gibi konuş." },
+            { id: 12, cat: "Komedi", title: "Canlı Yayın", text: "Bir dakika boyunca spiker gibi konuş." },
+            { id: 13, cat: "Komedi", title: "Vahşi Yaşam", text: "Bir hayvanı taklit et." },
+            { id: 14, cat: "Komedi", title: "Animasyon", text: "Bir çizgi film karakterini taklit et." },
+            { id: 15, cat: "Komedi", title: "Opera Gecesi", text: "30 saniye boyunca opera sanatçısı gibi şarkı söyle." },
+            { id: 16, cat: "Komedi", title: "Sayın Seyirciler", text: "Bir dakika boyunca her cümlene 'Sayın seyirciler' diye başla." },
+            { id: 17, cat: "Komedi", title: "Gizli Hat", text: "Görünmez bir telefonla konuş." },
+            { id: 18, cat: "Komedi", title: "Reklam Kuşağı", text: "Bir reklam filmi sunuyormuş gibi suyu tanıt." },
+            { id: 19, cat: "Komedi", title: "Kahkaha Terapisi", text: "En komik kahkahanı at." },
+            { id: 20, cat: "Komedi", title: "Ciddi Haber", text: "Bir dakika boyunca aşırı ciddi bir haber sunucusu ol." },
 
-        <!-- Durak 2 -->
-        <div class="bg-corporate-card/40 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-8 items-center">
-          <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=600&q=80" alt="Bilim Merkezi" class="w-full md:w-72 h-48 object-cover rounded-2xl shadow-md">
-          <div class="space-y-3">
-            <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">2. Durak</span>
-            <h3 class="font-serif font-bold text-2xl text-white">Gaziantep Bilim Merkezi</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">
-              <strong>Neden Ziyaret Ediliyor?</strong> Öğrencilerin fen bilimleri, teknoloji ve matematik konularına olan merakını interaktif sergilerle artırmak amacıyla seçilmiştir.
-            </p>
-            <p class="text-slate-400 text-xs"><strong>Kazanım:</strong> Soyut fen kavramlarını deney düzenekleriyle somutlaştırma, analitik düşünme ve teknolojik gelişmeleri yakından inceleme fırsatı.</p>
-          </div>
-        </div>
+            // Cesaret cezaları (21-30)
+            { id: 21, cat: "Cesaret", title: "Pist Senin", text: "30 saniye boyunca dans et." },
+            { id: 22, cat: "Cesaret", title: "Nakarat", text: "Sevdiğin bir şarkının nakaratını söyle." },
+            { id: 23, cat: "Cesaret", title: "Gözler Kör", text: "Gözlerini kapatıp bir şarkıyı mırıldan." },
+            { id: 24, cat: "Cesaret", title: "Flamingo", text: "20 saniye boyunca tek ayak üzerinde dengede dur." },
+            { id: 25, cat: "Cesaret", title: "Dil Bükücü", text: "Bir tekerlemeyi üç kez hızlı söyle." },
+            { id: 26, cat: "Cesaret", title: "Fragman", text: "Kendi hayatının fragmanını anlat." },
+            { id: 27, cat: "Cesaret", title: "Süper Kahraman", text: "Hayalindeki süper kahramanı canlandır." },
+            { id: 28, cat: "Cesaret", title: "Taş Heykel", text: "30 saniye boyunca hiç gülmeden dur." },
+            { id: 29, cat: "Cesaret", title: "Hoca Efendi", text: "Bir dakikalığına öğretmen rolü yap." },
+            { id: 30, cat: "Cesaret", title: "Antika Değer", text: "Rastgele bir nesneyi çok değerliymiş gibi tanıt." },
 
-        <!-- Durak 3 -->
-        <div class="bg-corporate-card/40 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-8 items-center">
-          <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=600&q=80" alt="Müze" class="w-full md:w-72 h-48 object-cover rounded-2xl shadow-md">
-          <div class="space-y-3">
-            <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">3. Durak</span>
-            <h3 class="font-serif font-bold text-2xl text-white">25 Aralık Kurtuluş Savaşı Müzesi</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">
-              <strong>Neden Ziyaret Ediliyor?</strong> Gaziantep'in "Gazilik" unvanını almasını sağlayan şanlı milli mücadele tarihini ve kahramanlık destanını yeni nesillere aktarmak için.
-            </p>
-            <p class="text-slate-400 text-xs"><strong>Kazanım:</strong> Tarih bilincini güçlendirme, vatan sevgisini ve milli mücadele döneminde halkın gösterdiği fedakarlığı birinci elden kavrama.</p>
-          </div>
-        </div>
+            // Yaratıcılık cezaları (31-40)
+            { id: 31, cat: "Yaratıcılık", title: "Anında Hikaye", text: "20 saniyede bir hikâye uydur." },
+            { id: 32, cat: "Yaratıcılık", title: "Yeni Dünya", text: "Yeni bir ülke icat et ve tanıt." },
+            { id: 33, cat: "Yaratıcılık", title: "İnovasyon", text: "Hayali bir ürün için reklam yap." },
+            { id: 34, cat: "Yaratıcılık", title: "Özel Güç", text: "Kendi süper gücünü ve zayıflığını anlat." },
+            { id: 35, cat: "Yaratıcılık", title: "Şair Ruh", text: "Bir dakikada komik bir şiir oluştur." },
+            { id: 36, cat: "Yaratıcılık", title: "Üç Kelime", text: "Üç rastgele kelimeyle hikâye oluştur." },
+            { id: 37, cat: "Yaratıcılık", title: "Karakter Tasarımı", text: "Bir oyun karakteri tasarla." },
+            { id: 38, cat: "Yaratıcılık", title: "Bülten", text: "Hayali bir haber bülteni hazırla." },
+            { id: 39, cat: "Yaratıcılık", title: "Vizyon", text: "Kendi filmine isim bul." },
+            { id: 40, cat: "Yaratıcılık", title: "Motivatör", text: "Bir dakikalığına motivasyon konuşması yap." },
 
-        <!-- Durak 4 -->
-        <div class="bg-corporate-card/40 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-8 items-center">
-          <img src="https://images.unsplash.com/photo-1555529771-835f59fc5efe?auto=format&fit=crop&w=600&q=80" alt="AVM Gezisi" class="w-full md:w-72 h-48 object-cover rounded-2xl shadow-md">
-          <div class="space-y-3">
-            <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">4. Durak</span>
-            <h3 class="font-serif font-bold text-2xl text-white">AVM Gezisi ve Serbest Zaman</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">
-              <strong>Neden Ziyaret Ediliyor?</strong> Yoğun geçen müze ve merkez programının ardından öğrencilerin güvenli bir ortamda dinlenmesi, sosyalleşmesi ve yemek molası vermesi için.
-            </p>
-            <p class="text-slate-400 text-xs"><strong>Kazanım:</strong> Akranlarla güvenli alan içerisinde zaman yönetimi yapma ve sosyal iletişim kurma becerisi.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+            // Zorlayıcı ama güvenli cezalar (41-50)
+            { id: 41, cat: "Zorlayıcı", title: "Soru Bankası", text: "60 saniye boyunca sadece sorularla konuş." },
+            { id: 42, cat: "Zorlayıcı", title: "Yasak Kelime", text: "30 saniye boyunca hiç 'evet' veya 'hayır' deme." },
+            { id: 43, cat: "Zorlayıcı", title: "Hayvanat Bahçesi", text: "20 saniye içinde 10 hayvan say." },
+            { id: 44, cat: "Zorlayıcı", title: "Geri Sayım", text: "Alfabenin sonundan başlayarak saymaya çalış." },
+            { id: 45, cat: "Zorlayıcı", title: "Ekstra Kelime", text: "Bir dakika boyunca her cümlenin sonuna farklı bir kelime ekle." },
+            { id: 46, cat: "Zorlayıcı", title: "Ciddi Tekerleme", text: "Bir tekerlemeyi gülmeden söyle." },
+            { id: 47, cat: "Zorlayıcı", title: "Sansür", text: "30 saniye boyunca bir kelimeyi kullanmadan konuş." },
+            { id: 48, cat: "Zorlayıcı", title: "Dünya Turu", text: "Bir dakikada 10 ülke say." },
+            { id: 49, cat: "Zorlayıcı", title: "Manav", text: "15 saniyede 10 meyve say." },
+            { id: 50, cat: "Zorlayıcı", title: "Gizli Ajan", text: "Bir dakika boyunca fısıldayarak konuş." },
 
-    <!-- 5. MALİYET ANALİZİ -->
-    <section id="maliyet" class="bg-corporate-card/50 border border-slate-800 rounded-3xl p-8 sm:p-12 space-y-8 backdrop-blur-md">
-      <div class="text-center max-w-2xl mx-auto space-y-3">
-        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Şeffaf Bütçe Planı</span>
-        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">Maliyet Analizi</h2>
-        <p class="text-slate-400 text-sm">Gaziantep gezisinin iki kardeş için toplam bütçe dökümü ve kapsamı.</p>
-      </div>
+            // Arkadaş ortamı cezaları (51-60)
+            { id: 51, cat: "Arkadaş", title: "Övgü Yağmuru", text: "Yanındaki oyuncuya üç güzel özellik söyle." },
+            { id: 52, cat: "Arkadaş", title: "Ayna", text: "Bir oyuncunun komik bir hareketini taklit et." },
+            { id: 53, cat: "Arkadaş", title: "Lakap Takma", text: "Bir oyuncuya komik ama nazik bir lakap bul." },
+            { id: 54, cat: "Arkadaş", title: "Bilmece Zamanı", text: "Gruba bir bilmece sor." },
+            { id: 55, cat: "Arkadaş", title: "İltifat", text: "Bir oyuncuya iltifat et." },
+            { id: 56, cat: "Arkadaş", title: "Grup Bestesi", text: "Grubun seçtiği bir kelimeyle şarkı uydur." },
+            { id: 57, cat: "Arkadaş", title: "Hikaye Zinciri", text: "Her oyuncuya bir kelime söyle ve onlardan hikâye oluştur." },
+            { id: 58, cat: "Arkadaş", title: "Düello", text: "Bir oyuncuyla taş-kâğıt-makas oyna." },
+            { id: 59, cat: "Arkadaş", title: "Maskot", text: "Grubun seçtiği bir hayvanı taklit et." },
+            { id: 60, cat: "Arkadaş", title: "Tahmin Et", text: "Bir oyuncuya üç ipucuyla bilmece sor." },
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-corporate-navy p-6 rounded-2xl border border-slate-800 space-y-2">
-          <span class="text-slate-400 text-xs uppercase font-semibold">Kişi Başı Ücret</span>
-          <div class="font-serif font-bold text-3xl text-white">2.300 TL</div>
-          <p class="text-slate-400 text-xs">Tek öğrenci katılım bedeli.</p>
-        </div>
+            // Mimik ve hareket cezaları (61-70)
+            { id: 61, cat: "Mimik & Hareket", title: "Heykel", text: "30 saniye boyunca heykel gibi dur." },
+            { id: 62, cat: "Mimik & Hareket", title: "Duygu Sel", text: "Mutlu, üzgün ve şaşkın yüz ifadelerini sırayla yap." },
+            { id: 63, cat: "Mimik & Hareket", title: "Ağır Çekim", text: "Ağır çekimde yürüyormuş gibi davran." },
+            { id: 64, cat: "Mimik & Hareket", title: "Görünmez Duvar", text: "Bir dakikalığına görünmez bir duvarı it." },
+            { id: 65, cat: "Mimik & Hareket", title: "Podyum", text: "Komik bir podyum yürüyüşü yap." },
+            { id: 66, cat: "Mimik & Hareket", title: "Çizgi Film", text: "Bir çizgi film karakterinin yürüyüşünü taklit et." },
+            { id: 67, cat: "Mimik & Hareket", title: "Yerinde Durma", text: "20 saniye boyunca dans ederek yerinde dur." },
+            { id: 68, cat: "Mimik & Hareket", title: "Doğa Belgeseli", text: "Bir hayvanın yürüyüşünü taklit et." },
+            { id: 69, cat: "Mimik & Hareket", title: "Spor Yorumcusu", text: "Bir dakikalığına spor yorumcusu ol." },
+            { id: 70, cat: "Mimik & Hareket", title: "Ödül Töreni", text: "Hayali bir ödül kazanmış gibi teşekkür konuşması yap." },
 
-        <div class="bg-corporate-navy p-6 rounded-2xl border border-slate-800 space-y-2">
-          <span class="text-slate-400 text-xs uppercase font-semibold">Katılımcı Kardeşler</span>
-          <div class="font-serif font-bold text-3xl text-white">2 Öğrenci</div>
-          <p class="text-slate-400 text-xs">Ben (6. Sınıf) ve Ablam (8. Sınıf).</p>
-        </div>
+            // Zekâ cezaları (71-80)
+            { id: 71, cat: "Zekâ", title: "Şehir Turu", text: "10 saniyede beş şehir say." },
+            { id: 72, cat: "Zekâ", title: "Bilmece", text: "Bir bilmeceyi çözmeye çalış." },
+            { id: 73, cat: "Zekâ", title: "Sinema Kuşağı", text: "20 saniyede beş film adı say." },
+            { id: 74, cat: "Zekâ", title: "Tersten Okuma", text: "Bir kelimeyi tersten söyle." },
+            { id: 75, cat: "Zekâ", title: "Cümle Kurma", text: "Üç kelimeyi kullanarak anlamlı cümle kur." },
+            { id: 76, cat: "Zekâ", title: "Hafıza", text: "Bir dakika boyunca aklına gelen ülkeleri say." },
+            { id: 77, cat: "Zekâ", title: "Renk Cümbüşü", text: "Beş saniyede beş renk söyle." },
+            { id: 78, cat: "Zekâ", title: "Atasözü", text: "Bir atasözünü açıkla." },
+            { id: 79, cat: "Zekâ", title: "Kelime İcadı", text: "Bir dakikada üç yeni kelime uydur." },
+            { id: 80, cat: "Zekâ", title: "Tabu", text: "Bir nesneyi adını söylemeden tarif et." },
 
-        <div class="bg-corporate-navy p-6 rounded-2xl border border-amber-500/40 space-y-2 bg-gradient-to-br from-corporate-navy to-amber-950/20">
-          <span class="text-amber-400 text-xs uppercase font-semibold">Toplam Yatırım</span>
-          <div class="font-serif font-bold text-3xl text-amber-400">4.600 TL</div>
-          <p class="text-amber-200/70 text-xs">İki kardeş için toplam gezi bedeli.</p>
-        </div>
-      </div>
+            // Sürpriz cezalar (81-90)
+            { id: 81, cat: "Sürpriz", title: "Müzik Kulak", text: "Gözlerin kapalıyken bir şarkıyı tahmin et." },
+            { id: 82, cat: "Sürpriz", title: "Rastgele Nota", text: "Rastgele seçilen bir kelimeyle şarkı söyle." },
+            { id: 83, cat: "Sürpriz", title: "Üçüncü Şahıs", text: "Bir dakika boyunca yalnızca üçüncü şahıs gibi kendinden bahset." },
+            { id: 84, cat: "Sürpriz", title: "Hava Durumu", text: "Bir dakikalığına hava durumu sunucusu ol." },
+            { id: 85, cat: "Sürpriz", title: "Uzaylı Teması", text: "Hayali bir uzaylıyla tanışıyormuş gibi konuş." },
+            { id: 86, cat: "Sürpriz", title: "Şokta", text: "Bir dakika boyunca her şeyi çok şaşırmış gibi karşıla." },
+            { id: 87, cat: "Sürpriz", title: "Seslendirme", text: "Bir çizgi film sahnesini seslendir." },
+            { id: 88, cat: "Sürpriz", title: "Şef", text: "Bir dakikalığına restoran şefi rolü yap." },
+            { id: 89, cat: "Sürpriz", title: "Maç Anlatımı", text: "Hayali bir spor müsabakasını anlat." },
+            { id: 90, cat: "Sürpriz", title: "Duygu Modeli", text: "Grubun seçtiği bir duyguyu mimiklerinle canlandır." },
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 text-sm">
-        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800 space-y-3">
-          <h4 class="font-bold text-emerald-400 flex items-center gap-2">
-            <i class="fa-solid fa-circle-check"></i> Fiyata Dahil Olanlar
-          </h4>
-          <ul class="space-y-2 text-slate-300 text-xs">
-            <li>• Hayvanat Bahçesi giriş ücretleri</li>
-            <li>• Öğle yemeği organizasyonu</li>
-            <li>• Gezi kapsamında belirtilen ulaşım ve rehberlik giderleri (Okul yönetiminden doğrulanacaktır)</li>
-          </ul>
-        </div>
+            // Efsane cezalar (91-100)
+            { id: 91, cat: "Efsane", title: "Stand-Up", text: "60 saniyelik komedi gösterisi yap." },
+            { id: 92, cat: "Efsane", title: "Korku Saati", text: "Bir dakikalık korku hikâyesi anlat." },
+            { id: 93, cat: "Efsane", title: "Belgesel", text: "Kendi hayatını belgesel anlatıcısı gibi anlat." },
+            { id: 94, cat: "Efsane", title: "Üçlü Karakter", text: "30 saniyede üç farklı karakter canlandır." },
+            { id: 95, cat: "Efsane", title: "Seçim Konuşması", text: "Bir dakikalığına seçim konuşması yap." },
+            { id: 96, cat: "Efsane", title: "Münazara", text: "Grubun seçtiği bir konuyu savunuyormuş gibi konuş." },
+            { id: 97, cat: "Efsane", title: "Tarz Değişimi", text: "Bir şarkıyı farklı bir müzik türünde söyle." },
+            { id: 98, cat: "Efsane", title: "Medya Yıldızı", text: "Bir dakikalığına ünlü bir sunucu gibi davran." },
+            { id: 99, cat: "Efsane", title: "Tiyatro Sahnesi", text: "Rastgele üç kelimeyle komik bir tiyatro sahnesi oluştur." },
+            { id: 100, cat: "Efsane", title: "Doğaçlama Şov", text: "90 saniyelik doğaçlama gösteri yap." }
+        ];
 
-        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800 space-y-3">
-          <h4 class="font-bold text-amber-400 flex items-center gap-2">
-            <i class="fa-solid fa-circle-xmark"></i> Fiyata Dahil Olmayanlar
-          </h4>
-          <ul class="space-y-2 text-slate-300 text-xs">
-            <li>• Kişisel harcamalar</li>
-            <li>• Ekstra aktiviteler veya hediyelik eşyalar</li>
-            <li>• AVM içerisindeki kişisel alışverişler</li>
-          </ul>
-        </div>
-      </div>
+        // --- STATE MANAGEMENT ---
+        let players = [
+            { id: 1, name: "Oyuncu 1", completed: 0 },
+            { id: 2, name: "Oyuncu 2", completed: 0 }
+        ];
+        let activePlayerIndex = 0;
+        let totalSpins = 0;
+        let completedTotal = 0;
+        let historyLog = [];
+        let currentSelectedPunishment = null;
 
-      <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-5 text-amber-300 text-xs sm:text-sm flex items-center gap-3">
-        <i class="fa-solid fa-triangle-exclamation text-amber-400 text-base flex-shrink-0"></i>
-        <p>
-          <strong>Not ve Taahhüt:</strong> AVM gezisi kesinlikle alışveriş yapmak zorunda olduğumuz anlamına gelmez. Ekstra harcama yapmadan da bu geziye tam katılım sağlayabiliriz.
-        </p>
-      </div>
-    </section>
+        // --- CANVAS WHEEL SETUP ---
+        const canvas = document.getElementById('wheelCanvas');
+        const ctx = canvas.getContext('2d');
+        const numSlices = punishments.length; // 100
+        const arcSize = (2 * Math.PI) / numSlices;
+        let currentAngle = 0;
+        let isSpinning = false;
 
-    <!-- 6. GÜVENLİK VE SORULAR -->
-    <section id="guvenlik" class="space-y-8">
-      <div class="text-center max-w-2xl mx-auto space-y-3">
-        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Şeffaflık İlkesi</span>
-        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">Güvenlik ve Operasyonel Detaylar</h2>
-        <p class="text-slate-400 text-sm">Ailemin aklındaki temel sorular ve resmi okul teyit protokolü.</p>
-      </div>
+        const colors = [
+            '#6366f1', '#ec4899', '#8b5cf6', '#3b82f6', 
+            '#10b981', '#f59e0b', '#ef4444', '#14b8a6'
+        ];
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-corporate-card/60 border border-slate-800 p-6 rounded-2xl space-y-2">
-          <h4 class="font-bold text-white text-base flex items-center gap-2">
-            <i class="fa-solid fa-user-shield text-amber-500"></i> Yolculuk Sorumluluğu
-          </h4>
-          <p class="text-slate-300 text-xs leading-relaxed">
-            Gezinin başından sonuna kadar tüm öğrenciler Ahmet Mesut Yılmaz Ortaokulu öğretmenlerinin gözetimi ve sorumluluğu altındadır.
-          </p>
-        </div>
+        function drawWheel(angle = 0) {
+            const width = canvas.width;
+            const height = canvas.height;
+            const radius = width / 2;
+            const center = radius;
 
-        <div class="bg-corporate-card/60 border border-slate-800 p-6 rounded-2xl space-y-2">
-          <h4 class="font-bold text-white text-base flex items-center gap-2">
-            <i class="fa-solid fa-bus text-amber-500"></i> Otobüs Güvenliği
-          </h4>
-          <p class="text-slate-300 text-xs leading-relaxed">
-            Kullanılacak otobüslerin yasal belgeleri, turizm taşımacılığı uygunlukları ve sürücü yeterlilikleri okul yönetimi tarafından teyit edilecektir.
-          </p>
-        </div>
+            ctx.clearRect(0, 0, width, height);
 
-        <div class="bg-corporate-card/60 border border-slate-800 p-6 rounded-2xl space-y-2">
-          <h4 class="font-bold text-white text-base flex items-center gap-2">
-            <i class="fa-solid fa-phone-volume text-amber-500"></i> Acil Durum İletişimi
-          </h4>
-          <p class="text-slate-300 text-xs leading-relaxed">
-            Acil durumlarda velilere anında ulaşılabilmesi için okul idaresi tarafından veli iletişim listeleri ve öğretmen irtibat numaraları aktif tutulacaktır.
-          </p>
-        </div>
+            ctx.save();
+            ctx.translate(center, center);
+            ctx.rotate(angle);
 
-        <div class="bg-corporate-card/60 border border-slate-800 p-6 rounded-2xl space-y-2">
-          <h4 class="font-bold text-white text-base flex items-center gap-2">
-            <i class="fa-solid fa-clock text-amber-500"></i> Dönüş Saati ve Program
-          </h4>
-          <p class="text-slate-300 text-xs leading-relaxed">
-            Sabah saat 05.00'te okul önünden hareket edilecek olup, dönüş saati ve güzergah detayları kesinleştiğinde okul yönetimi tarafından ailelere bildirilecektir.
-          </p>
-        </div>
-      </div>
+            for (let i = 0; i < numSlices; i++) {
+                const startAngle = i * arcSize;
+                const endAngle = (i + 1) * arcSize;
 
-      <!-- Okula Sorulacaklar Kontrol Listesi -->
-      <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-8 space-y-4">
-        <h3 class="font-serif font-bold text-xl text-white flex items-center gap-2">
-          <i class="fa-solid fa-clipboard-question text-amber-500"></i> Ailemin Okuldan Teyit Etmesi Gereken Konular
-        </h3>
-        <p class="text-slate-400 text-xs">Kesin olmayan veya detaylandırılması gereken noktaları doğrudan okul yönetimine sorabilmeniz için başlıklar:</p>
-        <ul class="space-y-2 text-slate-300 text-xs">
-          <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-amber-500"></i> Görevli öğretmenlerin tam listesi ve otobüs bazlı dağılımı nedir?</li>
-          <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-amber-500"></i> Dönüş saatimiz tahmini olarak saat kaçta okul önünde olacaktır?</li>
-          <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-amber-500"></i> İki kardeş farklı otobüslerde olacağı için buluşma noktaları nasıl organize edilecek?</li>
-        </ul>
-      </div>
-    </section>
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.arc(0, 0, radius - 10, startAngle, endAngle);
+                ctx.closePath();
 
-    <!-- 7. İKİ KARDEŞİN GEZİ PLANI -->
-    <section id="planimiz" class="space-y-8">
-      <div class="text-center max-w-2xl mx-auto space-y-3">
-        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Yerleşim Mimarisi</span>
-        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">İki Kardeşin Gezi Planı</h2>
-        <p class="text-slate-400 text-sm">Farklı sınıf seviyeleri nedeniyle oluşan otobüs dağılımı ve koordinasyon.</p>
-      </div>
+                ctx.fillStyle = colors[i % colors.length];
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+                ctx.lineWidth = 1;
+                ctx.stroke();
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- 1. Öğrenci -->
-        <div class="bg-corporate-card/50 border border-slate-800 p-6 rounded-3xl space-y-4">
-          <div class="flex justify-between items-center">
-            <span class="px-3 py-1 bg-amber-500/10 text-amber-400 text-xs font-bold rounded-full">1. Öğrenci (Ben)</span>
-            <i class="fa-solid fa-child-reaching text-amber-500 text-xl"></i>
-          </div>
-          <div class="space-y-1">
-            <div class="text-slate-400 text-xs">Sınıf Seviyesi: <strong class="text-white">6. Sınıf</strong></div>
-            <div class="text-slate-400 text-xs">Otobüs Planı: <strong class="text-amber-400 font-semibold"><i class="fa-solid fa-bus mr-1"></i> 2. Otobüs (6. Sınıflar)</strong></div>
-          </div>
-        </div>
+                // Draw Slice Number
+                ctx.save();
+                ctx.rotate(startAngle + arcSize / 2);
+                ctx.textAlign = 'right';
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 10px Poppins';
+                ctx.fillText(`#${i + 1}`, radius - 20, 4);
+                ctx.restore();
+            }
 
-        <!-- 2. Öğrenci -->
-        <div class="bg-corporate-card/50 border border-slate-800 p-6 rounded-3xl space-y-4">
-          <div class="flex justify-between items-center">
-            <span class="px-3 py-1 bg-amber-500/10 text-amber-400 text-xs font-bold rounded-full">2. Öğrenci (Ablam)</span>
-            <i class="fa-solid fa-child text-amber-500 text-xl"></i>
-          </div>
-          <div class="space-y-1">
-            <div class="text-slate-400 text-xs">Sınıf Seviyesi: <strong class="text-white">8. Sınıf</strong></div>
-            <div class="text-slate-400 text-xs">Otobüs Planı: <strong class="text-amber-400 font-semibold"><i class="fa-solid fa-bus mr-1"></i> 3. Otobüs (7 ve 8. Sınıflar)</strong></div>
-          </div>
-        </div>
-      </div>
+            ctx.restore();
 
-      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-slate-300 text-xs leading-relaxed space-y-2">
-        <strong class="text-white block font-serif text-sm">Farklı Otobüslerde Olma Durumu ve Koordinasyon:</strong>
-        Ablamla farklı otobüslerde (2. ve 3. otobüsler) seyahat edecek olmamız, gezi alanlarında (müze, bilim merkezi, hayvanat bahçesi ve AVM) öğretmenlerimizin ortak buluşma noktalarında bir araya gelmemize engel değildir. Bu durumun güvenliği olumsuz etkilememesi için hareket saatlerinde ve durak geçişlerinde öğretmen gözetiminde koordine olacağız.
-      </div>
-    </section>
+            // Center Knob
+            ctx.beginPath();
+            ctx.arc(center, center, 35, 0, 2 * Math.PI);
+            ctx.fillStyle = '#1f2937';
+            ctx.fill();
+            ctx.lineWidth = 6;
+            ctx.strokeStyle = '#ec4899';
+            ctx.stroke();
 
-    <!-- 8. KİŞİSEL SORUMLULUK SÖZÜ -->
-    <section class="bg-corporate-card/60 border border-slate-800 rounded-3xl p-8 sm:p-12 space-y-6 backdrop-blur-md print-box">
-      <div class="text-center max-w-2xl mx-auto space-y-2">
-        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Resmi Taahhütname</span>
-        <h2 class="font-serif font-bold text-2xl sm:text-3xl text-white">Kişisel Sorumluluk Sözü</h2>
-        <p class="text-slate-400 text-xs">Bu geziye katılmak istiyorsam sorumluluklarını da kabul etmeliyim.</p>
-      </div>
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 12px Poppins';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('CEZA', center, center);
+        }
 
-      <div class="bg-corporate-navy p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
-        <p class="font-serif italic text-amber-200">
-          "Anneciğim, babacığım... Gaziantep gezisine katılımım boyunca aşağıdaki kurallara harfiyen uyacağımı şimdiden taahhüt ediyorum:"
-        </p>
-        <ul class="space-y-3">
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> Öğretmenlerin bütün talimatlarına ve zaman planlamalarına tam olarak uyacağım.</li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> Belirlenen gruptan ve rehber öğretmenimden asla ayrılmayacağım.</li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> Haber vermeden hiçbir yere gitmeyecek, her hareketimde bilgi vereceğim.</li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> Telefonumu sürekli yanımda ve ulaşılabilir durumda tutacağım.</li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> Bütçemizi zorlayacak gereksiz harcamalardan kesinlikle kaçınacağım.</li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> Ablamla ve diğer tüm okul arkadaşlarımla uyumlu, saygılı ve dikkatli hareket edeceğim.</li>
-        </ul>
-      </div>
-    </section>
+        // --- GAME LOGIC ---
+        function updateUI() {
+            // Active Player
+            document.getElementById('activePlayerName').textContent = players[activePlayerIndex].name;
+            document.getElementById('totalSpinsCount').textContent = totalSpins;
+            document.getElementById('completedCount').textContent = completedTotal;
+            document.getElementById('playerCount').textContent = players.length;
 
-    <!-- 9. AİLEMİN ENDİŞELERİ (İNTERAKTİF AKORDİYON) -->
-    <section id="sorular" class="space-y-8">
-      <div class="text-center max-w-2xl mx-auto space-y-3">
-        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Açık İletişim</span>
-        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">Karar Vermeden Önce Aklınızdaki Sorular</h2>
-        <p class="text-slate-400 text-sm">Endişelerinize saygılı, mantıklı ve şeffaf yanıtlar.</p>
-      </div>
+            // Players List
+            const pContainer = document.getElementById('playersListContainer');
+            pContainer.innerHTML = '';
+            players.forEach((p, idx) => {
+                const div = document.createElement('div');
+                div.className = `player-item ${idx === activePlayerIndex ? 'active' : ''}`;
+                div.innerHTML = `
+                    <span>${p.name} <small style="color:var(--text-muted)">(${p.completed} ceza)</small></span>
+                    ${players.length > 2 ? `<button onclick="removePlayer(${p.id})">Sil</button>` : ''}
+                `;
+                pContainer.appendChild(div);
+            });
 
-      <div class="space-y-4 max-w-3xl mx-auto">
-        <!-- Soru 1 -->
-        <div class="bg-corporate-card/40 border border-slate-800 rounded-2xl overflow-hidden">
-          <button onclick="toggleSoru(1)" class="w-full p-5 text-left font-semibold text-white flex justify-between items-center text-sm sm:text-base hover:bg-slate-800/40 transition">
-            <span>4.600 TL iki kardeş için fazla değil mi?</span>
-            <i id="icon-1" class="fa-solid fa-chevron-down text-amber-500 text-xs transition"></i>
-          </button>
-          <div id="ans-1" class="hidden p-5 pt-0 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/60 bg-slate-900/40">
-            Haklısınız, iki çocuk için 4.600 TL önemli bir bütçe kalemi oluşturuyor. Bu yüzden bütçenizi zorlamayacaksa ve eğitimsel/sosyal katkısını uygun bulursanız gitmemi istedim. Ekstra harcama yapmayarak bu maliyeti minimumda tutacağıma söz veriyorum.
-          </div>
-        </div>
+            // History List
+            const hContainer = document.getElementById('historyListContainer');
+            if (historyLog.length === 0) {
+                hContainer.innerHTML = `<div style="color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 10px;">Henüz ceza çıkmadı.</div>`;
+            } else {
+                hContainer.innerHTML = '';
+                historyLog.forEach(h => {
+                    const item = document.createElement('div');
+                    item.className = 'history-item';
+                    item.innerHTML = `<span class="h-player">${h.player}</span>: ${h.title} <span style="color:var(--text-muted); font-size:0.75rem">(${h.status})</span>`;
+                    hContainer.appendChild(item);
+                });
+            }
+        }
 
-        <!-- Soru 2 -->
-        <div class="bg-corporate-card/40 border border-slate-800 rounded-2xl overflow-hidden">
-          <button onclick="toggleSoru(2)" class="w-full p-5 text-left font-semibold text-white flex justify-between items-center text-sm sm:text-base hover:bg-slate-800/40 transition">
-            <span>Sabah 05.00'te yola çıkmak güvenli mi?</span>
-            <i id="icon-2" class="fa-solid fa-chevron-down text-amber-500 text-xs transition"></i>
-          </button>
-          <div id="ans-2" class="hidden p-5 pt-0 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/60 bg-slate-900/40">
-            Erken saatlerde yola çıkılacak olması kulağa yorucu gelebilir; ancak gezi programının verimli işleyebilmesi ve tüm noktalara zamanında yetişilebilmesi için okul turlarunda bu saat standart olarak tercih edilmektedir. Otobüs ve şoför denetimlerini okuldan teyit edebiliriz.
-          </div>
-        </div>
+        function addPlayer() {
+            const input = document.getElementById('playerNameInput');
+            const name = input.value.trim();
+            if (!name) return;
+            if (players.length >= 10) {
+                alert('En fazla 10 oyuncu ekleyebilirsiniz.');
+                return;
+            }
+            players.push({ id: Date.now(), name: name, completed: 0 });
+            input.value = '';
+            updateUI();
+        }
 
-        <!-- Soru 3 -->
-        <div class="bg-corporate-card/40 border border-slate-800 rounded-2xl overflow-hidden">
-          <button onclick="toggleSoru(3)" class="w-full p-5 text-left font-semibold text-white flex justify-between items-center text-sm sm:text-base hover:bg-slate-800/40 transition">
-            <span>İki kardeş farklı otobüslerde olursa ne olacak?</span>
-            <i id="icon-3" class="fa-solid fa-chevron-down text-amber-500 text-xs transition"></i>
-          </button>
-          <div id="ans-3" class="hidden p-5 pt-0 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/60 bg-slate-900/40">
-            Ben 6. sınıflarla 2. otobüste, ablam ise 8. sınıflarla 3. otobüste olacak. Seyahat süresi dışında tüm gezi duraklarında aynı alanlarda bulunacağız ve öğretmenlerimiz her iki grubu da koordine edecek.
-          </div>
-        </div>
+        function removePlayer(id) {
+            if (players.length <= 2) return;
+            players = players.filter(p => p.id !== id);
+            if (activePlayerIndex >= players.length) activePlayerIndex = 0;
+            updateUI();
+        }
 
-        <!-- Soru 4 -->
-        <div class="bg-corporate-card/40 border border-slate-800 rounded-2xl overflow-hidden">
-          <button onclick="toggleSoru(4)" class="w-full p-5 text-left font-semibold text-white flex justify-between items-center text-sm sm:text-base hover:bg-slate-800/40 transition">
-            <span>Gezi gerçekten eğitici mi yoksa sadece eğlence mi?</span>
-            <i id="icon-4" class="fa-solid fa-chevron-down text-amber-500 text-xs transition"></i>
-          </button>
-          <div id="ans-4" class="hidden p-5 pt-0 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/60 bg-slate-900/40">
-            Programın büyük kısmı bilim merkezi, tarih müzesi ve hayvanat bahçesi gibi kurumsal noktalardan oluşuyor. AVM ziyareti ise sadece yemek ve kısa dinlenme molası olarak planlandı. Eğitici yönü oldukça yüksek bir rota.
-          </div>
-        </div>
-      </div>
-    </section>
+        function spinWheel() {
+            if (isSpinning) return;
+            isSpinning = true;
+            document.getElementById('spinBtn').disabled = true;
 
-    <!-- 10. SON BÖLÜM: SONUÇTA KARAR SİZİN -->
-    <section id="karar" class="bg-gradient-to-b from-corporate-card to-corporate-navy border border-amber-500/30 rounded-3xl p-8 sm:p-12 text-center space-y-8 shadow-2xl">
-      <div class="max-w-2xl mx-auto space-y-4">
-        <span class="text-amber-500 font-semibold text-xs uppercase tracking-widest">Son Değerlendirme</span>
-        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">SONUÇTA KARAR SİZİN.</h2>
-        
-        <div class="bg-slate-900/70 p-6 rounded-2xl border border-slate-800 text-slate-300 text-xs sm:text-sm leading-relaxed text-left space-y-3 font-serif italic">
-          <p>"Anneciğim, babacığım...</p>
-          <p>Bu geziye katılmayı gerçekten istiyorum. Sadece gezmek veya eğlenmek için değil, yeni yerler görmek, farklı şeyler öğrenmek ve ablamla güzel bir anı biriktirmek için gitmek istiyorum.</p>
-          <p>Sizin için maliyetin, güvenliğin ve diğer bütün şartların önemli olduğunu biliyorum. Bu yüzden sizden düşünmeden karar vermenizi istemiyorum. Geziyle ilgili bütün detayları birlikte inceleyelim. Aklınıza takılan soruları okuldan öğrenelim.</p>
-          <p>Eğer şartları uygun görürseniz bu deneyimi yaşamayı çok isterim.</p>
-          <p class="not-italic font-sans text-right font-bold text-white pt-2">— Beni dinlediğiniz için teşekkür ederim."</p>
-        </div>
-      </div>
+            totalSpins++;
+            playSound('tick');
 
-      <!-- İnteraktif Karar Seçenekleri -->
-      <div class="space-y-4 max-w-md mx-auto no-print">
-        <p class="text-xs text-slate-400 font-medium">Lütfen birlikte karar vermek için bir adım seçin:</p>
-        <div class="grid grid-cols-1 gap-3">
-          <button onclick="secenekSec('birlikte')" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3.5 px-6 rounded-xl transition text-xs sm:text-sm shadow-md">
-            Birlikte değerlendirelim
-          </button>
-          <button onclick="secenekSec('sorular')" class="w-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold py-3.5 px-6 rounded-xl transition text-xs sm:text-sm">
-            Okula sorulacak soruları inceleyelim
-          </button>
-          <button onclick="secenekSec('istemiyorum')" class="w-full bg-transparent hover:bg-slate-800/50 text-slate-400 hover:text-white border border-slate-800 font-medium py-3 px-6 rounded-xl transition text-xs">
-            Şimdilik karar vermek istemiyorum
-          </button>
-        </div>
-        <div id="secenekMesaj" class="hidden pt-4 text-xs font-semibold text-amber-400 animate-fade-in"></div>
-      </div>
+            // Random target slice (0 to 99)
+            const winningIndex = Math.floor(Math.random() * numSlices);
+            
+            // Calculate target rotation angle
+            const extraSpins = 6 + Math.floor(Math.random() * 4); // 6 to 9 full spins
+            const sliceAngle = 2 * Math.PI / numSlices;
+            // Pointer is at top (-PI/2 or 0 depending on alignment). Here pointer is at top (12 o'clock).
+            // Let's align rotation so winning index is at the top.
+            const targetAngle = currentAngle + (extraSpins * 2 * Math.PI) + (2 * Math.PI - (winningIndex * sliceAngle + sliceAngle / 2)) - (currentAngle % (2 * Math.PI));
 
-      <div class="pt-6 border-t border-slate-800 flex flex-wrap justify-center gap-4 no-print">
-        <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-6 py-3 rounded-xl transition text-xs flex items-center gap-2">
-          <i class="fa-solid fa-print"></i> Sunumu Yazdır / PDF Kaydet
-        </button>
-      </div>
-    </section>
+            currentAngle = targetAngle;
+            drawWheel(currentAngle);
 
-  </main>
+            // Audio simulation ticks during spin
+            let tickInterval = setInterval(() => {
+                playSound('tick');
+            }, 120);
 
-  <!-- KURUMSAL FOOTER -->
-  <footer class="bg-slate-950 text-slate-500 py-8 border-t border-slate-900 text-center text-xs space-y-2 no-print">
-    <p>Gaziantep Gezisi 2026 • Aileye Özel Dijital Değerlendirme ve İkna Dosyası</p>
-    <p class="text-slate-600">Ahmet Mesut Yılmaz Ortaokulu Gezi Programı Kapsamında Hazırlanmıştır.</p>
-  </footer>
+            setTimeout(() => {
+                clearInterval(tickInterval);
+                isSpinning = false;
+                document.getElementById('spinBtn').disabled = false;
+                playSound('gong');
 
-  <!-- JAVASCRIPT İŞLEMLERİ -->
-  <script>
-    // Akordiyon Soru Toggle Fonksiyonu
-    function toggleSoru(id) {
-      const ans = document.getElementById('ans-' + id);
-      const icon = document.getElementById('icon-' + id);
-      
-      if (ans.classList.contains('hidden')) {
-        ans.classList.remove('hidden');
-        icon.classList.remove('fa-chevron-down');
-        icon.classList.add('fa-chevron-up');
-      } else {
-        ans.classList.add('hidden');
-        icon.classList.remove('fa-chevron-up');
-        icon.classList.add('fa-chevron-down');
-      }
-    }
+                // Get punishment result
+                currentSelectedPunishment = punishments[winningIndex];
+                showPunishmentModal(currentSelectedPunishment);
+            }, 4000); // 4 seconds animation match CSS transition if any, but we draw via JS or CSS. Let's use CSS transition on canvas wrapper or direct angle redraw.
+        }
 
-    // Karar Seçenekleri Etkileşimi
-    function secenekSec(tip) {
-      const mesajDiv = document.getElementById('secenekMesaj');
-      mesajDiv.classList.remove('hidden');
-      
-      if (tip === 'birlikte') {
-        mesajDiv.innerText = "Harika! Akşam uygun olduğunuzda detayları birlikte masa başında inceleyebiliriz.";
-      } else if (tip === 'sorular') {
-        mesajDiv.innerText = "Okul yönetimiyle görüşerek netleştirmemiz gereken soruları listeye ekledim. İstediğiniz zaman sorabiliriz.";
-      } else if (tip === 'istemiyorum') {
-        mesajDiv.innerText = "Anlıyorum, acele etmeyelim. İstediğiniz zaman bu dosyayı tekrar inceleyebilirsiniz.";
-      }
-    }
-  </script>
+        // We can hook canvas transform transition or animate via requestAnimationFrame for perfect sync
+        let animationStartTime;
+        let startAngleVal = 0;
+        let targetAngleVal = 0;
+        let animationDuration = 4000;
+
+        function spinWheel() {
+            if (isSpinning) return;
+            isSpinning = true;
+            document.getElementById('spinBtn').disabled = true;
+            totalSpins++;
+
+            const winningIndex = Math.floor(Math.random() * numSlices);
+            const sliceAngle = 2 * Math.PI / numSlices;
+            
+            // Target angle computation
+            const fullRotations = 8 * 2 * Math.PI;
+            // Top pointer corresponds to angle 0 when wheel is rotated such that slice center is at top.
+            const targetSliceCenterAngle = winningIndex * sliceAngle + sliceAngle / 2;
+            const desiredFinalAngle = fullRotations + (2 * Math.PI - targetSliceCenterAngle);
+
+            startAngleVal = currentAngle;
+            targetAngleVal = startAngleVal + desiredFinalAngle;
+            animationStartTime = performance.now();
+
+            requestAnimationFrame(animateWheel);
+        }
+
+        function animateWheel(currentTime) {
+            const elapsed = currentTime - animationStartTime;
+            const progress = Math.min(elapsed / animationDuration, 1);
+            
+            // Ease out cubic
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+            currentAngle = startAngleVal + (targetAngleVal - startAngleVal) * easeProgress;
+
+            drawWheel(currentAngle);
+
+            // Play tick sound on passing slices
+            if (Math.floor(currentAngle * 10) % 5 === 0) {
+                playSound('tick');
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(animateWheel);
+            } else {
+                isSpinning = false;
+                document.getElementById('spinBtn').disabled = false;
+                playSound('gong');
+
+                // Determine winning index based on final angle normalized
+                const normalizedAngle = (2 * Math.PI - (currentAngle % (2 * Math.PI))) % (2 * Math.PI);
+                const winningIndex = Math.floor(normalizedAngle / arcSize) % numSlices;
+
+                currentSelectedPunishment = punishments[winningIndex];
+                showPunishmentModal(currentSelectedPunishment);
+            }
+        }
+
+        // --- MODAL & FLOW ---
+        function showPunishmentModal(punishment) {
+            const modal = document.getElementById('punishmentModal');
+            document.getElementById('modalCategory').textContent = `Kategori: ${punishment.cat} (No: ${punishment.id})`;
+            document.getElementById('modalTitle').textContent = punishment.title;
+            document.getElementById('modalDesc').textContent = punishment.text;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('punishmentModal').classList.remove('active');
+            // Next player turn
+            activePlayerIndex = (activePlayerIndex + 1) % players.length;
+            updateUI();
+        }
+
+        function completePunishment() {
+            playSound('success');
+            completedTotal++;
+            players[activePlayerIndex].completed++;
+            
+            historyLog.unshift({
+                player: players[activePlayerIndex].name,
+                title: currentSelectedPunishment.title,
+                status: 'Tamamlandı ✅'
+            });
+            if (historyLog.length > 20) historyLog.pop();
+
+            closeModal();
+        }
+
+        function spinAgain() {
+            closeModal();
+            // Immediate re-spin for same player
+            setTimeout(() => {
+                activePlayerIndex = (activePlayerIndex - 1 + players.length) % players.length; // Revert index change
+                updateUI();
+                spinWheel();
+            }, 300);
+        }
+
+        function passPunishment() {
+            historyLog.unshift({
+                player: players[activePlayerIndex].name,
+                title: currentSelectedPunishment.title,
+                status: 'Pas Geçildi ⏭️'
+            });
+            if (historyLog.length > 20) historyLog.pop();
+            closeModal();
+        }
+
+        function resetGameData() {
+            if (confirm('Tüm ilerleme ve istatistikler sıfırlansın mı?')) {
+                totalSpins = 0;
+                completedTotal = 0;
+                historyLog = [];
+                players.forEach(p => p.completed = 0);
+                activePlayerIndex = 0;
+                updateUI();
+            }
+        }
+
+        // Initialize
+        drawWheel();
+        updateUI();
+    </script>
 </body>
 </html>
